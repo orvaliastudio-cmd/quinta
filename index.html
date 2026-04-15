@@ -124,11 +124,12 @@
         }
         
         /* Hero Image Blur Loading */
-        .hero-img {
+        .hero-img, .blur-load {
             filter: blur(20px);
-            transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: filter;
         }
-        .hero-img.loaded {
+        .hero-img.loaded, .blur-load.loaded {
             filter: blur(0);
         }
 
@@ -347,12 +348,12 @@
         </div>
         
         <div class="relative z-10 text-center text-white max-w-4xl px-4 animate-fade-up">
-            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80">Refúgio Privado • Caraíva, Bahia</p>
-            <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light leading-[1.1] mb-6 tracking-tight">
+            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80">Refúgio Particular • Caraíva, Bahia</p>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light leading-[1.1] mb-8 tracking-tight">
                 O Luxo do<br><span class="italic">Silêncio</span>
             </h1>
-            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide">
-                Sua experiência exclusiva no coração do paraíso baiano.
+            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto">
+                Sinta a brisa, ouça o rio e redescubra a essência do tempo em um refúgio desenhado para a sua alma.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -372,7 +373,12 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div class="order-2 lg:order-1 img-wrap reveal">
-                    <img src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" alt="Vila de Caraíva, Bahia" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm" loading="lazy" referrerPolicy="no-referrer">
+                    <img src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" 
+                         alt="Vila de Caraíva, Bahia" 
+                         class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" 
+                         loading="lazy" 
+                         referrerPolicy="no-referrer"
+                         onload="this.classList.add('loaded')">
                 </div>
                 <div class="order-1 lg:order-2 reveal reveal-delay-1">
                     <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">O Destino</h2>
@@ -417,7 +423,12 @@
                 </div>
             </div>
             <div class="md:col-span-6 md:col-start-7 img-wrap reveal reveal-delay-1">
-                <img src="https://i.ibb.co/YBLsTYx8/piscina01.png" alt="Piscina e natureza tropical na Quinta de Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm" loading="lazy" referrerPolicy="no-referrer">
+                <img src="https://i.ibb.co/YBLsTYx8/piscina01.png" 
+                     alt="Piscina e natureza tropical na Quinta de Caraíva" 
+                     class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" 
+                     loading="lazy" 
+                     referrerPolicy="no-referrer"
+                     onload="this.classList.add('loaded')">
             </div>
         </div>
     </section>
@@ -632,8 +643,18 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-1 mt-12 lg:mt-0">
-                    <img src="https://i.ibb.co/5g8ydXWM/deco4-02.png" alt="Detalhe da decoração" class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm" loading="lazy" referrerPolicy="no-referrer">
-                    <img src="https://i.ibb.co/rG2t561c/deco4-04.png" alt="Detalhe do interior" class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm" loading="lazy" referrerPolicy="no-referrer">
+                    <img src="https://i.ibb.co/5g8ydXWM/deco4-02.png" 
+                         alt="Detalhe da decoração" 
+                         class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm blur-load" 
+                         loading="lazy" 
+                         referrerPolicy="no-referrer"
+                         onload="this.classList.add('loaded')">
+                    <img src="https://i.ibb.co/rG2t561c/deco4-04.png" 
+                         alt="Detalhe do interior" 
+                         class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm blur-load" 
+                         loading="lazy" 
+                         referrerPolicy="no-referrer"
+                         onload="this.classList.add('loaded')">
                 </div>
             </div>
         </div>
@@ -1084,7 +1105,8 @@
                 img.src = src;
                 img.loading = 'lazy';
                 img.referrerPolicy = 'no-referrer';
-                img.className = 'w-full h-full object-cover flex-shrink-0 select-none pointer-events-none';
+                img.className = 'w-full h-full object-cover flex-shrink-0 select-none pointer-events-none blur-load';
+                img.onload = () => img.classList.add('loaded');
                 track.appendChild(img);
 
                 // Create dots
