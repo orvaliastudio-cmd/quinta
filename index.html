@@ -147,6 +147,15 @@
             transform: translateY(-4px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
+
+        /* Hero Text Contrast Enhancements */
+        .hero-text-shadow { text-shadow: 0 2px 20px rgba(26,24,21,0.6), 0 1px 6px rgba(26,24,21,0.4); }
+        .hero-subtitle-shadow { text-shadow: 0 1px 12px rgba(26,24,21,0.7); }
+        
+        /* Radial Vignette Overlay */
+        .vignette-overlay {
+            background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 25%, rgba(26,24,21,0.4) 100%);
+        }
         
         /* Image Hover Zoom (Subtle) */
         .img-wrap { overflow: hidden; }
@@ -278,9 +287,46 @@
         #lightbox-close {
             z-index: 120;
         }
-        @media (max-width: 768px) {
-            #lightbox-close { top: 20px; right: 20px; }
-            #lightbox-counter { bottom: 20px; }
+        /* Share Modal */
+        #share-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #share-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .share-card {
+            background: #FAF7F2;
+            padding: 40px;
+            border-radius: 2px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border: 1px solid rgba(124, 98, 72, 0.2);
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .share-option:hover {
+            background: #7C6248;
+            color: white;
+            border-color: #7C6248;
         }
     </style>
 </head>
@@ -344,15 +390,17 @@
                  onload="this.classList.add('loaded')"
                  onerror="this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'">
             <!-- Intelligent Overlay: Darker at bottom for text, subtle at top -->
-            <div class="absolute inset-0 bg-gradient-to-b from-preto/40 via-preto/20 to-preto/80"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-preto/55 via-preto/35 to-preto/88"></div>
+            <!-- Radial Vignette Overlay -->
+            <div class="absolute inset-0 vignette-overlay"></div>
         </div>
         
         <div class="relative z-10 text-center text-white max-w-4xl px-4 animate-fade-up">
-            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80">Refúgio Particular • Caraíva, Bahia</p>
-            <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light leading-[1.1] mb-8 tracking-tight">
+            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80 hero-subtitle-shadow">Refúgio Particular • Caraíva, Bahia</p>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light leading-[1.1] mb-8 tracking-tight hero-text-shadow">
                 O Luxo do<br><span class="italic">Silêncio</span>
             </h1>
-            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto">
+            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto hero-subtitle-shadow">
                 Sinta a brisa, ouça o rio e redescubra a essência do tempo em um refúgio desenhado para a sua alma.
             </p>
             
@@ -464,18 +512,21 @@
                             <!-- Dots injected by JS -->
                         </div>
                     </div>
-                    <header class="flex justify-between items-end mb-4">
+                    <header class="flex justify-between items-start mb-4">
                         <div>
                             <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 1 Cama</span>
                             <h4 class="font-serif text-3xl text-preto">Bangalô I</h4>
                         </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô I - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&adults=1&s=67&unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
                     </header>
                     <p class="text-cinza font-light mb-8 line-clamp-2">
                         Conforto e sofisticação com ar condicionado. Varanda privativa com rede e vista para o jardim tropical.
                     </p>
                     <div class="flex gap-6">
                         <a href="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&adults=1&s=67&unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" target="_blank" rel="nofollow" class="inline-flex items-center gap-3 text-terra font-sans text-xs uppercase tracking-widest group hover:text-terraescura transition-colors">
-                            Ver no Airbnb
+                            Reservar Bangalô I
                             <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
@@ -502,18 +553,21 @@
                             <!-- Dots injected by JS -->
                         </div>
                     </div>
-                    <header class="flex justify-between items-end mb-4">
+                    <header class="flex justify-between items-start mb-4">
                         <div>
-                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ventilação Natural • 1 Cama</span>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 1 Cama</span>
                             <h4 class="font-serif text-3xl text-preto">Bangalô II</h4>
                         </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô II - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&adults=1&s=67&unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
                     </header>
                     <p class="text-cinza font-light mb-8 line-clamp-2">
                         Arquitetura que favorece a brisa do mar. Integração perfeita com a natureza e tranquilidade absoluta.
                     </p>
                     <div class="flex gap-6">
                         <a href="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&adults=1&s=67&unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" target="_blank" rel="nofollow" class="inline-flex items-center gap-3 text-terra font-sans text-xs uppercase tracking-widest group hover:text-terraescura transition-colors">
-                            Ver no Airbnb
+                            Reservar Bangalô II
                             <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
@@ -540,18 +594,21 @@
                             <!-- Dots injected by JS -->
                         </div>
                     </div>
-                    <header class="flex justify-between items-end mb-4">
+                    <header class="flex justify-between items-start mb-4">
                         <div>
-                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Espaçoso • 3 Camas</span>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 3 Camas</span>
                             <h4 class="font-serif text-3xl text-preto">Bangalô III</h4>
                         </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô III - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&adults=1&s=67&unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
                     </header>
                     <p class="text-cinza font-light mb-8 line-clamp-2">
                         Ideal para famílias ou pequenos grupos. Amplo espaço interno com design rústico e elegante.
                     </p>
                     <div class="flex gap-6">
                         <a href="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&adults=1&s=67&unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" target="_blank" rel="nofollow" class="inline-flex items-center gap-3 text-terra font-sans text-xs uppercase tracking-widest group hover:text-terraescura transition-colors">
-                            Ver no Airbnb
+                            Reservar Bangalô III
                             <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
@@ -578,18 +635,21 @@
                             <!-- Dots injected by JS -->
                         </div>
                     </div>
-                    <header class="flex justify-between items-end mb-4">
+                    <header class="flex justify-between items-start mb-4">
                         <div>
-                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Privativo • 1 Cama</span>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 1 Cama</span>
                             <h4 class="font-serif text-3xl text-preto">Bangalô IV</h4>
                         </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô IV - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&adults=1&s=67&unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
                     </header>
                     <p class="text-cinza font-light mb-8 line-clamp-2">
                         O refúgio perfeito para casais. Privacidade total em meio ao jardim exuberante da Quinta.
                     </p>
                     <div class="flex gap-6">
                         <a href="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&adults=1&s=67&unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" target="_blank" rel="nofollow" class="inline-flex items-center gap-3 text-terra font-sans text-xs uppercase tracking-widest group hover:text-terraescura transition-colors">
-                            Ver no Airbnb
+                            Reservar Bangalô IV
                             <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
@@ -600,7 +660,7 @@
             <!-- Disclaimer -->
             <div class="mt-20 text-center reveal">
                 <p class="text-cinza font-light text-sm max-w-2xl mx-auto">
-                    Possuímos 4 bangalôs exclusivos. Para consultar disponibilidade e valores, selecione o bangalô desejado acima e clique em "Ver no Airbnb". Todas as reservas são gerenciadas com exclusividade e segurança através da plataforma.
+                    Possuímos 4 bangalôs exclusivos. Para consultar disponibilidade e valores, selecione o bangalô desejado acima e clique em "Reservar Bangalô". Todas as reservas são gerenciadas com exclusividade e segurança através da plataforma.
                 </p>
             </div>
         </div>
@@ -698,7 +758,7 @@
                         <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
                     </button>
                     <div class="faq-answer text-cinza font-light leading-relaxed">
-                        O Bangalô Rio possui ar condicionado. Os demais são arquitetados para ventilação natural abundante, aproveitando a brisa constante que vem do mar e do rio, proporcionando frescor de forma ecológica.
+                        Sim, todos os nossos bangalôs possuem ar condicionado para garantir o seu conforto em qualquer estação, complementando a ventilação natural da arquitetura local.
                     </div>
                 </div>
                 
@@ -903,8 +963,21 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox">
+    <!-- Share Modal -->
+    <div id="share-modal">
+        <div class="share-card">
+            <h4 class="font-serif text-2xl mb-6 text-preto">Compartilhar Estadia</h4>
+            <div class="share-option" id="share-whatsapp">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.63 1.438h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span class="font-sans text-sm uppercase tracking-widest">WhatsApp</span>
+            </div>
+            <div class="share-option" id="share-copy">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <span class="font-sans text-sm uppercase tracking-widest" id="copy-text">Copiar Link</span>
+            </div>
+            <button class="mt-8 text-cinza text-xs uppercase tracking-widest hover:text-preto transition-colors" id="share-close">Fechar</button>
+        </div>
+    </div>
         <button class="absolute top-8 right-8 text-white hover:text-terra transition-colors" id="lightbox-close">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -1185,6 +1258,61 @@
         // Close lightbox on background click
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
+        });
+
+        // 7. Share Modal Logic
+        const shareModal = document.getElementById('share-modal');
+        const shareBtns = document.querySelectorAll('.share-btn');
+        const shareClose = document.getElementById('share-close');
+        const shareWhatsapp = document.getElementById('share-whatsapp');
+        const shareCopy = document.getElementById('share-copy');
+        const copyText = document.getElementById('copy-text');
+        
+        let currentShareData = { title: '', url: '' };
+
+        function openShareModal(title, url) {
+            currentShareData = { title, url };
+            shareModal.style.display = 'flex';
+            setTimeout(() => shareModal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+            copyText.textContent = 'Copiar Link';
+        }
+
+        function closeShareModal() {
+            shareModal.classList.remove('active');
+            setTimeout(() => shareModal.style.display = 'none', 400);
+            document.body.style.overflow = '';
+        }
+
+        shareBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const title = btn.dataset.title;
+                const url = btn.dataset.url;
+                
+                if (navigator.share) {
+                    navigator.share({ title, url }).catch(() => openShareModal(title, url));
+                } else {
+                    openShareModal(title, url);
+                }
+            });
+        });
+
+        shareWhatsapp.addEventListener('click', () => {
+            const text = encodeURIComponent(`${currentShareData.title}: ${currentShareData.url}`);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        });
+
+        shareCopy.addEventListener('click', () => {
+            navigator.clipboard.writeText(currentShareData.url).then(() => {
+                copyText.textContent = 'Link Copiado!';
+                setTimeout(() => copyText.textContent = 'Copiar Link', 2000);
+            });
+        });
+
+        shareClose.addEventListener('click', closeShareModal);
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) closeShareModal();
         });
 
         // Trigger initial scroll check for header on load
