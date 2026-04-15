@@ -113,6 +113,39 @@
         }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
+
+        /* Hero Specific Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Hero Image Blur Loading */
+        .hero-img {
+            filter: blur(20px);
+            transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-img.loaded {
+            filter: blur(0);
+        }
+
+        /* Hero Primary CTA */
+        .cta-primary {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #1A1815;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cta-primary:hover {
+            background: #7C6248;
+            color: #FAF7F2;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
         
         /* Image Hover Zoom (Subtle) */
         .img-wrap { overflow: hidden; }
@@ -298,23 +331,39 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative h-[90vh] min-h-[600px] w-full flex items-end justify-center pb-20 md:pb-32 px-6">
-        <!-- Background Image with Overlay -->
+    <section class="relative h-[95vh] min-h-[700px] w-full flex items-center justify-center px-6 overflow-hidden">
+        <!-- Background Image with Cinematic Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="https://i.ibb.co/mrnk4Bqg/areaexterna3.png" 
                  alt="Propriedade Quinta de Caraíva" 
-                 class="w-full h-full object-cover"
+                 class="w-full h-full object-cover hero-img"
+                 id="hero-image"
                  fetchpriority="high"
+                 referrerPolicy="no-referrer"
+                 onload="this.classList.add('loaded')"
                  onerror="this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'">
-            <div class="absolute inset-0 bg-gradient-to-b from-preto/30 via-preto/10 to-preto/70 mix-blend-multiply"></div>
+            <!-- Intelligent Overlay: Darker at bottom for text, subtle at top -->
+            <div class="absolute inset-0 bg-gradient-to-b from-preto/40 via-preto/20 to-preto/80"></div>
         </div>
         
-        <div class="relative z-10 text-center text-white max-w-3xl reveal px-4">
-            <p class="font-sans text-[10px] md:text-sm uppercase tracking-[0.4em] mb-6 text-white/90">Caraíva, Bahia</p>
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] mb-10">O Luxo do<br><span class="italic">Silêncio</span></h1>
-            <a href="#conceito" aria-label="Rolar para baixo" class="inline-block">
-                <svg class="w-5 h-5 mx-auto animate-bounce text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-            </a>
+        <div class="relative z-10 text-center text-white max-w-4xl px-4 animate-fade-up">
+            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80">Refúgio Privado • Caraíva, Bahia</p>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light leading-[1.1] mb-6 tracking-tight">
+                O Luxo do<br><span class="italic">Silêncio</span>
+            </h1>
+            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide">
+                Sua experiência exclusiva no coração do paraíso baiano.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="#bangalos" class="cta-primary font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] py-5 px-12 rounded-sm shadow-xl">
+                    Reservar sua Estadia
+                </a>
+                <a href="#conceito" class="text-white/70 hover:text-white font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] transition-colors flex items-center gap-3 group">
+                    Descobrir a Quinta
+                    <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -323,7 +372,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div class="order-2 lg:order-1 img-wrap reveal">
-                    <img src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" alt="Vila de Caraíva, Bahia" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm" loading="lazy">
+                    <img src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" alt="Vila de Caraíva, Bahia" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm" loading="lazy" referrerPolicy="no-referrer">
                 </div>
                 <div class="order-1 lg:order-2 reveal reveal-delay-1">
                     <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">O Destino</h2>
@@ -368,7 +417,7 @@
                 </div>
             </div>
             <div class="md:col-span-6 md:col-start-7 img-wrap reveal reveal-delay-1">
-                <img src="https://i.ibb.co/YBLsTYx8/piscina01.png" alt="Piscina e natureza tropical na Quinta de Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm" loading="lazy">
+                <img src="https://i.ibb.co/YBLsTYx8/piscina01.png" alt="Piscina e natureza tropical na Quinta de Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm" loading="lazy" referrerPolicy="no-referrer">
             </div>
         </div>
     </section>
@@ -583,8 +632,8 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-1 mt-12 lg:mt-0">
-                    <img src="https://i.ibb.co/5g8ydXWM/deco4-02.png" alt="Detalhe da decoração" class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm" loading="lazy">
-                    <img src="https://i.ibb.co/rG2t561c/deco4-04.png" alt="Detalhe do interior" class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm" loading="lazy">
+                    <img src="https://i.ibb.co/5g8ydXWM/deco4-02.png" alt="Detalhe da decoração" class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm" loading="lazy" referrerPolicy="no-referrer">
+                    <img src="https://i.ibb.co/rG2t561c/deco4-04.png" alt="Detalhe do interior" class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm" loading="lazy" referrerPolicy="no-referrer">
                 </div>
             </div>
         </div>
@@ -844,7 +893,7 @@
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
             </button>
             
-            <img src="" alt="Galeria Quinta de Caraíva" class="lightbox-img" id="lightbox-img">
+            <img src="" alt="Galeria Quinta de Caraíva" class="lightbox-img" id="lightbox-img" referrerPolicy="no-referrer">
             
             <button class="lightbox-nav lightbox-next" id="lightbox-next">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
@@ -1034,6 +1083,7 @@
                 const img = document.createElement('img');
                 img.src = src;
                 img.loading = 'lazy';
+                img.referrerPolicy = 'no-referrer';
                 img.className = 'w-full h-full object-cover flex-shrink-0 select-none pointer-events-none';
                 track.appendChild(img);
 
