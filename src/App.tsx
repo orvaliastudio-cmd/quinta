@@ -26,37 +26,37 @@ import { useState, useEffect } from "react";
 const bungalows = [
   {
     id: 1,
-    name: "Bangalô Areia",
-    description: "Inspirado nas dunas de Caraíva, com tons terrosos e ventilação natural cruzada.",
-    link: "https://airbnb.com.br/rooms/example-1",
+    name: "Bangalô I",
+    description: "Conforto e sofisticação com ar condicionado. Varanda privativa com rede e vista para o jardim tropical.",
+    link: "https://www.airbnb.com.br/rooms/1357455516862881103",
     gradient: "luxury-gradient-sand"
   },
   {
     id: 2,
-    name: "Bangalô Mar",
-    description: "Vista privilegiada para o encontro do rio com o mar, decorado com artesanato local.",
-    link: "https://airbnb.com.br/rooms/example-2",
+    name: "Bangalô II",
+    description: "Arquitetura que favorece a brisa do mar. Integração perfeita com a natureza e tranquilidade absoluta.",
+    link: "https://www.airbnb.com.br/rooms/1357448439624029935",
     gradient: "luxury-gradient-ocean"
   },
   {
     id: 3,
-    name: "Bangalô Mata",
-    description: "Imerso na vegetação nativa, oferece privacidade absoluta e sons da floresta.",
-    link: "https://airbnb.com.br/rooms/example-forest",
+    name: "Bangalô III",
+    description: "Ideal para famílias ou pequenos grupos. Amplo espaço interno com design rústico e elegante.",
+    link: "https://www.airbnb.com.br/rooms/1357441528256086507",
     gradient: "luxury-gradient-forest"
   },
   {
     id: 4,
-    name: "Bangalô Poente",
-    description: "Onde o sol se despede. Terraço privativo para apreciar o entardecer baiano.",
-    link: "https://airbnb.com.br/rooms/example-sunset",
+    name: "Bangalô IV",
+    description: "O refúgio perfeito para casais. Privacidade total em meio ao jardim exuberante da Quinta.",
+    link: "https://www.airbnb.com.br/rooms/1357428614552989180",
     gradient: "luxury-gradient-sunset"
   }
 ];
 
 const faqs = [
   {
-    question: "Onde fica exatamente a Quinta Caraíva?",
+    question: "Onde fica exatamente a Quinta de Caraíva?",
     answer: "Estamos localizados em uma área preservada de Caraíva, a poucos minutos de caminhada do Rio Caraíva e da praia, garantindo silêncio e exclusividade."
   },
   {
@@ -73,7 +73,7 @@ const faqs = [
   },
   {
     question: "Aceitam crianças?",
-    answer: "A Quinta Caraíva foi projetada como um refúgio para adultos e casais que buscam tranquilidade. Recebemos crianças a partir de 12 anos."
+    answer: "A Quinta de Caraíva foi projetada como um refúgio para adultos e casais que buscam tranquilidade. Recebemos crianças a partir de 12 anos."
   },
   {
     question: "Tem Wi-Fi para trabalho remoto?",
@@ -98,7 +98,7 @@ export default function App() {
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-luxury-cream flex justify-between items-center px-10 py-6 border-b border-luxury-charcoal/5">
         <a href="#" className="text-2xl font-serif tracking-[0.1em] uppercase font-light">
-          Quinta Caraíva
+          Quinta de Caraíva
         </a>
         
         <div className="hidden md:flex items-center gap-8 text-[12px] uppercase tracking-[0.1em] font-medium">
@@ -180,7 +180,7 @@ export default function App() {
                   Caraíva não é apenas um destino, é um estado de espírito. Localizada no sul da Bahia, esta vila de pescadores preserva o charme de ruas de areia, onde carros não entram e o ritmo é ditado pelas marés.
                 </p>
                 <p>
-                  Se você busca <strong>onde ficar em Caraíva</strong>, encontrará na Quinta Caraíva o equilíbrio perfeito entre a rusticidade autêntica da Bahia e o conforto contemporâneo.
+                  Se você busca <strong>onde ficar em Caraíva</strong>, encontrará na Quinta de Caraíva o equilíbrio perfeito entre a rusticidade autêntica da Bahia e o conforto contemporâneo.
                 </p>
               </div>
               <div className="aspect-video rounded-sm luxury-gradient-ocean opacity-40" />
@@ -247,10 +247,10 @@ export default function App() {
           <div id="contato" className="pt-12 border-t border-luxury-charcoal/10 text-center">
             <h2 className="text-3xl font-serif mb-6 italic">Sua jornada começa aqui.</h2>
             <p className="text-sm text-luxury-charcoal/60 mb-10 font-light max-w-md mx-auto">
-              Reserve seu bangalô e descubra por que a Quinta Caraíva é o segredo mais bem guardado da Bahia.
+              Reserve seu bangalô e descubra por que a Quinta de Caraíva é o segredo mais bem guardado da Bahia.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://airbnb.com.br" className="cta-button-natural w-full sm:w-auto text-center">Reservar via Airbnb</a>
+              <a href="https://www.airbnb.com.br/users/show/593414902" className="cta-button-natural w-full sm:w-auto text-center">Reservar via Airbnb</a>
               <a href="https://wa.me/5500000000000" className="px-8 py-4 border border-luxury-charcoal text-[12px] uppercase tracking-[2px] rounded-[2px] hover:bg-luxury-charcoal hover:text-white transition-all w-full sm:w-auto text-center">Falar com Concierge</a>
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="px-10 py-6 bg-luxury-charcoal text-white/50 text-[10px] flex flex-col md:flex-row justify-between items-center gap-4 uppercase tracking-widest">
-        <div>&copy; 2024 Quinta Caraíva - Todos os direitos reservados.</div>
+        <div>&copy; 2026 Quinta de Caraíva - Todos os direitos reservados.</div>
         <div className="flex gap-8">
           <span>Caraíva, Porto Seguro - BA</span>
           <span className="hidden sm:inline">Quiet Luxury Travel</span>
