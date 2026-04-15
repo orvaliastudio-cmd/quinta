@@ -125,9 +125,10 @@
         
         /* Hero Image Blur Loading */
         .hero-img, .blur-load {
-            filter: blur(20px);
-            transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(15px);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: filter;
+            background: #f4efe6;
         }
         .hero-img.loaded, .blur-load.loaded {
             filter: blur(0);
@@ -381,14 +382,13 @@
     <section class="relative h-[95vh] min-h-[700px] w-full flex items-center justify-center px-6 overflow-hidden">
         <!-- Background Image with Cinematic Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="https://i.ibb.co/mrnk4Bqg/areaexterna3.png" 
+            <img id="hero-image"
+                 onload="this.classList.add('loaded')"
+                 onerror="this.classList.add('loaded'); this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'"
+                 src="https://i.ibb.co/mrnk4Bqg/areaexterna3.png" 
                  alt="Propriedade Quinta de Caraíva" 
                  class="w-full h-full object-cover hero-img"
-                 id="hero-image"
-                 fetchpriority="high"
-                 referrerPolicy="no-referrer"
-                 onload="this.classList.add('loaded')"
-                 onerror="this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'">
+                 fetchpriority="high">
             <!-- Intelligent Overlay: Darker at bottom for text, subtle at top -->
             <div class="absolute inset-0 bg-gradient-to-b from-preto/55 via-preto/35 to-preto/88"></div>
             <!-- Radial Vignette Overlay -->
@@ -421,12 +421,13 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div class="order-2 lg:order-1 img-wrap reveal">
-                    <img src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" 
+                    <img onload="this.classList.add('loaded')"
+                         onerror="this.classList.add('loaded')"
+                         src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" 
                          alt="Vila de Caraíva, Bahia" 
                          class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" 
                          loading="lazy" 
-                         referrerPolicy="no-referrer"
-                         onload="this.classList.add('loaded')">
+                         decoding="async">
                 </div>
                 <div class="order-1 lg:order-2 reveal reveal-delay-1">
                     <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">O Destino</h2>
@@ -471,12 +472,13 @@
                 </div>
             </div>
             <div class="md:col-span-6 md:col-start-7 img-wrap reveal reveal-delay-1">
-                <img src="https://i.ibb.co/YBLsTYx8/piscina01.png" 
+                <img onload="this.classList.add('loaded')"
+                     onerror="this.classList.add('loaded')"
+                     src="https://i.ibb.co/YBLsTYx8/piscina01.png" 
                      alt="Piscina e natureza tropical na Quinta de Caraíva" 
                      class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" 
                      loading="lazy" 
-                     referrerPolicy="no-referrer"
-                     onload="this.classList.add('loaded')">
+                     decoding="async">
             </div>
         </div>
     </section>
@@ -492,7 +494,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
                 
                 <!-- Bungalow 1 -->
-                <article class="reveal bungalow-card" data-images='["https://i.ibb.co/0Rq77kDX/Quinta-de-Cara-va-Bangal-1-01.png", "https://i.ibb.co/1JqmGbBB/Quinta-de-Cara-va-Bangal-1-1.png", "https://i.ibb.co/jkqn6QHW/Quinta-de-Cara-va-Bangal-1-2.png", "https://i.ibb.co/n85P6B1V/Quinta-de-Cara-va-Bangal-1-02.png", "https://i.ibb.co/5WZ1V36H/Quinta-de-Cara-va-Bangal-1-5.png", "https://i.ibb.co/S48mxm6N/Quinta-de-Cara-va-Bangal-1-6.png", "https://i.ibb.co/Psy9n7Qk/Quinta-de-Cara-va-Bangal-1-4.png", "https://i.ibb.co/WWKHSpvB/Quinta-de-Cara-va-Bangal-1-3.png", "https://i.ibb.co/hRFQzXy4/Quinta-de-Cara-va-Bangal-1-03.png"]'>
+                <article class="reveal bungalow-card" data-images='["https://i.ibb.co/sdJsmMkV/Quinta-de-Cara-va-Bangal-1-02.webp", "https://i.ibb.co/G41kNh9k/Quinta-de-Cara-va-Bangal-1-1.webp", "https://i.ibb.co/4wWqvG0g/Quinta-de-Cara-va-Bangal-1-2.webp", "https://i.ibb.co/W4dSz7Mw/Quinta-de-Cara-va-Bangal-1-03.webp", "https://i.ibb.co/LdjbvM52/Quinta-de-Cara-va-Bangal-1-5.webp", "https://i.ibb.co/Ncp8mHr/Quinta-de-Cara-va-Bangal-1-6.webp", "https://i.ibb.co/6cCvxJkw/Quinta-de-Cara-va-Bangal-1-4.webp", "https://i.ibb.co/cc3c42LS/Quinta-de-Cara-va-Bangal-1-3.webp"]'>
                     <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
                         <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
                             <!-- Images injected by JS -->
@@ -703,18 +705,20 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-1 mt-12 lg:mt-0">
-                    <img src="https://i.ibb.co/5g8ydXWM/deco4-02.png" 
+                    <img onload="this.classList.add('loaded')"
+                         onerror="this.classList.add('loaded')"
+                         src="https://i.ibb.co/5g8ydXWM/deco4-02.png" 
                          alt="Detalhe da decoração" 
                          class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm blur-load" 
                          loading="lazy" 
-                         referrerPolicy="no-referrer"
-                         onload="this.classList.add('loaded')">
-                    <img src="https://i.ibb.co/rG2t561c/deco4-04.png" 
+                         decoding="async">
+                    <img onload="this.classList.add('loaded')"
+                         onerror="this.classList.add('loaded')"
+                         src="https://i.ibb.co/rG2t561c/deco4-04.png" 
                          alt="Detalhe do interior" 
                          class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm blur-load" 
                          loading="lazy" 
-                         referrerPolicy="no-referrer"
-                         onload="this.classList.add('loaded')">
+                         decoding="async">
                 </div>
             </div>
         </div>
@@ -1175,11 +1179,12 @@
             // Populate track with images
             images.forEach((src, i) => {
                 const img = document.createElement('img');
-                img.src = src;
                 img.loading = 'lazy';
-                img.referrerPolicy = 'no-referrer';
+                img.decoding = 'async';
                 img.className = 'w-full h-full object-cover flex-shrink-0 select-none pointer-events-none blur-load';
                 img.onload = () => img.classList.add('loaded');
+                img.onerror = () => img.classList.add('loaded');
+                img.src = src;
                 track.appendChild(img);
 
                 // Create dots
