@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Georgia", serif;
+  
+  --color-luxury-cream: #F5F2ED;
+  --color-luxury-charcoal: #1A1A1A;
+  --color-luxury-accent: #5A5A40;
+  --color-luxury-sand: #E2D9C8;
+  --color-luxury-ocean: #B4C6C9;
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-cream text-luxury-charcoal font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif font-light;
+  }
+}
+
+.luxury-gradient-hero {
+  background: linear-gradient(135deg, var(--color-luxury-sand) 0%, #D8CDB6 100%);
+}
+
+.luxury-gradient-bungalow {
+  background: linear-gradient(to right, var(--color-luxury-ocean), var(--color-luxury-sand));
+}
+
+.section-title-line {
+  @apply font-serif italic border-b border-luxury-charcoal pb-2 mb-4;
+}
+
+.cta-button-natural {
+  @apply inline-block px-8 py-4 bg-luxury-accent text-white text-[12px] tracking-[2px] uppercase rounded-[2px] transition-opacity hover:opacity-90;
+}
+
+.experience-pill-natural {
+  @apply bg-luxury-sand px-4 py-3 rounded-[30px] text-[12px] flex items-center gap-2;
+}

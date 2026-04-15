@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinta Caraíva — O Luxo do Silêncio na Bahia</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Quinta Caraíva: 5 bangalôs exclusivos em Caraíva, Bahia. Propriedade de 3.200m² com vista para o Rio Caraíva e acesso à praia a 120 metros. A melhor hospedagem boutique.">
+    <meta name="keywords" content="onde ficar em Caraíva, hospedagem Caraíva Bahia, bangalô em Caraíva, pousada boutique, luxo silencioso, Quinta Caraíva">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Quinta Caraíva">
+    <link rel="canonical" href="https://quintacaraiva.com.br/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quinta Caraíva — Refúgio Exclusivo em Caraíva">
+    <meta property="og:description" content="3.200m² com vista para o rio e acesso à praia a 120 metros. 5 bangalôs únicos no sul da Bahia.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://quintacaraiva.com.br/">
+
+    <!-- Preload LCP Image & Fonts -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=2000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Quinta Caraíva",
+      "description": "Refúgio exclusivo de 3.200m² em Caraíva, Bahia, com 5 bangalôs únicos, vista para o Rio Caraíva e acesso à praia a 120 metros.",
+      "url": "https://quintacaraiva.com.br",
+      "image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=1200",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Caraíva",
+        "addressRegion": "Bahia",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -16.9756,
+        "longitude": -39.2244
+      },
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Piscina orgânica", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Café da manhã", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Vista para o rio", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Acesso à praia", "value": true}
+      ],
+      "numberOfRooms": 5,
+      "starRating": {"@type": "Rating", "ratingValue": "5"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Onde fica a Quinta Caraíva?", "acceptedAnswer": {"@type": "Answer", "text": "No coração de Caraíva, Bahia. Com vista para o Rio Caraíva e acesso à praia a 120 metros."}},
+        {"@type": "Question", "name": "Como reservar?", "acceptedAnswer": {"@type": "Answer", "text": "Exclusivamente pelo Airbnb, garantindo segurança e flexibilidade."}}
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS (CDN for Single File Solution) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        areia: '#F4EFE6',
+                        areiaclara: '#FAF7F2',
+                        terra: '#7C6248',
+                        terraescura: '#5A4535',
+                        verde: '#2A382B',
+                        verdemedio: '#3D5040',
+                        preto: '#1A1815',
+                        cinza: '#8A8278'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Jost', 'sans-serif']
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '22': '5.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Quiet Luxury CSS -->
+    <style>
+        /* Core Vitals & Smoothness */
+        body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+        
+        /* Micro-interactions & Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        
+        /* Image Hover Zoom (Subtle) */
+        .img-wrap { overflow: hidden; }
+        .img-wrap img {
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-wrap:hover img { transform: scale(1.04); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAF7F2; }
+        ::-webkit-scrollbar-thumb { background: #d1c8b8; border-radius: 4px; }
+        
+        /* Transparent to Solid Header */
+        header { transition: background-color 0.5s ease, padding 0.5s ease, border-bottom 0.5s ease; border-bottom: 1px solid transparent; }
+        header.scrolled {
+            background-color: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(124, 98, 72, 0.15);
+        }
+        header.scrolled .nav-logo { color: #1A1815; }
+        header.scrolled .nav-link { color: #5A4535; }
+        header.scrolled .nav-cta {
+            border-color: #7C6248;
+            color: #7C6248;
+        }
+        header.scrolled .nav-cta:hover { background-color: #7C6248; color: #FAF7F2; }
+
+        /* Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* arbitrary large height */
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
+        .faq-icon { transition: transform 0.4s ease; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 24, 21, 0.98);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 80vh;
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .lightbox-nav:hover { opacity: 1; }
+        .lightbox-prev { left: -80px; }
+        .lightbox-next { right: -80px; }
+        @media (max-width: 768px) {
+            .lightbox-prev { left: 10px; background: rgba(0,0,0,0.2); border-radius: 50%; }
+            .lightbox-next { right: 10px; background: rgba(0,0,0,0.2); border-radius: 50%; }
+        }
+    </style>
+</head>
+<body class="bg-areiaclara text-preto font-sans selection:bg-terra selection:text-white relative">
+
+    <!-- Mobile Sticky CTA (Airbnb Conversion) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-areiaclara/95 backdrop-blur-md border-t border-terra/20 p-4 z-50 flex justify-center transform transition-transform duration-500 translate-y-full" id="mobile-cta">
+        <a href="#bangalos" class="w-full text-center bg-terra text-white font-sans text-xs uppercase tracking-widest py-4 px-6 rounded-sm hover:bg-terraescura transition-colors">
+            Ver Disponibilidade
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-6 flex justify-between items-center" id="navbar">
+        <a href="#" class="nav-logo font-serif text-2xl tracking-wide text-white transition-colors duration-300">Quinta Caraíva</a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-10">
+            <a href="#conceito" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors">Conceito</a>
+            <a href="#bangalos" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors">Bangalôs</a>
+            <a href="#experiencia" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors">Experiência</a>
+            <a href="#bangalos" class="nav-cta border border-white/60 text-white text-xs uppercase tracking-[0.2em] py-3 px-6 rounded-sm hover:bg-white/10 transition-all">
+                Reservar
+            </a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden text-white" id="menu-toggle" aria-label="Abrir menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 bg-preto/95 z-50 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500" id="mobile-menu">
+        <button class="absolute top-8 right-6 text-white" id="menu-close" aria-label="Fechar menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="flex flex-col items-center gap-8">
+            <a href="#conceito" class="mobile-link text-white font-serif text-2xl tracking-wide">Conceito</a>
+            <a href="#bangalos" class="mobile-link text-white font-serif text-2xl tracking-wide">Bangalôs</a>
+            <a href="#experiencia" class="mobile-link text-white font-serif text-2xl tracking-wide">Experiência</a>
+            <a href="#faq" class="mobile-link text-white font-serif text-2xl tracking-wide">FAQ</a>
+            <a href="#bangalos" class="mt-8 border border-terra text-terra font-sans text-xs uppercase tracking-widest py-3 px-8 hover:bg-terra hover:text-white transition-colors">Reservar Agora</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-[90vh] min-h-[600px] w-full flex items-end justify-center pb-20 md:pb-32 px-6">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Praia de Caraíva e natureza ao redor" 
+                 class="w-full h-full object-cover"
+                 fetchpriority="high"
+                 onerror="this.src='https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000'">
+            <div class="absolute inset-0 bg-gradient-to-b from-preto/30 via-preto/10 to-preto/70 mix-blend-multiply"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white max-w-3xl reveal">
+            <p class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-4 text-white/90">Caraíva, Bahia</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8">O Luxo do<br><span class="italic">Silêncio</span></h1>
+            <a href="#conceito" aria-label="Rolar para baixo">
+                <svg class="w-6 h-6 mx-auto animate-bounce text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="conceito" class="py-24 md:py-40 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
+            <div class="md:col-span-5 reveal">
+                <h2 class="text-terra font-sans text-xs uppercase tracking-[0.25em] mb-6">A Propriedade</h2>
+                <h3 class="font-serif text-4xl md:text-5xl leading-tight mb-8">Um refúgio de 3.200m² entre o rio e o mar.</h3>
+                <p class="text-cinza text-lg leading-relaxed font-light mb-8">
+                    Desenhada para quem busca desconexão. A Quinta Caraíva oferece cinco bangalôs arquitetônicos, espalhados por um vasto jardim tropical. 
+                    De um lado, a serenidade do Rio Caraíva; do outro, o oceano a apenas 120 metros de distância. 
+                    Aqui, o luxo não grita. Ele se faz presente na brisa, no linho, e no tempo que passa mais devagar.
+                </p>
+                <div class="flex items-center gap-8">
+                    <div class="text-center">
+                        <span class="block font-serif text-3xl text-terra">5</span>
+                        <span class="text-[0.65rem] uppercase tracking-widest text-cinza">Bangalôs</span>
+                    </div>
+                    <div class="w-px h-8 bg-terra/20"></div>
+                    <div class="text-center">
+                        <span class="block font-serif text-3xl text-terra">120m</span>
+                        <span class="text-[0.65rem] uppercase tracking-widest text-cinza">Da Praia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-6 md:col-start-7 img-wrap reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=1000" alt="Piscina e natureza tropical na Quinta Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bungalows Section (Airbnb Conversion Focus) -->
+    <section id="bangalos" class="py-24 md:py-32 bg-areia px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-terra font-sans text-xs uppercase tracking-[0.25em] mb-4">Acomodações</h2>
+                <h3 class="font-serif text-4xl md:text-5xl">Nossos Bangalôs</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+                
+                <!-- Bungalow 1 -->
+                <article class="reveal bungalow-gallery-trigger" data-images='["https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200"]'>
+                    <div class="img-wrap mb-8 aspect-[4/3] cursor-pointer relative group">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=800" alt="Interior do Bangalô Rio" class="w-full h-full object-cover rounded-sm" loading="lazy">
+                        <div class="absolute inset-0 bg-preto/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-xs uppercase tracking-widest border border-white/40 py-2 px-4 backdrop-blur-sm">Ver Galeria</span>
+                        </div>
+                    </div>
+                    <header class="flex justify-between items-end mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • Casal</span>
+                            <h4 class="font-serif text-3xl text-preto">Bangalô Rio</h4>
+                        </div>
+                    </header>
+                    <p class="text-cinza font-light mb-8 line-clamp-2">
+                        O único com ar condicionado, perfeito para casais que buscam conforto máximo. Varanda privativa com rede e vista parcial para o jardim.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="inline-flex items-center gap-3 text-terra font-sans text-xs uppercase tracking-widest group hover:text-terraescura transition-colors">
+                            Ver no Airbnb
+                            <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Bungalow 2 -->
+                <article class="reveal reveal-delay-1 bungalow-gallery-trigger" data-images='["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200", "https://images.unsplash.com/photo-1513584684374-8bdb74838a0f?auto=format&fit=crop&q=80&w=1200"]'>
+                    <div class="img-wrap mb-8 aspect-[4/3] cursor-pointer relative group">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=800" alt="Interior do Bangalô Brisa" class="w-full h-full object-cover rounded-sm" loading="lazy">
+                        <div class="absolute inset-0 bg-preto/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-xs uppercase tracking-widest border border-white/40 py-2 px-4 backdrop-blur-sm">Ver Galeria</span>
+                        </div>
+                    </div>
+                    <header class="flex justify-between items-end mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ventilação Natural • Casal</span>
+                            <h4 class="font-serif text-3xl text-preto">Bangalô Brisa</h4>
+                        </div>
+                    </header>
+                    <p class="text-cinza font-light mb-8 line-clamp-2">
+                        Projetado para aproveitar a ventilação cruzada natural de Caraíva. Arquitetura fluida que integra o interior com a mata nativa ao redor.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="inline-flex items-center gap-3 text-terra font-sans text-xs uppercase tracking-widest group hover:text-terraescura transition-colors">
+                            Ver no Airbnb
+                            <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-20 text-center reveal">
+                <p class="text-cinza font-light text-sm">
+                    Possuímos mais 3 bangalôs exclusivos. Todas as reservas são gerenciadas de forma segura através da plataforma Airbnb.
+                </p>
+                <a href="#" class="mt-6 inline-block border border-terra text-terra font-sans text-xs uppercase tracking-widest py-4 px-10 hover:bg-terra hover:text-white transition-all rounded-sm">
+                    Ver Perfil Completo no Airbnb
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities / Experience -->
+    <section id="experiencia" class="py-24 md:py-40 px-6 md:px-12 bg-verde text-areiaclara">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-areia font-sans text-xs uppercase tracking-[0.25em] mb-6">Experiência</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl mb-8 leading-tight">Simplicidade Elevada.</h3>
+                    <p class="text-areia/80 font-light text-lg mb-12">
+                        Em Caraíva não há carros, o chão é de areia e o tempo dita suas próprias regras. Nossa infraestrutura foi pensada para abraçar essa essência sem abrir mão do conforto essencial.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h5 class="font-serif text-xl mb-1">Café da Manhã Incluso</h5>
+                                <p class="text-areia/60 font-light text-sm">Servido no nosso espaço gourmet com ingredientes locais e frescos.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h5 class="font-serif text-xl mb-1">Piscina Orgânica</h5>
+                                <p class="text-areia/60 font-light text-sm">Integrada à natureza, ideal para relaxar após um dia de praia.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h5 class="font-serif text-xl mb-1">Wi-Fi (Conexão Consciente)</h5>
+                                <p class="text-areia/60 font-light text-sm">Disponível na propriedade para o necessário, embora o convite seja para desconectar.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=600" alt="Detalhe do café da manhã" class="w-full aspect-[3/4] object-cover rounded-sm mt-8" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&q=80&w=600" alt="Detalhe do interior" class="w-full aspect-[3/4] object-cover rounded-sm" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 md:py-32 px-6 md:px-12 bg-areiaclara">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-terra font-sans text-xs uppercase tracking-[0.25em] mb-4">Informações Essenciais</h2>
+                <h3 class="font-serif text-4xl">Perguntas Frequentes</h3>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false">
+                        <span class="font-serif text-xl text-preto">Como chegar em Caraíva?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        O acesso é feito a partir de Porto Seguro (80km). De carro ou transfer, siga até Caraívaçu, depois tome uma estrada de terra até a margem do Rio Caraíva. A travessia final é feita de canoa (5 minutos). Dentro do vilarejo não entram carros.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false">
+                        <span class="font-serif text-xl text-preto">Qual a melhor época para visitar?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Caraíva é mágica o ano todo. Alta temporada (Réveillon, Carnaval e Julho) é vibrante. Para um "quiet luxury" verdadeiro e silêncio absoluto, recomendamos março a junho, ou agosto a novembro.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false">
+                        <span class="font-serif text-xl text-preto">Os bangalôs têm ar condicionado?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        O Bangalô Rio possui ar condicionado. Os demais são arquitetados para ventilação natural abundante, aproveitando a brisa constante que vem do mar e do rio, proporcionando frescor de forma ecológica.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false">
+                        <span class="font-serif text-xl text-preto">Aceita crianças e pets?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Priorizamos a atmosfera de silêncio e descanso. Por favor, consulte as regras específicas na página de cada bangalô no Airbnb antes de efetuar a reserva.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-preto text-areiaclara pt-20 pb-10 px-6 md:px-12 border-t border-areia/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                <a href="#" class="font-serif text-3xl tracking-wide text-white mb-6 block">Quinta Caraíva</a>
+                <p class="text-areia/60 font-light max-w-sm">
+                    Seu refúgio particular no extremo sul da Bahia. Onde o rio encontra o mar e o tempo desacelera.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="font-sans text-xs uppercase tracking-widest text-terra mb-6">Navegação</h4>
+                <ul class="space-y-4 font-light text-sm text-areia/80">
+                    <li><a href="#conceito" class="hover:text-white transition-colors">A Propriedade</a></li>
+                    <li><a href="#bangalos" class="hover:text-white transition-colors">Bangalôs</a></li>
+                    <li><a href="#experiencia" class="hover:text-white transition-colors">A Experiência</a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-sans text-xs uppercase tracking-widest text-terra mb-6">Contato & Reservas</h4>
+                <ul class="space-y-4 font-light text-sm text-areia/80">
+                    <li>Caraíva, Porto Seguro - BA</li>
+                    <li>Brasil</li>
+                    <li class="pt-4">
+                        <a href="#" class="inline-block border-b border-terra text-terra hover:text-white hover:border-white transition-colors pb-1">
+                            Reservar via Airbnb
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-white/40">
+            <p>&copy; <span id="year"></span> Quinta Caraíva. Todos os direitos reservados.</p>
+            <p>Design Quiet Luxury 2026</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <button class="absolute top-8 right-8 text-white hover:text-terra transition-colors" id="lightbox-close">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            
+            <img src="" alt="Galeria Quinta Caraíva" class="lightbox-img" id="lightbox-img">
+            
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+        
+        <div class="mt-8 text-white/60 text-xs uppercase tracking-widest" id="lightbox-counter">
+            1 / 3
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Update Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Scroll Events (Header & Mobile CTA)
+        const header = document.getElementById('navbar');
+        const mobileCta = document.getElementById('mobile-cta');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Header transition
+            if (currentScrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Mobile CTA Reveal (Show after scrolling down a bit)
+            if (currentScrollY > 300) {
+                mobileCta.classList.remove('translate-y-full');
+            } else {
+                mobileCta.classList.add('translate-y-full');
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // 2. Intersection Observer for Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 3. FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const button = item.querySelector('button');
+            button.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all others
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('button').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // 4. Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('opacity-0');
+            if (isOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        menuClose.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 5. Lightbox Gallery Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const galleryTriggers = document.querySelectorAll('.bungalow-gallery-trigger .img-wrap');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openLightbox(images, index = 0) {
+            currentGallery = images;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            lightboxImg.src = currentGallery[currentIndex];
+            lightboxCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateLightbox();
+        }
+
+        galleryTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const images = JSON.parse(trigger.closest('.bungalow-gallery-trigger').dataset.images);
+                openLightbox(images);
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Trigger initial scroll check for header on load
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
