@@ -186,8 +186,45 @@
             border-color: #1A1815;
             color: #FAF7F2;
             background-color: #1A1815;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        header.scrolled .nav-cta:hover { background-color: #7C6248; color: #FAF7F2; border-color: #7C6248; transform: translateY(-2px); }
+        header.scrolled .nav-cta:hover { 
+            background-color: #7C6248; 
+            color: #FAF7F2; 
+            border-color: #7C6248; 
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        /* Global Button Hover Animation */
+        .nav-cta, 
+        .share-btn, 
+        .gallery-trigger-btn, 
+        .bungalow-reservation-btn,
+        #menu-toggle,
+        #menu-close,
+        .share-option,
+        .carousel-prev,
+        .carousel-next {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .nav-cta:hover, 
+        .share-btn:hover, 
+        .gallery-trigger-btn:hover,
+        .bungalow-reservation-btn:hover,
+        #menu-toggle:hover,
+        #menu-close:hover,
+        .share-option:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+        }
+
+        /* Adjust carousel buttons hover to not break centering */
+        .carousel-prev:hover, .carousel-next:hover {
+            transform: translateY(-50%) scale(1.1) !important;
+            background: rgba(255, 255, 255, 0.3) !important;
+        }
 
         /* Accordion */
         .faq-answer {
@@ -521,7 +558,7 @@
                         Conforto e sofisticação com ar condicionado. Varanda privativa com rede e vista para o jardim tropical.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&adults=1&s=67&unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" target="_blank" rel="nofollow" class="block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <a href="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&adults=1&s=67&unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" target="_blank" rel="nofollow" class="bungalow-reservation-btn block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white shadow-sm">
                             Reservar Bangalô I
                         </a>
                     </div>
@@ -561,7 +598,7 @@
                         Arquitetura que favorece a brisa do mar. Integração perfeita com a natureza e tranquilidade absoluta.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&adults=1&s=67&unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" target="_blank" rel="nofollow" class="block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <a href="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&adults=1&s=67&unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" target="_blank" rel="nofollow" class="bungalow-reservation-btn block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white shadow-sm">
                             Reservar Bangalô II
                         </a>
                     </div>
@@ -601,7 +638,7 @@
                         Ideal para famílias ou pequenos grupos. Amplo espaço interno com design rústico e elegante.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&adults=1&s=67&unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" target="_blank" rel="nofollow" class="block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <a href="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&adults=1&s=67&unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" target="_blank" rel="nofollow" class="bungalow-reservation-btn block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white shadow-sm">
                             Reservar Bangalô III
                         </a>
                     </div>
@@ -641,7 +678,7 @@
                         O refúgio perfeito para casais. Privacidade total em meio ao jardim exuberante da Quinta.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&adults=1&s=67&unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" target="_blank" rel="nofollow" class="block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-md">
+                        <a href="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&adults=1&s=67&unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" target="_blank" rel="nofollow" class="bungalow-reservation-btn block w-full text-center border border-terra text-terra text-[10px] uppercase tracking-[0.3em] py-4 px-8 rounded-sm hover:bg-terra hover:text-white shadow-sm">
                             Reservar Bangalô IV
                         </a>
                     </div>
@@ -1302,6 +1339,28 @@
         shareClose.addEventListener('click', closeShareModal);
         shareModal.addEventListener('click', (e) => {
             if (e.target === shareModal) closeShareModal();
+        });
+
+        // 8. Smooth Scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 100; // Offset for fixed header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
         });
 
         // Trigger initial scroll check for header on load
