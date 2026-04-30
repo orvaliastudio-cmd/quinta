@@ -181,6 +181,7 @@
         }
         header.scrolled .nav-logo { color: #1A1815; }
         header.scrolled .nav-link { color: #5A4535; }
+        header.scrolled #menu-toggle { color: #1A1815; }
         header.scrolled .nav-cta {
             border-color: #1A1815;
             color: #FAF7F2;
@@ -333,13 +334,6 @@
 </head>
 <body class="bg-areiaclara text-preto font-sans selection:bg-terra selection:text-white relative">
 
-    <!-- Mobile Sticky CTA (Airbnb Conversion) -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-areiaclara/95 backdrop-blur-md border-t border-terra/20 p-4 z-50 flex justify-center transform transition-transform duration-500 translate-y-full" id="mobile-cta">
-        <a href="#bangalos" class="w-full text-center bg-terra text-white font-sans text-xs uppercase tracking-widest py-4 px-6 rounded-sm hover:bg-terraescura transition-colors">
-            Ver Disponibilidade
-        </a>
-    </div>
-
     <!-- Navigation -->
     <header class="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-6 flex justify-between items-center" id="navbar">
         <a href="#" class="nav-logo font-serif text-2xl tracking-wide text-white transition-colors duration-300">Quinta de Caraíva</a>
@@ -357,7 +351,7 @@
         </nav>
 
         <!-- Mobile Menu Toggle -->
-        <button class="md:hidden text-white" id="menu-toggle" aria-label="Abrir menu">
+        <button class="md:hidden text-white transition-colors duration-300" id="menu-toggle" aria-label="Abrir menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
     </header>
@@ -658,7 +652,7 @@
             <!-- Disclaimer -->
             <div class="mt-20 text-center reveal">
                 <p class="text-cinza font-light text-sm max-w-2xl mx-auto">
-                    Possuímos 4 bangalôs exclusivos. Para consultar disponibilidade e valores, selecione o bangalô desejado acima e clique em "Reservar Bangalô". Todas as reservas são gerenciadas com exclusividade e segurança através da plataforma.
+                    Todas as reservas são gerenciadas com exclusividade e segurança via AirBnb
                 </p>
             </div>
         </div>
@@ -1008,7 +1002,6 @@
 
         // 1. Scroll Events (Header & Mobile CTA)
         const header = document.getElementById('navbar');
-        const mobileCta = document.getElementById('mobile-cta');
         let lastScrollY = window.scrollY;
 
         window.addEventListener('scroll', () => {
@@ -1019,13 +1012,6 @@
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
-            }
-
-            // Mobile CTA Reveal (Show after scrolling down a bit)
-            if (currentScrollY > 300) {
-                mobileCta.classList.remove('translate-y-full');
-            } else {
-                mobileCta.classList.add('translate-y-full');
             }
 
             lastScrollY = currentScrollY;
