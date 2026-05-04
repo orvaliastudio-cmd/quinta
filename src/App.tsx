@@ -102,10 +102,11 @@ export default function App() {
         </a>
         
         <div className="hidden md:flex items-center gap-8 text-[12px] uppercase tracking-[0.1em] font-medium">
-          <a href="#sobre" className="hover:opacity-50 transition-opacity">Refúgio</a>
+          <a href="#caraiva" className="hover:opacity-50 transition-opacity">Caraíva</a>
+          <a href="#conceito" className="hover:opacity-50 transition-opacity">Conceito</a>
           <a href="#bangalos" className="hover:opacity-50 transition-opacity">Bangalôs</a>
-          <a href="#experiencia" className="hover:opacity-50 transition-opacity">Onde Ficar</a>
-          <a href="#contato" className="hover:opacity-50 transition-opacity">Contato</a>
+          <a href="#experiencia" className="hover:opacity-50 transition-opacity">Experiência</a>
+          <a href="#como-chegar" className="hover:opacity-50 transition-opacity">Como Chegar</a>
         </div>
 
         <button 
@@ -126,10 +127,11 @@ export default function App() {
             className="fixed inset-0 z-40 bg-luxury-cream pt-32 px-6 md:hidden"
           >
             <div className="flex flex-col gap-8 text-2xl font-serif">
-              <a href="#sobre" onClick={() => setIsMenuOpen(false)}>Refúgio</a>
+              <a href="#caraiva" onClick={() => setIsMenuOpen(false)}>Caraíva</a>
+              <a href="#conceito" onClick={() => setIsMenuOpen(false)}>Conceito</a>
               <a href="#bangalos" onClick={() => setIsMenuOpen(false)}>Bangalôs</a>
-              <a href="#experiencia" onClick={() => setIsMenuOpen(false)}>Onde Ficar</a>
-              <a href="#contato" onClick={() => setIsMenuOpen(false)}>Contato</a>
+              <a href="#experiencia" onClick={() => setIsMenuOpen(false)}>Experiência</a>
+              <a href="#como-chegar" onClick={() => setIsMenuOpen(false)}>Como Chegar</a>
             </div>
           </motion.div>
         )}
@@ -171,19 +173,29 @@ export default function App() {
         {/* Right Panel: Content Grid */}
         <section className="bg-luxury-cream p-10 md:p-16 overflow-y-auto space-y-24">
           
-          {/* About Section */}
-          <div id="sobre">
-            <h2 className="section-title-line text-xl">O Destino</h2>
+          {/* Caraíva Section */}
+          <div id="caraiva">
+            <h2 className="section-title-line text-xl">Caraíva</h2>
             <div className="grid md:grid-cols-2 gap-12 items-start mt-8">
               <div className="space-y-6 text-sm text-luxury-charcoal/70 leading-relaxed font-light">
                 <p>
                   Caraíva não é apenas um destino, é um estado de espírito. Localizada no sul da Bahia, esta vila de pescadores preserva o charme de ruas de areia, onde carros não entram e o ritmo é ditado pelas marés.
                 </p>
                 <p>
-                  Se você busca <strong>onde ficar em Caraíva</strong>, encontrará na Quinta de Caraíva o equilíbrio perfeito entre a rusticidade autêntica da Bahia e o conforto contemporâneo.
+                  Aqui o tempo passa devagar. Na Quinta de Caraíva, você encontrará o equilíbrio perfeito entre a rusticidade autêntica da Bahia e o conforto contemporâneo.
                 </p>
               </div>
               <div className="aspect-video rounded-sm luxury-gradient-ocean opacity-40" />
+            </div>
+          </div>
+
+          {/* Conceito Section */}
+          <div id="conceito">
+            <h2 className="section-title-line text-xl">Conceito</h2>
+            <div className="mt-8 space-y-6 text-sm text-luxury-charcoal/70 leading-relaxed font-light italic">
+              <p>
+                "Aqui o tempo passa devagar."
+              </p>
             </div>
           </div>
 
@@ -219,7 +231,7 @@ export default function App() {
 
           {/* Experiences Section */}
           <div id="experiencia">
-            <h2 className="section-title-line text-xl">Experiências & Diferenciais</h2>
+            <h2 className="section-title-line text-xl">Experiência</h2>
             <div className="flex flex-wrap gap-3 mt-8">
               <div className="experience-pill-natural">Café da manhã artesanal</div>
               <div className="experience-pill-natural">Enxoval 600 fios</div>
@@ -227,6 +239,19 @@ export default function App() {
               <div className="experience-pill-natural">Concierge exclusivo</div>
               <div className="experience-pill-natural">Design Biofílico</div>
               <div className="experience-pill-natural">Privacidade Absoluta</div>
+            </div>
+          </div>
+
+          {/* How to Get There Section */}
+          <div id="como-chegar" className="space-y-6">
+            <h2 className="section-title-line text-xl">Como Chegar</h2>
+            <div className="text-sm text-luxury-charcoal/70 leading-relaxed font-light">
+              <p>
+                A chegada a Caraíva é parte da experiência. Localizada em Nova Caraíva, o acesso final é feito por canoa atravessando o Rio Caraíva. 
+              </p>
+              <p className="mt-2">
+                Recomendamos transfer privativo ou atenção redobrada na estrada de terra, especialmente em dias de chuva.
+              </p>
             </div>
           </div>
 
