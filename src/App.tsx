@@ -154,10 +154,10 @@ export default function App() {
             </p>
             <div className="pt-4">
               <a 
-                href="#contato" 
+                href="#bangalos" 
                 className="cta-button-natural"
               >
-                Reservar via Airbnb
+                Reservar sua Estadia
               </a>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function App() {
               Reserve seu bangalô e descubra por que a Quinta de Caraíva é o segredo mais bem guardado da Bahia.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://www.airbnb.com.br/users/show/593414902" className="cta-button-natural w-full sm:w-auto text-center">Reservar via Airbnb</a>
+              <a href="#bangalos" className="cta-button-natural w-full sm:w-auto text-center">Reservar sua Estadia</a>
               <a href="https://wa.me/5500000000000" className="px-8 py-4 border border-luxury-charcoal text-[12px] uppercase tracking-[2px] rounded-[2px] hover:bg-luxury-charcoal hover:text-white transition-all w-full sm:w-auto text-center">Falar com Concierge</a>
             </div>
           </div>
