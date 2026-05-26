@@ -439,7 +439,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative h-[95vh] min-h-[700px] w-full flex items-center justify-center px-6 overflow-hidden">
+    <section class="relative h-[95vh] min-h-[750px] w-full flex items-center justify-center px-6 pt-28 md:pt-36 pb-12 overflow-hidden">
         <!-- Background Image with Cinematic Overlay -->
         <div class="absolute inset-0 z-0">
             <img id="hero-image" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded'); this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'" src="https://i.ibb.co/mrnk4Bqg/areaexterna3.png" alt="Piscina y área exterior de la propiedad Quinta de Caraíva de noche" class="w-full h-full object-cover hero-img">
@@ -451,8 +451,8 @@
         
         <div class="relative z-10 text-center text-white max-w-4xl px-4 animate-fade-up">
             <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80 hero-subtitle-shadow">Santuario Privado • Caraíva, Bahía</p>
-            <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-light leading-[1.1] mb-8 tracking-tight hero-text-shadow">
-                El Lujo del<br><span class="italic">Silencio</span>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[5.5rem] 2xl:text-[6.5rem] font-light leading-[1.15] mb-8 tracking-tight hero-text-shadow">
+                El Lujo de la<br><span class="italic">Exclusividad</span><br><span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] block mt-4 font-normal tracking-wide">en el Corazón de Caraíva</span>
             </h1>
             <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto hero-subtitle-shadow">
                 Sienta la brisa, escuche el río y redescubra la esencia del tiempo en un santuario diseñado para su alma.
@@ -1000,6 +1000,14 @@
             <button class="mt-8 text-cinza text-xs uppercase tracking-widest hover:text-preto transition-colors" id="share-close" aria-label="Cerrar modal">Cerrar</button>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 bg-terra hover:bg-terraescura text-white w-10 h-10 md:w-12 md:h-12 rounded-full shadow-md flex items-center justify-center transition-all duration-300 transform translate-y-10 opacity-0 pointer-events-none cursor-pointer focus:outline-none" aria-label="Volver arriba">
+        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
     <!-- Lightbox Gallery -->
     <div id="lightbox">
         <button class="absolute top-8 right-8 text-white hover:text-terra transition-colors" id="lightbox-close" aria-label="Cerrar galería">
@@ -1028,8 +1036,9 @@
         // Update Copyright Year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // 1. Scroll Events (Header & Mobile CTA)
+        // 1. Scroll Events (Header, Mobile CTA & Back to Top)
         const header = document.getElementById('navbar');
+        const backToTopBtn = document.getElementById('back-to-top');
         let lastScrollY = window.scrollY;
 
         window.addEventListener('scroll', () => {
@@ -1042,8 +1051,25 @@
                 header.classList.remove('scrolled');
             }
 
+            // Back to Top button visibility (beyond 500px)
+            if (currentScrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+
             lastScrollY = currentScrollY;
         }, { passive: true });
+
+        // Back to Top Button Actions
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         // 2. Intersection Observer for Reveal Animations
         const revealElements = document.querySelectorAll('.reveal');
