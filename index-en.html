@@ -1,18 +1,39 @@
 <!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
+    <script>
+        // Prevent "Cannot set property fetch of #<Window> which has only a getter" errors in sandboxed environments
+        (function() {
+            try {
+                const originalFetch = window.fetch;
+                let customFetch = null;
+                Object.defineProperty(window, 'fetch', {
+                    get: function() {
+                        return customFetch || originalFetch;
+                    },
+                    set: function(val) {
+                        customFetch = val;
+                    },
+                    configurable: true,
+                    enumerable: true
+                });
+            } catch (e) {
+                console.warn('Unable to patch window.fetch setter:', e);
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quinta de Caraíva — The Luxury of Silence in Bahia</title>
-    <link rel="alternate" hreflang="pt-BR" href="https://quintadecaraiva.com.br/" />
-    <link rel="alternate" hreflang="en" href="https://quintadecaraiva.com.br/index-en.html" />
-    <link rel="alternate" hreflang="es" href="https://quintadecaraiva.com.br/index-es.html" />
-    <link rel="alternate" hreflang="x-default" href="https://quintadecaraiva.com.br/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.quintadecaraiva.com.br/" />
+    <link rel="alternate" hreflang="en" href="https://www.quintadecaraiva.com.br/index-en.html" />
+    <link rel="alternate" hreflang="es" href="https://www.quintadecaraiva.com.br/index-es.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.quintadecaraiva.com.br/" />
     
     <!-- SEO & Meta Tags -->
     <meta name="description" content="Quinta de Caraíva: 4 exclusive bungalows in Caraíva, Bahia. A 3,200m² property overlooking the Caraíva River with beach access just 120 meters away. The ultimate boutique stay.">
     <meta name="keywords" content="where to stay in Caraíva, Caraíva Bahia accommodation, bungalow in Caraíva, boutique inn, quiet luxury, Quinta de Caraíva">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Quinta de Caraíva">
-    <link rel="canonical" href="https://quintacaraiva.com.br/en">
+    <link rel="canonical" href="https://www.quintadecaraiva.com.br/index-en.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Quinta de Caraíva — Exclusive Retreat in Caraíva">
@@ -20,7 +41,7 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
-    <meta property="og:url" content="https://quintacaraiva.com.br/en">
+    <meta property="og:url" content="https://www.quintadecaraiva.com.br/index-en.html">
 
     <!-- Preload LCP Image & Fonts -->
     <link rel="preload" as="image" href="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
@@ -35,7 +56,7 @@
       "@type": "LodgingBusiness",
       "name": "Quinta de Caraíva",
       "description": "Exclusive 3,200m² sanctuary in Caraíva, Bahia, featuring 4 unique bungalows, views of the Caraíva River, and beach access just 120 meters away.",
-      "url": "https://quintadecaraiva.com.br/en",
+      "url": "https://www.quintadecaraiva.com.br/index-en.html",
       "image": "https://i.ibb.co/mrnk4Bqg/areaexterna3.png",
       "address": {
         "@type": "PostalAddress",

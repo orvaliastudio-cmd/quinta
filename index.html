@@ -1,18 +1,39 @@
 <!DOCTYPE html><html lang="pt-BR" class="scroll-smooth"><head>
+    <script>
+        // Prevent "Cannot set property fetch of #<Window> which has only a getter" errors in sandboxed environments
+        (function() {
+            try {
+                const originalFetch = window.fetch;
+                let customFetch = null;
+                Object.defineProperty(window, 'fetch', {
+                    get: function() {
+                        return customFetch || originalFetch;
+                    },
+                    set: function(val) {
+                        customFetch = val;
+                    },
+                    configurable: true,
+                    enumerable: true
+                });
+            } catch (e) {
+                console.warn('Unable to patch window.fetch setter:', e);
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quinta de Caraíva — O Luxo do Silêncio na Bahia</title>
-    <link rel="alternate" hreflang="pt-BR" href="https://quintadecaraiva.com.br/" />
-    <link rel="alternate" hreflang="en" href="https://quintadecaraiva.com.br/index-en.html" />
-    <link rel="alternate" hreflang="es" href="https://quintadecaraiva.com.br/index-es.html" />
-    <link rel="alternate" hreflang="x-default" href="https://quintadecaraiva.com.br/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.quintadecaraiva.com.br/" />
+    <link rel="alternate" hreflang="en" href="https://www.quintadecaraiva.com.br/index-en.html" />
+    <link rel="alternate" hreflang="es" href="https://www.quintadecaraiva.com.br/index-es.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.quintadecaraiva.com.br/" />
     
     <!-- SEO & Meta Tags -->
     <meta name="description" content="Quinta de Caraíva: 4 bangalôs exclusivos em Caraíva, Bahia. Propriedade de 3.200m² com vista para o Rio Caraíva e acesso à praia a 120 metros. A melhor hospedagem boutique.">
     <meta name="keywords" content="onde ficar em Caraíva, hospedagem Caraíva Bahia, bangalô em Caraíva, pousada boutique, luxo silencioso, Quinta de Caraíva">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Quinta de Caraíva">
-    <link rel="canonical" href="https://quintacaraiva.com.br/">
+    <link rel="canonical" href="https://www.quintadecaraiva.com.br/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Quinta de Caraíva — Refúgio Exclusivo em Caraíva">
@@ -20,7 +41,7 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:image" content="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
-    <meta property="og:url" content="https://quintacaraiva.com.br/">
+    <meta property="og:url" content="https://www.quintadecaraiva.com.br/">
 
     <!-- Preload LCP Image & Fonts -->
     <link rel="preload" as="image" href="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
@@ -35,7 +56,7 @@
       "@type": "LodgingBusiness",
       "name": "Quinta de Caraíva",
       "description": "Refúgio exclusivo de 3.200m² em Caraíva, Bahia, com 4 bangalôs únicos, vista para o Rio Caraíva e acesso à praia a 120 metros.",
-      "url": "https://quintadecaraiva.com.br",
+      "url": "https://www.quintadecaraiva.com.br/",
       "image": "https://i.ibb.co/mrnk4Bqg/areaexterna3.png",
       "address": {
         "@type": "PostalAddress",
