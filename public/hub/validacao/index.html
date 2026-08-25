@@ -147,6 +147,32 @@ button:disabled{opacity:.55;cursor:not-allowed}
   margin-top:8px
 }
 
+
+/* V3.2 — validação condicional real */
+.validation-pending{
+  border-color:#d98a70!important;
+  box-shadow:0 0 0 3px rgba(196,106,58,.10)!important;
+}
+.field-error{
+  margin-top:8px;
+  padding:8px 10px;
+  border-radius:9px;
+  background:#faeee9;
+  color:#8f4128;
+  font-size:12px;
+  line-height:1.4;
+  display:none;
+}
+.validation-pending .field-error{display:block}
+.completion-note{
+  display:none;
+  margin-top:8px;
+  font-size:12px;
+  color:#8f4128;
+  font-weight:700;
+}
+.completion-note.show{display:block}
+
 </style>
 </head>
 <body>
@@ -172,7 +198,7 @@ button:disabled{opacity:.55;cursor:not-allowed}
     <button class="btn-primary" id="submitBtn" onclick="submitValidation()">Enviar validação</button>
     <span class="saved" id="savedStatus">Nenhum rascunho salvo ainda.</span>
     <div class="progress-wrap">
-      <div class="progress-label"><span>Preenchimento</span><strong id="pct">0%</strong></div>
+      <div class="progress-label"><span>Validação concluída</span><strong id="pct">0%</strong></div>
       <div class="progress"><i id="bar"></i></div>
     </div>
   </div>
@@ -210,9 +236,11 @@ button:disabled{opacity:.55;cursor:not-allowed}
       <div class="fact"><b>Wi-Fi</b><p>Site/Airbnb informam Wi-Fi. Booking informa ausência de internet.</p></div>
       <div class="fact"><b>Café da manhã</b><p>Site informa incluso; outros canais apresentam descrições diferentes do serviço.</p></div>
     </div>
-    <div class="validation">
-      <div class="question-title">Se alguma informação desta base estiver incorreta, descreva abaixo:</div>
-      <textarea name="base_correcoes" data-track placeholder="Ex.: check-out correto é 12h; praia é 120 m..."></textarea>
+    <div class="validation" id="block-base">
+      <div class="question-title">Confirmação da base acima</div>
+      <label class="option"><input type="checkbox" name="base_confirmada" value="1"> Confirmo que a base acima está correta.</label>
+      <textarea name="base_correcoes" placeholder="Se houver qualquer correção, descreva aqui. Ex.: check-out correto é 12h; praia é 120 m..."></textarea>
+      <div class="field-error">Confirme a base ou descreva a correção necessária.</div>
     </div>
   </section>
 
@@ -231,10 +259,11 @@ button:disabled{opacity:.55;cursor:not-allowed}
           <b>Ambiente</b><span>Ar-condicionado, sofás, janelas amplas e varanda privativa com vista para o Rio Caraíva.</span>
           <b>Banheiro</b><span>Chuveiro solar, secador de toalhas, secador de cabelos e pia dupla.</span>
         </div>
-        <div class="validation">
+        <div class="validation" id="block-b1">
           <label class="option"><input type="radio" name="b1_status" value="correto" data-track> Está correto</label>
           <label class="option"><input type="radio" name="b1_status" value="ajustar" data-track> Precisa de ajuste</label>
           <textarea name="b1_obs" placeholder="Se precisar, descreva o ajuste."></textarea>
+          <div class="field-error">Selecione “Está correto” ou, se precisar ajustar, descreva a correção.</div>
         </div>
       </div>
 
@@ -247,10 +276,11 @@ button:disabled{opacity:.55;cursor:not-allowed}
           <b>Banheiro</b><span>Andar superior, com chuveiro solar.</span>
         </div>
         <div class="flag"><strong>Validar:</strong> capacidade oficial e configuração final das camas.</div>
-        <div class="validation">
+        <div class="validation" id="block-b2">
           <label class="option"><input type="radio" name="b2_status" value="correto" data-track> Está correto</label>
           <label class="option"><input type="radio" name="b2_status" value="ajustar" data-track> Precisa de ajuste</label>
           <textarea name="b2_obs" placeholder="Informe capacidade/configuração correta, se necessário."></textarea>
+          <div class="field-error">Selecione “Está correto” ou, se precisar ajustar, descreva a correção.</div>
         </div>
       </div>
 
@@ -263,10 +293,11 @@ button:disabled{opacity:.55;cursor:not-allowed}
           <b>Banheiro</b><span>Amplo, com chuveiro solar integrado ao jardim.</span>
         </div>
         <div class="flag"><strong>Validar:</strong> confirmar especificamente o ar-condicionado.</div>
-        <div class="validation">
+        <div class="validation" id="block-b3">
           <label class="option"><input type="radio" name="b3_status" value="correto" data-track> Está correto</label>
           <label class="option"><input type="radio" name="b3_status" value="ajustar" data-track> Precisa de ajuste</label>
           <textarea name="b3_obs" placeholder="Descreva qualquer ajuste."></textarea>
+          <div class="field-error">Selecione “Está correto” ou, se precisar ajustar, descreva a correção.</div>
         </div>
       </div>
 
@@ -279,10 +310,11 @@ button:disabled{opacity:.55;cursor:not-allowed}
           <b>Banheiro</b><span>A céu aberto.</span>
         </div>
         <div class="flag"><strong>Validar:</strong> capacidade oficial — 2 ou 3 hóspedes.</div>
-        <div class="validation">
+        <div class="validation" id="block-b4">
           <label class="option"><input type="radio" name="b4_status" value="correto" data-track> Está correto</label>
           <label class="option"><input type="radio" name="b4_status" value="ajustar" data-track> Precisa de ajuste</label>
           <textarea name="b4_obs" placeholder="Informe a capacidade oficial e qualquer correção."></textarea>
+          <div class="field-error">Selecione “Está correto” ou, se precisar ajustar, descreva a correção.</div>
         </div>
       </div>
     </div>
@@ -311,9 +343,11 @@ button:disabled{opacity:.55;cursor:not-allowed}
       <p class="sub">Estas respostas destravam o Gate G1.</p>
     </div></div>
 
-    <div class="decision">
+    <div class="decision" id="block-b5">
       <h3>A · Bangalô 05</h3>
-      <div class="help">Qual é o status atual?</div>
+      <div class="help">Qual é o status atual?
+      <div class="field-error">Selecione o status do Bangalô 05. Se estiver em reforma ou for outra situação, informe o detalhe.</div>
+    </div>
       <label class="option"><input type="radio" name="b5" value="pronto" data-track> Está reformado, pronto e entra agora em comunicação/reservas.</label>
       <label class="option"><input type="radio" name="b5" value="nao_entra" data-track> Existe, mas ainda não entra no projeto.</label>
       <label class="option"><input type="radio" name="b5" value="reforma" data-track> Está em reforma.</label>
@@ -321,28 +355,34 @@ button:disabled{opacity:.55;cursor:not-allowed}
       <input type="text" name="b5_detalhe" placeholder="Previsão ou observação sobre o Bangalô 05">
     </div>
 
-    <div class="decision">
+    <div class="decision" id="block-reservas">
       <h3>B · Estratégia de reservas</h3>
-      <div class="help">A orientação inicial foi concentrar as reservas no Airbnb.</div>
+      <div class="help">A orientação inicial foi concentrar as reservas no Airbnb.
+      <div class="field-error">Selecione a estratégia oficial de reservas.</div>
+    </div>
       <label class="option"><input type="radio" name="reservas" value="airbnb_unico" data-track> Airbnb será o único canal de conversão.</label>
       <label class="option"><input type="radio" name="reservas" value="airbnb_principal" data-track> Airbnb será o principal, mantendo outros canais ativos.</label>
       <label class="option"><input type="radio" name="reservas" value="hibrido" data-track> Estratégia híbrida, incluindo contato/reserva direta.</label>
       <textarea name="reservas_obs" placeholder="Observações sobre Booking, Decolar, TripAdvisor ou outros canais."></textarea>
     </div>
 
-    <div class="decision">
+    <div class="decision" id="block-canais">
       <h3>C · Booking, Decolar e TripAdvisor</h3>
       <label class="option"><input type="checkbox" name="canais_manter" value="1" data-track> Manter páginas e atualizar informações.</label>
       <label class="option"><input type="checkbox" name="canais_avaliar_saida" value="1" data-track> Avaliar retirada/desativação quando possível.</label>
       <label class="option"><input type="checkbox" name="canais_mapear" value="1" data-track> Mapear e reivindicar contas/fichas que não sabemos quem gerencia.</label>
       <textarea name="canais_obs" placeholder="Se souber quem controla alguma dessas contas, informe aqui."></textarea>
+    
+      <div class="field-error">Marque ao menos uma decisão para esses canais ou explique a situação no campo de observações.</div>
     </div>
 
-    <div class="decision">
+    <div class="decision" id="block-politicas">
       <h3>D · Políticas e serviços</h3>
       <div class="grid">
         <div>
-          <div class="question-title">Check-in oficial</div>
+          <div class="question-title">Check-in oficial
+      <div class="field-error">Complete as políticas obrigatórias. Se algum item de confirmação não estiver correto, descreva a regra oficial em observações.</div>
+    </div>
           <label class="option"><input type="radio" name="checkin" value="14" data-track> 14h</label>
           <label class="option"><input type="radio" name="checkin" value="15" data-track> 15h</label>
           <input type="text" name="checkin_outro" placeholder="Outro horário, se necessário">
@@ -363,7 +403,7 @@ button:disabled{opacity:.55;cursor:not-allowed}
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="block-claims">
     <div class="section-head"><div class="num">5</div><div>
       <h2>Claims que precisam de confirmação</h2>
       <p class="sub">Somente afirmações que estão no site atual.</p>
@@ -376,6 +416,7 @@ button:disabled{opacity:.55;cursor:not-allowed}
     <label class="option"><input type="checkbox" name="claim_aeroporto" value="1" data-track> Aeroporto de Porto Seguro a 80 km e trajeto terrestre de 2h–3h está correto.</label>
     <label class="option"><input type="checkbox" name="claim_endereco" value="1" data-track> O endereço Rua Sete de Setembro, Caraíva, Porto Seguro - BA está correto.</label>
     <textarea name="claims_obs" placeholder="Ajustes ou observações sobre esses itens."></textarea>
+    <div class="field-error">Confirme todos os claims corretos. Se algum não estiver correto, explique a correção no campo acima.</div>
   </section>
 
   <section class="section">
@@ -447,26 +488,114 @@ function clearDraft(){
   updateProgress();
 }
 
-function updateProgress(){
-  const tracked=[...document.querySelectorAll('[data-track]')];
-  const groups=new Map();
-  tracked.forEach(el=>{
-    const k=el.name||Math.random();
-    if(!groups.has(k)) groups.set(k,[]);
-    groups.get(k).push(el);
+function value(name){
+  const el=document.querySelector(`[name="${name}"]`);
+  return el ? String(el.value||'').trim() : '';
+}
+function checked(name){
+  const el=document.querySelector(`[name="${name}"]`);
+  return !!(el && el.checked);
+}
+function radioValue(name){
+  const el=document.querySelector(`[name="${name}"]:checked`);
+  return el ? el.value : '';
+}
+function anyChecked(names){
+  return names.some(name=>checked(name));
+}
+
+function validationState(){
+  const blocks=[];
+
+  // 1. Base: confirmada OU correção escrita
+  blocks.push({
+    id:'block-base',
+    ok: checked('base_confirmada') || value('base_correcoes').length>0
   });
-  let done=0,total=0;
-  groups.forEach(arr=>{
-    total++;
-    const ok=arr.some(el=>{
-      if(el.type==='radio'||el.type==='checkbox') return el.checked;
-      return String(el.value||'').trim().length>0;
+
+  // 2. Bangalôs 1–4: precisa escolher; se ajustar, observação obrigatória
+  [1,2,3,4].forEach(n=>{
+    const status=radioValue(`b${n}_status`);
+    const obs=value(`b${n}_obs`);
+    blocks.push({
+      id:`block-b${n}`,
+      ok: status==='correto' || (status==='ajustar' && obs.length>0)
     });
-    if(ok) done++;
   });
+
+  // Bangalô 05
+  const b5=radioValue('b5');
+  const b5detail=value('b5_detalhe');
+  blocks.push({
+    id:'block-b5',
+    ok: !!b5 && (!['reforma','outro'].includes(b5) || b5detail.length>0)
+  });
+
+  // Estratégia de reservas
+  blocks.push({
+    id:'block-reservas',
+    ok: !!radioValue('reservas')
+  });
+
+  // Booking/Decolar/TripAdvisor — decisão ou texto
+  blocks.push({
+    id:'block-canais',
+    ok: anyChecked(['canais_manter','canais_avaliar_saida','canais_mapear']) || value('canais_obs').length>0
+  });
+
+  // Políticas obrigatórias
+  const checkinOK = !!radioValue('checkin') || value('checkin_outro').length>0;
+  const checkoutOK = !!radioValue('checkout') || value('checkout_outro').length>0;
+  const criancasOK = checked('criancas_nao') || value('criancas_regra').length>0;
+
+  // Estes são checkboxes de confirmação. Se algum não for marcado,
+  // a observação precisa explicar a regra correta.
+  const policyConfirmNames=['wifi_ok','pets_nao','cafe_incluso','almoco_jantar'];
+  const allPolicyConfirmed=policyConfirmNames.every(checked);
+  const policyCorrection=value('politicas_obs').length>0;
+
+  blocks.push({
+    id:'block-politicas',
+    ok: checkinOK && checkoutOK && criancasOK && (allPolicyConfirmed || policyCorrection)
+  });
+
+  // Claims atuais: todos confirmados OU observação explica o(s) divergente(s)
+  const claimNames=['claim_ar','claim_piscina','claim_cafe','claim_wifi','claim_canoa','claim_aeroporto','claim_endereco'];
+  const allClaimsConfirmed=claimNames.every(checked);
+  blocks.push({
+    id:'block-claims',
+    ok: allClaimsConfirmed || value('claims_obs').length>0
+  });
+
+  return blocks;
+}
+
+function applyValidationUI(scrollToFirst=false){
+  const blocks=validationState();
+  blocks.forEach(b=>{
+    const el=document.getElementById(b.id);
+    if(el) el.classList.toggle('validation-pending',!b.ok);
+  });
+
+  const done=blocks.filter(b=>b.ok).length;
+  const total=blocks.length;
   const pct= total ? Math.round(done/total*100):0;
+
   document.getElementById('pct').textContent=pct+'%';
   document.getElementById('bar').style.width=pct+'%';
+
+  if(scrollToFirst){
+    const first=blocks.find(b=>!b.ok);
+    if(first){
+      const el=document.getElementById(first.id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  }
+  return {blocks,done,total,pct,complete:done===total};
+}
+
+function updateProgress(){
+  applyValidationUI(false);
 }
 
 function generatePDF(){
@@ -487,10 +616,22 @@ function showStatus(message,isError=false){
 
 function submitValidation(){
   saveDraft(false);
+
   if(SUBMISSION_ENDPOINT.includes('COLE_AQUI')){
     showStatus('O envio automático ainda não foi conectado ao Google Sheets. Configure primeiro a URL do Apps Script.',true);
     return;
   }
+
+  const state=applyValidationUI(true);
+  if(!state.complete){
+    const missing=state.total-state.done;
+    showStatus(
+      `Ainda ${missing===1?'falta 1 confirmação':`faltam ${missing} confirmações`} antes do envio. Revise o primeiro bloco destacado.`,
+      true
+    );
+    return;
+  }
+
   document.getElementById('confirmPanel').classList.add('show');
 }
 
