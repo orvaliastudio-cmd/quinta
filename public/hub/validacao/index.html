@@ -119,6 +119,34 @@ textarea:focus,input[type=text]:focus{border-color:var(--terracotta);box-shadow:
   textarea,input[type=text]{border:1px solid #999;min-height:54px}
   button{display:none}
 }
+
+.submit-status{
+  display:none;margin:0 0 22px;border-radius:16px;padding:16px 18px;
+  border:1px solid #c8d7cb;background:#eef5ef;color:#233426;
+  font-size:14px;line-height:1.5
+}
+.submit-status.show{display:block}
+.submit-status.error{background:#f9ece8;border-color:#e8c5b9}
+button:disabled{opacity:.55;cursor:not-allowed}
+.confirm-panel{
+  display:none;position:fixed;inset:0;background:rgba(24,37,27,.72);
+  z-index:100;align-items:center;justify-content:center;padding:18px
+}
+.confirm-panel.show{display:flex}
+.confirm-card{
+  width:min(560px,100%);background:#fbfaf7;border-radius:22px;padding:28px;
+  box-shadow:0 30px 90px rgba(0,0,0,.25)
+}
+.confirm-card h3{font-size:28px;margin:0 0 8px}
+.confirm-card p{color:#747b74;line-height:1.55}
+.confirm-card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.confirm-card .actions button{flex:1}
+.submitted-badge{
+  display:inline-flex;align-items:center;gap:7px;background:#e9f1ea;color:#233426;
+  border-radius:999px;padding:7px 10px;font-size:11px;font-weight:800;
+  margin-top:8px
+}
+
 </style>
 </head>
 <body>
@@ -140,7 +168,8 @@ textarea:focus,input[type=text]:focus{border-color:var(--terracotta);box-shadow:
     <a class="btn-outline" href="../" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">← Voltar ao Hub</a>
     <button class="btn-secondary" onclick="saveDraft()">Salvar rascunho</button>
     <button class="btn-outline" onclick="clearDraft()">Limpar respostas</button>
-    <button class="btn-primary" onclick="generatePDF()">Gerar PDF preenchido</button>
+    <button class="btn-outline" onclick="generatePDF()">Baixar cópia em PDF</button>
+    <button class="btn-primary" id="submitBtn" onclick="submitValidation()">Enviar validação</button>
     <span class="saved" id="savedStatus">Nenhum rascunho salvo ainda.</span>
     <div class="progress-wrap">
       <div class="progress-label"><span>Preenchimento</span><strong id="pct">0%</strong></div>
@@ -151,6 +180,20 @@ textarea:focus,input[type=text]:focus{border-color:var(--terracotta);box-shadow:
   <div class="notice">
     <strong>Importante:</strong> não é necessário reescrever o que já está correto. O foco desta validação é resolver divergências entre canais e confirmar as decisões que destravam a próxima etapa.
   </div>
+  <div class="submit-status" id="submitStatus"></div>
+
+  <div class="confirm-panel" id="confirmPanel" role="dialog" aria-modal="true">
+    <div class="confirm-card">
+      <div class="eyebrow" style="color:#c46a3a">Envio final</div>
+      <h3>Enviar esta validação?</h3>
+      <p>As respostas serão registradas como a devolutiva oficial desta etapa. O rascunho continuará salvo neste dispositivo e você ainda poderá baixar uma cópia em PDF.</p>
+      <div class="actions">
+        <button class="btn-outline" onclick="closeConfirm()">Voltar e revisar</button>
+        <button class="btn-primary" onclick="confirmSubmit()">Confirmar envio</button>
+      </div>
+    </div>
+  </div>
+
 
   <section class="section">
     <div class="section-head"><div class="num">1</div><div>
@@ -338,7 +381,7 @@ textarea:focus,input[type=text]:focus{border-color:var(--terracotta);box-shadow:
   <section class="section">
     <div class="section-head"><div class="num">6</div><div>
       <h2>Fechamento</h2>
-      <p class="sub">Com essas confirmações, consolidamos a base oficial e avançamos para execução.</p>
+      <p class="sub">Com essas confirmações, consolidamos a base oficial e avançamos para execução. Ao finalizar, clique em <strong>Enviar validação</strong>. O PDF fica apenas como cópia opcional.</p>
     </div></div>
     <div class="fact"><b>Próxima etapa</b><p>Padronização de site e canais, estruturação do Instagram, atualização do inventário e início do trabalho de Search / GEO / AI Discovery.</p></div>
     <div class="validation">
@@ -351,8 +394,15 @@ textarea:focus,input[type=text]:focus{border-color:var(--terracotta);box-shadow:
 </div>
 
 <script>
+/*
+  CONFIGURAÇÃO
+  Depois de publicar o Google Apps Script como Web App,
+  cole a URL /exec abaixo.
+*/
+const SUBMISSION_ENDPOINT = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT_EXEC';
+
 const FORM_SELECTOR = 'input, textarea, select';
-const KEY = 'quinta_gate_g1_draft_v1';
+const KEY = 'quinta_gate_g1_draft_v2';
 
 function fields(){ return [...document.querySelectorAll(FORM_SELECTOR)]; }
 
@@ -384,7 +434,6 @@ function saveDraft(show=true){
   const now = new Date();
   document.getElementById('savedStatus').textContent =
     'Rascunho salvo neste dispositivo às ' + now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-  if(show) window.setTimeout(()=>{},50);
 }
 
 function clearDraft(){
@@ -422,8 +471,81 @@ function updateProgress(){
 
 function generatePDF(){
   saveDraft(false);
+  const oldTitle=document.title;
   document.title='Quinta_de_Caraiva_Validacao_Gate_G1_Preenchida';
   window.print();
+  setTimeout(()=>document.title=oldTitle,500);
+}
+
+function showStatus(message,isError=false){
+  const el=document.getElementById('submitStatus');
+  el.textContent=message;
+  el.classList.add('show');
+  el.classList.toggle('error',!!isError);
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function submitValidation(){
+  saveDraft(false);
+  if(SUBMISSION_ENDPOINT.includes('COLE_AQUI')){
+    showStatus('O envio automático ainda não foi conectado ao Google Sheets. Configure primeiro a URL do Apps Script.',true);
+    return;
+  }
+  document.getElementById('confirmPanel').classList.add('show');
+}
+
+function closeConfirm(){
+  document.getElementById('confirmPanel').classList.remove('show');
+}
+
+function makeSubmissionId(){
+  return 'G1-' + new Date().toISOString().replace(/\D/g,'').slice(0,14) + '-' + Math.random().toString(36).slice(2,7).toUpperCase();
+}
+
+async function confirmSubmit(){
+  closeConfirm();
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.textContent='Enviando...';
+
+  const data=serialize();
+  data.submission_id=makeSubmissionId();
+  data.submitted_at=new Date().toISOString();
+  data.page_url=location.href;
+  data.user_agent=navigator.userAgent;
+
+  // Apps Script handles URL-encoded payload reliably.
+  const params=new URLSearchParams();
+  Object.entries(data).forEach(([k,v])=>params.append(k, String(v)));
+
+  try{
+    /*
+      mode:no-cors is intentionally used because Google Apps Script Web Apps
+      may redirect across googleusercontent domains. The POST is still sent.
+      The Apps Script records the payload in Sheets and sends an email receipt.
+    */
+    await fetch(SUBMISSION_ENDPOINT,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body:params.toString()
+    });
+
+    localStorage.setItem(KEY+'_submitted', JSON.stringify({
+      id:data.submission_id,
+      at:data.submitted_at
+    }));
+    showStatus('Validação enviada. Protocolo: '+data.submission_id+'. As respostas foram registradas e o responsável pelo projeto receberá uma notificação por e-mail.');
+    btn.textContent='Validação enviada';
+    const badge=document.createElement('span');
+    badge.className='submitted-badge';
+    badge.textContent='✓ '+data.submission_id;
+    btn.parentNode.insertBefore(badge, btn.nextSibling);
+  }catch(err){
+    btn.disabled=false;
+    btn.textContent='Enviar validação';
+    showStatus('Não foi possível concluir o envio. O rascunho está salvo neste dispositivo. Tente novamente ou use a opção de PDF.',true);
+  }
 }
 
 window.addEventListener('beforeunload',()=>saveDraft(false));
@@ -437,6 +559,14 @@ if(saved){
     document.getElementById('savedStatus').textContent='Rascunho anterior recuperado deste dispositivo.';
   }catch(e){}
 }else updateProgress();
+
+const previousSubmission=localStorage.getItem(KEY+'_submitted');
+if(previousSubmission){
+  try{
+    const info=JSON.parse(previousSubmission);
+    document.getElementById('savedStatus').textContent='Último envio registrado neste dispositivo: '+info.id;
+  }catch(e){}
+}
 </script>
 </body>
 </html>
