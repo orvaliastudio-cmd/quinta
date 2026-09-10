@@ -1,0 +1,1417 @@
+<!DOCTYPE html><html lang="pt-BR" class="scroll-smooth"><head>
+    <script>
+        // Prevent "Cannot set property fetch of #<Window> which has only a getter" errors in sandboxed environments
+        (function() {
+            try {
+                const originalFetch = window.fetch;
+                let customFetch = null;
+                Object.defineProperty(window, 'fetch', {
+                    get: function() {
+                        return customFetch || originalFetch;
+                    },
+                    set: function(val) {
+                        customFetch = val;
+                    },
+                    configurable: true,
+                    enumerable: true
+                });
+            } catch (e) {
+                console.warn('Unable to patch window.fetch setter:', e);
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinta de Caraíva — O Luxo do Silêncio na Bahia</title>
+    <link rel="alternate" hreflang="pt-BR" href="https://www.quintadecaraiva.com.br/" />
+    <link rel="alternate" hreflang="en" href="https://www.quintadecaraiva.com.br/index-en.html" />
+    <link rel="alternate" hreflang="es" href="https://www.quintadecaraiva.com.br/index-es.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.quintadecaraiva.com.br/" />
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Quinta de Caraíva: 4 bangalôs exclusivos em Caraíva, Bahia. Propriedade de 3.200m² com vista para o Rio Caraíva e acesso à praia a 120 metros. A melhor hospedagem boutique.">
+    <meta name="keywords" content="onde ficar em Caraíva, hospedagem Caraíva Bahia, bangalô em Caraíva, pousada boutique, luxo silencioso, Quinta de Caraíva">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Quinta de Caraíva">
+    <link rel="canonical" href="https://www.quintadecaraiva.com.br/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quinta de Caraíva — Refúgio Exclusivo em Caraíva">
+    <meta property="og:description" content="3.200m² com vista para o rio e acesso à praia a 120 metros. 4 bangalôs únicos no sul da Bahia.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
+    <meta property="og:url" content="https://www.quintadecaraiva.com.br/">
+
+    <!-- Preload LCP Image & Fonts -->
+    <link rel="preload" as="image" href="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Quinta de Caraíva",
+      "description": "Refúgio exclusivo de 3.200m² em Caraíva, Bahia, com 4 bangalôs únicos, vista para o Rio Caraíva e acesso à praia a 120 metros.",
+      "url": "https://www.quintadecaraiva.com.br/",
+      "image": "https://i.ibb.co/mrnk4Bqg/areaexterna3.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Caraíva",
+        "addressRegion": "Bahia",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -16.9756,
+        "longitude": -39.2244
+      },
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Piscina orgânica", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Café da manhã", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Vista para o rio", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Acesso à praia", "value": true}
+      ],
+      "numberOfRooms": 4,
+      "starRating": {"@type": "Rating", "ratingValue": "5"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Onde fica a Quinta de Caraíva?", "acceptedAnswer": {"@type": "Answer", "text": "No coração de Caraíva, Bahia. Com vista para o Rio Caraíva e acesso à praia a 120 metros."}},
+        {"@type": "Question", "name": "Como reservar?", "acceptedAnswer": {"@type": "Answer", "text": "Exclusivamente pelo Airbnb, garantindo segurança e flexibilidade."}}
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS (CDN for Single File Solution) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        areia: '#F4EFE6',
+                        areiaclara: '#FAF7F2',
+                        terra: '#7C6248',
+                        terraescura: '#5A4535',
+                        verde: '#2A382B',
+                        verdemedio: '#3D5040',
+                        preto: '#1A1815',
+                        cinza: '#8A8278'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Jost', 'sans-serif']
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '22': '5.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Quiet Luxury CSS -->
+    <style>
+        /* Core Vitals & Smoothness */
+        body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+        
+        /* Micro-interactions & Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+
+        /* Hero Specific Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Hero Image Blur Loading */
+        .hero-img, .blur-load {
+            filter: blur(15px);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: filter;
+            background: #f4efe6;
+        }
+        .hero-img.loaded, .blur-load.loaded {
+            filter: blur(0);
+        }
+
+        /* Hero Primary CTA */
+        .cta-primary {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #1A1815;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cta-primary:hover {
+            background: #7C6248;
+            color: #FAF7F2;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Hero Text Contrast Enhancements */
+        .hero-text-shadow { text-shadow: 0 4px 30px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.65); }
+        .hero-subtitle-shadow { text-shadow: 0 2px 16px rgba(0,0,0,0.85); }
+        
+        /* Radial Vignette Overlay */
+        .vignette-overlay {
+            background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 15%, rgba(26,24,21,0.6) 100%);
+        }
+        
+        /* Image Hover Zoom (Subtle) */
+        .img-wrap { overflow: hidden; }
+        .img-wrap img {
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-wrap:hover img { transform: scale(1.04); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAF7F2; }
+        ::-webkit-scrollbar-thumb { background: #d1c8b8; border-radius: 4px; }
+        
+        /* Transparent to Solid Header */
+        header { transition: background-color 0.5s ease, padding 0.5s ease, border-bottom 0.5s ease; border-bottom: 1px solid transparent; }
+        header.scrolled {
+            background-color: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(124, 98, 72, 0.15);
+        }
+        header.scrolled .nav-logo { color: #1A1815 !important; }
+        header.scrolled .nav-link { color: #5A4535 !important; }
+        header.scrolled #menu-toggle { color: #5A4535 !important; }
+        header.scrolled .nav-cta {
+            border-color: #1A1815;
+            color: #FAF7F2;
+            background-color: #1A1815;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        header.scrolled .nav-cta:hover { 
+            background-color: #7C6248; 
+            color: #FAF7F2; 
+            border-color: #7C6248; 
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        /* Language Switcher Scrolled States */
+        header.scrolled .lang-link { color: rgba(90,69,53,0.5); }
+        header.scrolled .lang-link:hover { color: #5A4535; }
+        header.scrolled .lang-link.active { color: #5A4535; opacity: 0.9; }
+
+        /* Global Button Hover Animation */
+        .nav-cta, 
+        .share-btn, 
+        .gallery-trigger-btn, 
+        .bungalow-reservation-btn,
+        #menu-toggle,
+        #menu-close,
+        .share-option,
+        .carousel-prev,
+        .carousel-next {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .nav-cta:hover, 
+        .share-btn:hover, 
+        .gallery-trigger-btn:hover,
+        #menu-toggle:hover,
+        #menu-close:hover,
+        .share-option:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+        }
+
+        /* Bungalow Reservation Button - Sober Styling */
+        .bungalow-reservation-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important;
+        }
+
+        /* Adjust carousel buttons hover to not break centering */
+        .carousel-prev:hover, .carousel-next:hover {
+            transform: translateY(-50%) scale(1.1) !important;
+            background: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* arbitrary large height */
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
+        .faq-icon { transition: transform 0.4s ease; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            touch-action: none;
+        }
+        #lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 2px;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            border: none;
+            color: white;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            opacity: 0.8;
+            transition: all 0.3s;
+            z-index: 110;
+        }
+        .lightbox-nav:hover { background: rgba(255, 255, 255, 0.15); opacity: 1; }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        
+        @media (max-width: 768px) {
+            .lightbox-nav { width: 40px; height: 40px; padding: 10px; }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+            .lightbox-nav svg { width: 20px; height: 20px; }
+        }
+
+        /* Carousel Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .carousel-prev, .carousel-next, .gallery-trigger-btn {
+                opacity: 1 !important;
+            }
+        }
+        .carousel-track {
+            will-change: transform;
+            touch-action: pan-y pinch-zoom;
+        }
+        #lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 110;
+        }
+        #lightbox-close {
+            z-index: 120;
+        }
+        /* Share Modal */
+        #share-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #share-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .share-card {
+            background: #FAF7F2;
+            padding: 40px;
+            border-radius: 2px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border: 1px solid rgba(124, 98, 72, 0.2);
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .share-option:hover {
+            background: #7C6248;
+            color: white;
+            border-color: #7C6248;
+        }
+    </style>
+</head>
+<body class="bg-areiaclara text-preto font-sans selection:bg-terra selection:text-white relative">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-6 flex justify-between items-center" id="navbar">
+        <a href="#" class="nav-logo font-serif text-2xl tracking-wide text-white transition-colors duration-300" aria-label="Página Inicial">Quinta de Caraíva</a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-10">
+            <a href="#caraiva" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Caraíva">Caraíva</a>
+            <a href="#conceito" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Conceito">Conceito</a>
+            <a href="#bangalos" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Bangalôs">Bangalôs</a>
+            <a href="#experiencia" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Experiência">Experiência</a>
+            <a href="#como-chegar" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Como Chegar">Como Chegar</a>
+            <a href="#bangalos" class="nav-cta border border-white/40 text-white text-[10px] uppercase tracking-[0.3em] py-3 px-8 rounded-sm hover:bg-preto hover:border-preto transition-all duration-500 hover:-translate-y-0.5" aria-label="Reservar sua Estadia">
+                Reservar sua Estadia
+            </a>
+            
+            <!-- Language Switcher Desktop -->
+            <div class="lang-switcher hidden md:flex items-center gap-2 ml-8">
+                <a href="/" class="lang-link active text-white/90 font-medium pointer-events-none hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="PT">PT</a>
+                <span class="text-white/20 text-[10px]">·</span>
+                <a href="/index-en.html" class="lang-link text-white/50 hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="EN">EN</a>
+                <span class="text-white/20 text-[10px]">·</span>
+                <a href="/index-es.html" class="lang-link text-white/50 hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="ES">ES</a>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden text-white transition-colors duration-300" id="menu-toggle" aria-label="Abrir menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 bg-preto/95 z-50 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500" id="mobile-menu">
+        <button class="absolute top-8 right-6 text-white" id="menu-close" aria-label="Fechar menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="flex flex-col items-center gap-8">
+            <a href="#caraiva" class="mobile-link text-white font-serif text-2xl tracking-wide" aria-label="Caraíva">Caraíva</a>
+            <a href="#conceito" class="mobile-link text-white font-serif text-2xl tracking-wide" aria-label="Conceito">Conceito</a>
+            <a href="#bangalos" class="mobile-link text-white font-serif text-2xl tracking-wide" aria-label="Bangalôs">Bangalôs</a>
+            <a href="#experiencia" class="mobile-link text-white font-serif text-2xl tracking-wide" aria-label="Experiência">Experiência</a>
+            <a href="#como-chegar" class="mobile-link text-white font-serif text-2xl tracking-wide" aria-label="Como Chegar">Como Chegar</a>
+            <a href="#bangalos" class="mobile-link mt-8 border border-terra text-terra font-sans text-xs uppercase tracking-[0.3em] py-4 px-10 hover:bg-terra hover:text-white transition-all duration-500" aria-label="Reservar sua Estadia">Reservar sua Estadia</a>
+            
+            <!-- Language Switcher Mobile -->
+            <div class="lang-switcher flex items-center gap-2 mt-4">
+                <a href="/" class="lang-link active text-white/90 font-medium pointer-events-none hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="PT">PT</a>
+                <span class="text-white/20 text-[10px]">·</span>
+                <a href="/index-en.html" class="lang-link text-white/50 hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="EN">EN</a>
+                <span class="text-white/20 text-[10px]">·</span>
+                <a href="/index-es.html" class="lang-link text-white/50 hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="ES">ES</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-[95vh] min-h-[750px] w-full flex items-center justify-center px-6 pt-28 md:pt-36 pb-12 overflow-hidden">
+        <!-- Background Image with Cinematic Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img id="hero-image" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded'); this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'" src="https://i.ibb.co/mrnk4Bqg/areaexterna3.png" alt="Piscina e área externa da propriedade Quinta de Caraíva à noite" class="w-full h-full object-cover hero-img">
+            <!-- Intelligent Overlay: Darker at bottom for text, subtle at top -->
+            <div class="absolute inset-0 bg-gradient-to-b from-preto/75 via-preto/65 to-preto/95"></div>
+            <!-- Radial Vignette Overlay -->
+            <div class="absolute inset-0 vignette-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white max-w-4xl px-4 animate-fade-up">
+            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80 hero-subtitle-shadow">Refúgio Particular • Caraíva, Bahia</p>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[5.5rem] 2xl:text-[6.5rem] font-light leading-[1.15] mb-8 tracking-tight hero-text-shadow">
+                O Luxo da<br><span class="italic">Exclusividade</span><br><span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] block mt-4 font-normal tracking-wide">no Coração de Caraíva</span>
+            </h1>
+            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto hero-subtitle-shadow">
+                Sinta a brisa, ouça o rio e redescubra a essência do tempo em um refúgio desenhado para a sua alma.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="#bangalos" class="cta-primary font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] py-5 px-12 rounded-sm shadow-xl" aria-label="Reservar sua Estadia">
+                    Reservar sua Estadia
+                </a>
+                <a href="#conceito" class="text-white/70 hover:text-white font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] transition-colors flex items-center gap-3 group" aria-label="Descobrir a Quinta">
+                    Descobrir a Quinta
+                    <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Caraíva Section (SEO Rich) -->
+    <section id="caraiva" class="py-20 md:py-32 bg-areiaclara px-6 md:px-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="order-2 lg:order-1 img-wrap reveal">
+                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" alt="Rua de areia e natureza na charmosa Vila de Caraíva, Bahia" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async">
+                </div>
+                <div class="order-1 lg:order-2 reveal reveal-delay-1">
+                    <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">O Destino</h2>
+                    <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-8 leading-tight">Caraíva: Onde o tempo para e a alma descansa.</h3>
+                    <div class="text-cinza space-y-6 font-light leading-relaxed text-base md:text-lg">
+                        <p>
+                            Localizada no sul da Bahia, a Vila de Caraíva é um dos destinos mais preservados e autênticos do Brasil. Aqui, as ruas são de areia, não há iluminação pública (apenas o brilho das estrelas) e o acesso é feito apenas por canoa, cruzando o rio que dá nome ao vilarejo.
+                        </p>
+                        <p>
+                            Em Caraíva, o luxo está na calma e no caminhar com os pés na areia. Entre o rio e o mar, a vila preserva sua essência rústica combinada a uma gastronomia sofisticada e praias intocadas. É o destino ideal para quem busca uma <strong>hospedagem em Caraíva</strong> autêntica, onde a sofisticação se revela na simplicidade.
+                        </p>
+                        <p>
+                            Seja para contemplar o pôr do sol no rio ou mergulhar nas águas mornas da Bahia, a Quinta de Caraíva oferece o acolhimento necessário para você redescobrir o seu próprio tempo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="conceito" class="py-20 md:py-40 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
+            <div class="md:col-span-5 reveal">
+                <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">A Propriedade</h2>
+                <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight mb-8">Um refúgio de 3.200m² entre o rio e o mar.</h3>
+                <p class="text-cinza text-base md:text-lg leading-relaxed font-light mb-10">
+                    Desenhada para quem busca desconexão. A Quinta de Caraíva oferece bangalôs arquitetônicos, espalhados por um vasto jardim tropical. 
+                    De um lado, a serenidade do Rio Caraíva; do outro, o oceano a apenas 120 metros de distância. 
+                    Aqui o tempo passa devagar.
+                </p>
+                <div class="flex items-center gap-10">
+                    <div class="text-center">
+                        <span class="block font-serif text-3xl md:text-4xl text-terra">4</span>
+                        <span class="text-[0.6rem] md:text-[0.65rem] uppercase tracking-widest text-cinza">Bangalôs</span>
+                    </div>
+                    <div class="w-px h-10 bg-terra/20"></div>
+                    <div class="text-center">
+                        <span class="block font-serif text-3xl md:text-4xl text-terra">120m</span>
+                        <span class="text-[0.6rem] md:text-[0.65rem] uppercase tracking-widest text-cinza">Da Praia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-6 md:col-start-7 img-wrap reveal reveal-delay-1">
+                <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/YBLsTYx8/piscina01.png" alt="Piscina com design integrado ao vasto jardim tropical da Quinta de Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bungalows Section (Airbnb Conversion Focus) -->
+    <section id="bangalos" class="py-24 md:py-32 bg-areia px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-terra font-sans text-xs uppercase tracking-[0.25em] mb-4">Acomodações</h2>
+                <h3 class="font-serif text-4xl md:text-5xl">Nossos Bangalôs</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+                
+                <!-- Bungalow 1 -->
+                <article class="reveal bungalow-card" data-images="[&quot;https://i.ibb.co/zh5ggmWz/bangalo-01-04.jpg&quot;, &quot;https://i.ibb.co/yFhrBfTc/bangalo01-banheiro-01.avif&quot;, &quot;https://i.ibb.co/rRz5snFH/bangalo-01-banheiro-03.jpg&quot;, &quot;https://i.ibb.co/DgLjWqGX/bangalo-01-exterior-01.jpg&quot;, &quot;https://i.ibb.co/LdJBnJM7/bangalo-01-exterior-02.jpg&quot;, &quot;https://i.ibb.co/gZ0W95hv/bangalo-01-exterior-03.jpg&quot;, &quot;https://i.ibb.co/DHwkZp1q/bangalo-01-exterior-04.jpg&quot;, &quot;https://i.ibb.co/VYpvXdN8/bangalo01-exterior-06.avif&quot;, &quot;https://i.ibb.co/xtWpcMVv/bangalo01-exterior-07.avif&quot;, &quot;https://i.ibb.co/sd88dsXz/bangalo-01-exterior-08.jpg&quot;, &quot;https://i.ibb.co/TMd4QqXP/bangalo-01-exterior-09.jpg&quot;, &quot;https://i.ibb.co/wNZCRc3W/bangalo-01-exterior-10.jpg&quot;, &quot;https://i.ibb.co/MxKTvC15/bangalo-01-exterior-11.jpg&quot;, &quot;https://i.ibb.co/LDNbVkCK/bangalo-01-exterior-12.jpg&quot;, &quot;https://i.ibb.co/FqJNrW2b/bangalo01-foto-01.avif&quot;, &quot;https://i.ibb.co/wZrMtncP/bangalo01-foto-02.avif&quot;, &quot;https://i.ibb.co/PZhS7mpt/bangalo01-foto-03.avif&quot;, &quot;https://i.ibb.co/qYLDtKvt/bangalo01-foto-05.avif&quot;, &quot;https://i.ibb.co/LhH6f1s5/bangalo01-foto-06.avif&quot;]">
+                    <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
+                        <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
+                            <!-- Images injected by JS -->
+                        </div>
+                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Imagem anterior">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Próxima imagem">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        <div class="absolute bottom-4 right-4 z-10">
+                            <button class="gallery-trigger-btn text-white text-[10px] uppercase tracking-widest border border-white/40 py-1 px-3 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Expandir galeria">
+                                Ampliar
+                            </button>
+                        </div>
+                        <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <!-- Dots injected by JS -->
+                        </div>
+                    </div>
+                    <header class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 1 Cama • Banheiro Privativo</span>
+                            <h4 class="font-serif text-3xl text-preto">Bangalô I</h4>
+                        </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô I - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
+                    </header>
+                    <p class="text-cinza font-light mb-8 text-sm leading-relaxed">
+                        Este charmoso bangalô em Caraíva combina o conforto e charme rústico típico baiano em meio à natureza. Com ar condicionado, possui uma elegante cama de dossel com mosquiteiro, ampla varanda privativa com vista para o Rio Caraíva e banheiro espaçoso com chuveiro solar e pia dupla.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver no Airbnb">
+                            <span>Ver no Airbnb</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Bungalow 2 -->
+                <article class="reveal reveal-delay-1 bungalow-card" data-images="[&quot;https://i.ibb.co/WWnvvj7T/bangalo02-01.avif&quot;, &quot;https://i.ibb.co/kg5pcS44/bangalo02-02.avif&quot;, &quot;https://i.ibb.co/pr6T9rCS/bangalo02-03.avif&quot;, &quot;https://i.ibb.co/N2kgy81S/bangalo02-04.avif&quot;, &quot;https://i.ibb.co/Zzndnn9p/bangalo02-05.avif&quot;, &quot;https://i.ibb.co/vCfSBWq4/bangalo02-06.avif&quot;, &quot;https://i.ibb.co/BVmqdmQQ/bangalo02-07.avif&quot;, &quot;https://i.ibb.co/SYjdxXg/bangalo02-08.avif&quot;, &quot;https://i.ibb.co/5xs9HDTF/bangalo02-09.avif&quot;, &quot;https://i.ibb.co/svYRLXR4/bangalo0210.avif&quot;, &quot;https://i.ibb.co/pjW1cPYT/bangalo02111.avif&quot;, &quot;https://i.ibb.co/1YSx8L2p/bangalo02112.avif&quot;, &quot;https://i.ibb.co/gMs37cdN/bangalo02113.avif&quot;, &quot;https://i.ibb.co/whvT0KHZ/bangalo02114.avif&quot;, &quot;https://i.ibb.co/tT08xHfF/bangalo02115.avif&quot;, &quot;https://i.ibb.co/mFCt06vJ/bangalo02116.avif&quot;]">
+                    <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
+                        <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
+                            <!-- Images injected by JS -->
+                        </div>
+                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Imagem anterior">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Próxima imagem">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        <div class="absolute bottom-4 right-4 z-10">
+                            <button class="gallery-trigger-btn text-white text-[10px] uppercase tracking-widest border border-white/40 py-1 px-3 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Expandir galeria">
+                                Ampliar
+                            </button>
+                        </div>
+                        <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <!-- Dots injected by JS -->
+                        </div>
+                    </div>
+                    <header class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 3 Camas • Banheiro Privativo</span>
+                            <h4 class="font-serif text-3xl text-preto">Bangalô II</h4>
+                        </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô II - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
+                    </header>
+                    <p class="text-cinza font-light mb-8 text-sm leading-relaxed">
+                        Este charmoso bangalô em Caraíva combina conforto e charme rústico baiano com belíssima vista do rio. Versátil, acomoda até quatro pessoas e possui banheiro no andar superior com chuveiro solar e ampla varanda térrea aconchegante.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver no Airbnb">
+                            <span>Ver no Airbnb</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Bungalow 3 -->
+                <article class="reveal bungalow-card" data-images="[&quot;https://i.ibb.co/CKG8bHYt/bangalo-03-01.avif&quot;, &quot;https://i.ibb.co/LDB9JfXX/bangalo-03-02.jpg&quot;, &quot;https://i.ibb.co/spZLDD3f/bangalo-03-03.jpg&quot;, &quot;https://i.ibb.co/MxYDHPpJ/bangalo-03-04.avif&quot;, &quot;https://i.ibb.co/DPcQNRYd/bangalo-03-05.avif&quot;, &quot;https://i.ibb.co/mCBkFpjD/bangalo-03-06.avif&quot;, &quot;https://i.ibb.co/Xk7r9YcD/bangalo-03-07.jpg&quot;, &quot;https://i.ibb.co/Z6Ns2Ldb/bangalo-03-08.avif&quot;, &quot;https://i.ibb.co/tMsFbcZZ/bangalo-03-09.avif&quot;, &quot;https://i.ibb.co/SwcWhBD6/bangalo-03-10.avif&quot;]">
+                    <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
+                        <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
+                            <!-- Images injected by JS -->
+                        </div>
+                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Imagem anterior">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Próxima imagem">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        <div class="absolute bottom-4 right-4 z-10">
+                            <button class="gallery-trigger-btn text-white text-[10px] uppercase tracking-widest border border-white/40 py-1 px-3 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Expandir galeria">
+                                Ampliar
+                            </button>
+                        </div>
+                        <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <!-- Dots injected by JS -->
+                        </div>
+                    </div>
+                    <header class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 1 Cama • Banheiro Privativo</span>
+                            <h4 class="font-serif text-3xl text-preto">Bangalô III</h4>
+                        </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô III - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
+                    </header>
+                    <p class="text-cinza font-light mb-8 text-sm leading-relaxed">
+                        Este charmoso bangalô em Caraíva combina o conforto e charme rústico típico baiano em meio à natureza. Possui elegante cama de dossel com mosquiteiro, poltronas, rede e janelas amplas. O destaque é o amplo banheiro integrado ao jardim com chuveiro solar.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver no Airbnb">
+                            <span>Ver no Airbnb</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Bungalow 4 -->
+                <article class="reveal reveal-delay-1 bungalow-card" data-images="[&quot;https://i.ibb.co/DPSzkLdZ/bangalo-04-01.jpg&quot;, &quot;https://i.ibb.co/7xY65728/bangalo-04-02.avif&quot;, &quot;https://i.ibb.co/5gYxQv3C/bangalo-04-03.avif&quot;, &quot;https://i.ibb.co/wh0btvxh/bangalo-04-04.avif&quot;, &quot;https://i.ibb.co/WvVd9VM2/bangalo-04-05.avif&quot;, &quot;https://i.ibb.co/NgTP1DGX/bangalo-04-06.avif&quot;, &quot;https://i.ibb.co/C32JTv7b/bangalo-04-07.jpg&quot;, &quot;https://i.ibb.co/YTdtVhQ1/bangalo-04-08.avif&quot;, &quot;https://i.ibb.co/4g0bzmZv/bangalo-04-09.avif&quot;]">
+                    <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
+                        <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
+                            <!-- Images injected by JS -->
+                        </div>
+                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Imagem anterior">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Próxima imagem">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        <div class="absolute bottom-4 right-4 z-10">
+                            <button class="gallery-trigger-btn text-white text-[10px] uppercase tracking-widest border border-white/40 py-1 px-3 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Expandir galeria">
+                                Ampliar
+                            </button>
+                        </div>
+                        <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <!-- Dots injected by JS -->
+                        </div>
+                    </div>
+                    <header class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Ar Condicionado • 1 Cama • Banheiro Dedicado</span>
+                            <h4 class="font-serif text-3xl text-preto">Bangalô IV</h4>
+                        </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bangalô IV - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" aria-label="Compartilhar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
+                    </header>
+                    <p class="text-cinza font-light mb-8 text-sm leading-relaxed">
+                        Bangalô integrado ao jardim e de frente para a piscina. Possui elegante cama de dossel com mosquiteiro e mezanino para uma 3ª pessoa. O destaque é o charmoso banheiro a céu aberto, para um banho inesquecível sob as estrelas.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver no Airbnb">
+                            <span>Ver no Airbnb</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-20 text-center reveal">
+                <p class="text-cinza font-light text-sm max-w-2xl mx-auto">
+                    Todas as reservas são gerenciadas com exclusividade e segurança via AirBnb
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities / Experience -->
+    <section id="experiencia" class="py-24 md:py-40 px-6 md:px-12 bg-verde text-areiaclara">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-areia font-sans text-xs uppercase tracking-[0.25em] mb-6">Experiência</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl mb-8 leading-tight">Simplicidade Elevada.</h3>
+                    <p class="text-areia/80 font-light text-lg mb-12">
+                        Em Caraíva não há carros, o chão é de areia e o tempo dita suas próprias regras. Nossa infraestrutura foi pensada para abraçar essa essência sem abrir mão do conforto essencial.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h5 class="font-serif text-xl mb-1">Café da Manhã Incluso</h5>
+                                <p class="text-areia/60 font-light text-sm">Servido no nosso espaço gourmet com ingredientes locais e frescos.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h5 class="font-serif text-xl mb-1">Piscina Orgânica</h5>
+                                <p class="text-areia/60 font-light text-sm">Integrada à natureza, ideal para relaxar após um dia de praia.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h5 class="font-serif text-xl mb-1">Wi-Fi (Conexão Consciente)</h5>
+                                <p class="text-areia/60 font-light text-sm">Disponível na propriedade para o necessário, embora o convite seja para desconectar.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-1 mt-12 lg:mt-0">
+                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/5g8ydXWM/deco4-02.png" alt="Detalhe da decoração rústica chique dos bangalôs da Quinta de Caraíva" class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm blur-load" loading="lazy" decoding="async">
+                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/rG2t561c/deco4-04.png" alt="Banheiro espaçoso com acabamento refinado e rústico em bangalô da Quinta de Caraíva" class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 md:py-32 px-6 md:px-12 bg-areiaclara">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4">Informações Essenciais</h2>
+                <h3 class="font-serif text-3xl sm:text-4xl">Perguntas Frequentes</h3>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Como chegar em Caraíva?">
+                        <span class="font-serif text-xl text-preto">Como chegar em Caraíva?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        O acesso é feito a partir de Porto Seguro (80km). De carro ou transfer, o trajeto termina em Nova Caraíva, na margem do Rio Caraíva. A travessia final para a vila é feita em canoas tradicionais (5 minutos). Dentro do vilarejo não circulam veículos motorizados.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Qual a melhor época para visitar?">
+                        <span class="font-serif text-xl text-preto">Qual a melhor época para visitar?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Caraíva é mágica o ano todo. Alta temporada (Réveillon, Carnaval e Julho) é vibrante. Para um "quiet luxury" verdadeiro e silêncio absoluto, recomendamos março a junho, ou agosto a novembro.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Os bangalôs têm ar condicionado?">
+                        <span class="font-serif text-xl text-preto">Os bangalôs têm ar condicionado?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Sim, todos os nossos bangalôs possuem ar condicionado para garantir o seu conforto em qualquer estação, complementando a ventilação natural da arquitetura local.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Aceita crianças e pets?">
+                        <span class="font-serif text-xl text-preto">Aceita crianças e pets?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Priorizamos a atmosfera de silêncio e descanso. Por favor, consulte as regras específicas na página de cada bangalô no Airbnb antes de efetuar a reserva.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Onde estacionar o carro?">
+                        <span class="font-serif text-xl text-preto">Onde estacionar o carro?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Como não circulam carros em Caraíva, quem viaja com veículo próprio ou alugado deve deixá-lo em um dos estacionamentos seguros em Nova Caraíva, na margem oposta do rio. Para quem chega via transfer, o desembarque ocorre diretamente no ponto de travessia das canoas, que funcionam 24h.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Como funciona o café da manhã?">
+                        <span class="font-serif text-xl text-preto">Como funciona o café da manhã?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Nosso café da manhã está incluso na diária e é servido diariamente em nosso espaço gourmet. Valorizamos produtos locais, frutas da estação, pães artesanais e tapiocas feitas na hora.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Tem Wi-Fi na propriedade?">
+                        <span class="font-serif text-xl text-preto">Tem Wi-Fi na propriedade?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Sim, oferecemos Wi-Fi de alta velocidade em toda a propriedade. No entanto, encorajamos nossos hóspedes a aproveitarem a oportunidade para se desconectarem e vivenciarem a natureza ao redor.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: Como consulto disponibilidade e reservo?">
+                        <span class="font-serif text-xl text-preto">Como consulto disponibilidade e reservo?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        A consulta de datas e a reserva são feitas individualmente para cada bangalô. Basta escolher o seu favorito na seção "Nossos Bangalôs" e clicar no link "Ver no Airbnb". Lá você terá acesso ao calendário atualizado e valores de cada unidade.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 9 -->
+                <div class="faq-item border-b border-terra/20">
+                    <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" aria-expanded="false" aria-label="Alternar resposta: O que levar na mala?">
+                        <span class="font-serif text-xl text-preto">O que levar na mala?</span>
+                        <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div class="faq-answer text-cinza font-light leading-relaxed">
+                        Roupas leves, chinelos (você andará na areia o tempo todo), protetor solar, repelente e uma lanterna pequena para caminhadas noturnas. Lembre-se: em Caraíva, menos é mais.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Get There Section -->
+    <section id="como-chegar" class="py-24 md:py-32 bg-verde text-areiaclara px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-areia font-sans text-xs uppercase tracking-[0.25em] mb-4">A Jornada</h2>
+                <h3 class="font-serif text-4xl md:text-5xl">Como Chegar</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 reveal">
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-terra/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-6 h-6 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="font-serif text-2xl mb-4">Porto Seguro</h4>
+                    <p class="text-areia/60 font-light text-sm">
+                        O aeroporto mais próximo é o de Porto Seguro (BPS). De lá, você pode seguir via transfer privativo, táxi ou ônibus até a margem do Rio Caraíva.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-terra/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-6 h-6 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+                    </div>
+                    <h4 class="font-serif text-2xl mb-4">A Estrada</h4>
+                    <p class="text-areia/60 font-light text-sm">
+                        O trajeto dura entre 2h e 3h. A estrada de terra exige atenção e paciência, especialmente em dias de chuva. Se optar por dirigir, verifique as condições climáticas antes de partir.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-terra/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-6 h-6 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
+                    </div>
+                    <h4 class="font-serif text-2xl mb-4">A Travessia</h4>
+                    <p class="text-areia/60 font-light text-sm">
+                        Ao chegar em Nova Caraíva, você cruzará o rio em canoas locais. Para quem chega de transfer, o desembarque é imediato na travessia. Para quem dirige, há estacionamentos seguros no local.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="mapa" class="py-24 md:py-32 px-6 md:px-12 bg-areia">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-4 reveal">
+                    <h2 class="text-terra font-sans text-xs uppercase tracking-[0.25em] mb-6">Localização</h2>
+                    <h3 class="font-serif text-4xl mb-8">No coração de Caraíva.</h3>
+                    <p class="text-cinza font-light mb-8">
+                        Estamos localizados em uma área privilegiada de 3.200m², com vista para o Rio Caraíva e a apenas 120 metros da praia. O equilíbrio perfeito entre a conveniência do vilarejo e a paz da natureza.
+                    </p>
+                    <div class="mb-10 rounded-sm overflow-hidden shadow-sm group">
+                        <img src="https://i.ibb.co/bgwgxR9f/Quinta-de-Cara-va.webp" alt="Vista aérea do encontro do rio com o mar na península de Caraíva" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-700" id="location-image">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 text-sm text-cinza">
+                            <svg class="w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Rua Sete de Setembro, Caraíva, Porto Seguro - BA</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-cinza">
+                            <svg class="w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Check-in: 14:00 | Check-out: 11:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 h-[450px] rounded-sm overflow-hidden reveal reveal-delay-1 shadow-sm">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.352467436066!2d-39.1481546!3d-16.8044444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x735c39999999999%3A0x999999999999999!2sRua%20Sete%20de%20Setembro%2C%20Cara%C3%ADva%2C%20Porto%20Seguro%20-%20BA%2C%2045810-000!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 md:py-40 bg-areiaclara px-6 md:px-12 text-center border-t border-terra/10 overflow-hidden">
+        <div class="max-w-3xl mx-auto reveal">
+            <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.4em] mb-8">Sua Jornada Começa Aqui</h2>
+            <h3 class="font-serif text-4xl sm:text-5xl md:text-7xl mb-12 leading-tight">Pronto para uma experiência<br><span class="italic">Quinta de Caraíva?</span></h3>
+            <p class="text-cinza font-light text-base md:text-lg mb-16 max-w-xl mx-auto">
+                Reserve agora e garanta sua experiência exclusiva na Quinta de Caraíva. Poucas datas disponíveis para a temporada.
+            </p>
+            <a href="#bangalos" class="inline-block bg-preto text-white font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] py-5 px-10 md:px-12 hover:bg-terra transition-all duration-500 rounded-sm shadow-2xl hover:-translate-y-1" aria-label="Reservar sua Estadia">
+                Reservar sua Estadia
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-preto text-areiaclara pt-20 pb-10 px-6 md:px-12 border-t border-areia/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                <a href="#" class="font-serif text-3xl tracking-wide text-white mb-6 block" aria-label="Quinta de Caraíva">Quinta de Caraíva</a>
+                <p class="text-areia/60 font-light max-w-sm">
+                    Seu refúgio particular no extremo sul da Bahia. Onde o rio encontra o mar e o tempo desacelera.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="font-sans text-xs uppercase tracking-widest text-terra mb-6">Navegação</h4>
+                <ul class="space-y-4 font-light text-sm text-areia/80">
+                    <li><a href="#conceito" class="hover:text-white transition-colors" aria-label="A Propriedade">A Propriedade</a></li>
+                    <li><a href="#bangalos" class="hover:text-white transition-colors" aria-label="Bangalôs">Bangalôs</a></li>
+                    <li><a href="#experiencia" class="hover:text-white transition-colors" aria-label="A Experiência">A Experiência</a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors" aria-label="Dúvidas Frequentes">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-sans text-xs uppercase tracking-widest text-terra mb-6">Contato &amp; Reservas</h4>
+                <ul class="space-y-4 font-light text-sm text-areia/80">
+                    <li>Rua Sete de Setembro, Caraíva, Porto Seguro - BA</li>
+                    <li>Brasil</li>
+                    <li class="pt-4">
+                        <a href="#bangalos" class="inline-block border-b border-terra text-terra hover:text-white hover:border-white transition-colors pb-1" aria-label="Reservar sua Estadia">
+                            Reservar sua Estadia
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-white/40">
+            <p>© <span id="year"></span> Quinta de Caraíva. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <a href="http://www.orvalia.com.br" target="_blank" class="text-[#008B8B] hover:underline font-medium" aria-label="Orvalia Studio">Orvalia Studio</a></p>
+        </div>
+    </footer>
+
+    <!-- Share Modal -->
+    <div id="share-modal">
+        <div class="share-card">
+            <h4 class="font-serif text-2xl mb-6 text-preto">Compartilhar Estadia</h4>
+            <div class="share-option" id="share-whatsapp">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.63 1.438h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                <span class="font-sans text-sm uppercase tracking-widest">WhatsApp</span>
+            </div>
+            <div class="share-option" id="share-copy">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <span class="font-sans text-sm uppercase tracking-widest" id="copy-text">Copiar Link</span>
+            </div>
+            <button class="mt-8 text-cinza text-xs uppercase tracking-widest hover:text-preto transition-colors" id="share-close" aria-label="Fechar modal">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 bg-terra hover:bg-terraescura text-white w-10 h-10 md:w-12 md:h-12 rounded-full shadow-md flex items-center justify-center transition-all duration-300 transform translate-y-10 opacity-0 pointer-events-none cursor-pointer focus:outline-none" aria-label="Voltar para o topo">
+        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <!-- Lightbox Gallery -->
+    <div id="lightbox">
+        <button class="absolute top-8 right-8 text-white hover:text-terra transition-colors" id="lightbox-close" aria-label="Fechar galeria">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Imagem anterior">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            
+            <img src="" alt="Imagem ampliada da galeria da Quinta de Caraíva" class="lightbox-img" id="lightbox-img">
+            
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Próxima imagem">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+        
+        <div class="text-white/60 text-xs uppercase tracking-widest" id="lightbox-counter">
+            1 / 3
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Update Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Scroll Events (Header, Mobile CTA & Back to Top)
+        const header = document.getElementById('navbar');
+        const backToTopBtn = document.getElementById('back-to-top');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Header transition
+            if (currentScrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Back to Top button visibility (beyond 500px)
+            if (currentScrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // Back to Top Button Actions
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 2. Intersection Observer for Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 3. FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const button = item.querySelector('button');
+            button.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all others
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('button').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // 4. Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('opacity-0');
+            if (isOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        menuClose.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 5. Lightbox Gallery Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openLightbox(images, index = 0) {
+            currentGallery = images;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            lightboxImg.src = currentGallery[currentIndex];
+            lightboxCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateLightbox();
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Touch support for Lightbox
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50;
+            if (touchEndX < touchStartX - threshold) nextImage();
+            if (touchEndX > touchStartX + threshold) prevImage();
+        }
+
+        // 6. Bungalow Carousel Logic
+        const bungalowCards = document.querySelectorAll('.bungalow-card');
+
+        bungalowCards.forEach(card => {
+            const track = card.querySelector('.carousel-track');
+            const dotsContainer = card.querySelector('.carousel-dots');
+            const images = JSON.parse(card.dataset.images);
+            const prevBtn = card.querySelector('.carousel-prev');
+            const nextBtn = card.querySelector('.carousel-next');
+            const galleryBtn = card.querySelector('.gallery-trigger-btn');
+            
+            let cardIndex = 0;
+
+            // Populate track with images
+            images.forEach((src, i) => {
+                const img = document.createElement('img');
+                img.loading = 'lazy';
+                img.decoding = 'async';
+                img.className = 'w-full h-full object-cover flex-shrink-0 select-none pointer-events-none blur-load';
+                img.onload = () => img.classList.add('loaded');
+                img.onerror = () => img.classList.add('loaded');
+                img.src = src;
+                track.appendChild(img);
+
+                // Create dots
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all ${i === 0 ? 'bg-white w-5' : 'bg-white/40'}`;
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    cardIndex = i;
+                    updateCardCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            function updateCardCarousel() {
+                track.style.transform = `translateX(-${cardIndex * 100}%)`;
+                // Update dots
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, i) => {
+                    if (i === cardIndex) {
+                        dot.classList.add('bg-white', 'w-5');
+                        dot.classList.remove('bg-white/40');
+                    } else {
+                        dot.classList.remove('bg-white', 'w-5');
+                        dot.classList.add('bg-white/40');
+                    }
+                });
+            }
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cardIndex = (cardIndex + 1) % images.length;
+                updateCardCarousel();
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cardIndex = (cardIndex - 1 + images.length) % images.length;
+                updateCardCarousel();
+            });
+
+            // Touch support for Bungalow Carousel
+            let cardStartX = 0;
+            let cardEndX = 0;
+
+            track.addEventListener('touchstart', e => {
+                cardStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            track.addEventListener('touchend', e => {
+                cardEndX = e.changedTouches[0].screenX;
+                const threshold = 40;
+                if (cardEndX < cardStartX - threshold) {
+                    cardIndex = (cardIndex + 1) % images.length;
+                    updateCardCarousel();
+                }
+                if (cardEndX > cardStartX + threshold) {
+                    cardIndex = (cardIndex - 1 + images.length) % images.length;
+                    updateCardCarousel();
+                }
+            }, { passive: true });
+
+            galleryBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(images, cardIndex);
+            });
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // 7. Share Modal Logic
+        const shareModal = document.getElementById('share-modal');
+        const shareBtns = document.querySelectorAll('.share-btn');
+        const shareClose = document.getElementById('share-close');
+        const shareWhatsapp = document.getElementById('share-whatsapp');
+        const shareCopy = document.getElementById('share-copy');
+        const copyText = document.getElementById('copy-text');
+        
+        let currentShareData = { title: '', url: '' };
+
+        function openShareModal(title, url) {
+            currentShareData = { title, url };
+            shareModal.style.display = 'flex';
+            setTimeout(() => shareModal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+            copyText.textContent = 'Copiar Link';
+        }
+
+        function closeShareModal() {
+            shareModal.classList.remove('active');
+            setTimeout(() => shareModal.style.display = 'none', 400);
+            document.body.style.overflow = '';
+        }
+
+        shareBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const title = btn.dataset.title;
+                const url = btn.dataset.url;
+                
+                if (navigator.share) {
+                    navigator.share({ title, url }).catch(() => openShareModal(title, url));
+                } else {
+                    openShareModal(title, url);
+                }
+            });
+        });
+
+        shareWhatsapp.addEventListener('click', () => {
+            const text = encodeURIComponent(`${currentShareData.title}: ${currentShareData.url}`);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        });
+
+        shareCopy.addEventListener('click', () => {
+            navigator.clipboard.writeText(currentShareData.url).then(() => {
+                copyText.textContent = 'Link Copiado!';
+                setTimeout(() => copyText.textContent = 'Copiar Link', 2000);
+            });
+        });
+
+        shareClose.addEventListener('click', closeShareModal);
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) closeShareModal();
+        });
+
+        // 8. Smooth Scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 100; // Offset for fixed header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // Trigger initial scroll check for header on load
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+
+</body></html>
