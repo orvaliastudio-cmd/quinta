@@ -1,0 +1,11 @@
+QUINTA DE CARAÍVA — PACOTE DE RECUPERAÇÃO
+
+Correções aplicadas:
+1. index.html da raiz restaurado para o site institucional.
+2. Hub preservado em public/hub/index.html -> /hub/.
+3. Validação Gate G1 preservada em public/hub/validacao/index.html -> /hub/validacao/.
+4. Documentos do Hub preservados em public/hub/documents/.
+5. SEO/schema atualizado de 4 para 5 bangalôs nas páginas aplicáveis.
+6. Nenhuma alteração visual intencional foi feita no site institucional.
+
+IMPORTANTE: para o deploy, o Vite deve usar o index.html da raiz como homepage.
