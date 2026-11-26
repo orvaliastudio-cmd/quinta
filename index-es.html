@@ -1,36 +1,16 @@
 <!DOCTYPE html><html lang="es" class="scroll-smooth"><head>
-    <script>
-        // Prevent "Cannot set property fetch of #<Window> which has only a getter" errors in sandboxed environments
-        (function() {
-            try {
-                const originalFetch = window.fetch;
-                let customFetch = null;
-                Object.defineProperty(window, 'fetch', {
-                    get: function() {
-                        return customFetch || originalFetch;
-                    },
-                    set: function(val) {
-                        customFetch = val;
-                    },
-                    configurable: true,
-                    enumerable: true
-                });
-            } catch (e) {
-                console.warn('Unable to patch window.fetch setter:', e);
-            }
-        })();
-    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quinta de Caraíva — El Lujo del Silencio en Bahía</title>
+    <title>Quinta de Caraíva | Alojamiento exclusivo en Caraíva, Bahía</title>
     <link rel="alternate" hreflang="pt-BR" href="https://www.quintadecaraiva.com.br/" />
     <link rel="alternate" hreflang="en" href="https://www.quintadecaraiva.com.br/index-en.html" />
     <link rel="alternate" hreflang="es" href="https://www.quintadecaraiva.com.br/index-es.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.quintadecaraiva.com.br/" />
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="Quinta de Caraíva: 4 exclusivos bungalows en Caraíva, Bahía. Una propiedad de 3.200m² con vista al río Caraíva y acceso a la playa a solo 120 metros. La estancia boutique definitiva.">
-    <meta name="keywords" content="donde alojarse en Caraíva, alojamiento en Caraíva Bahía, bungalow en Caraíva, posada boutique, lujo silencioso, Quinta de Caraíva">
+    <meta name="description" content="Quinta de Caraíva: 5 exclusivos bungalows en Caraíva, Bahía. Una propiedad de 3.200m² con vista al río Caraíva y acceso a la playa a solo 120 metros. La estancia boutique definitiva.">
+    <meta name="keywords" content="donde alojarse en Caraíva, alojamiento en Caraíva Bahía, bungalow en Caraíva, posada boutique, alojamiento exclusivo, Quinta de Caraíva">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Quinta de Caraíva">
     <link rel="canonical" href="https://www.quintadecaraiva.com.br/index-es.html">
@@ -40,45 +20,56 @@
     <meta property="og:description" content="3.200m² con vistas al río y acceso a la playa a 120 metros. 5 bungalows únicos en el sur de Bahía.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
-    <meta property="og:image" content="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
+    <meta property="og:image" content="https://www.quintadecaraiva.com.br/assets/institucional/01-caminho-luz.webp">
     <meta property="og:url" content="https://www.quintadecaraiva.com.br/index-es.html">
 
     <!-- Preload LCP Image & Fonts -->
-    <link rel="preload" as="image" href="https://i.ibb.co/mrnk4Bqg/areaexterna3.png">
+    <link rel="preload" as="image" href="/assets/institucional/01-caminho-luz.webp" media="(min-width:768px)"><link rel="preload" as="image" href="/assets/institucional/01-caminho-luz-mobile.webp" media="(max-width:767px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Quinta de Caraíva",
+  "description": "Exclusivo santuario de 3.200m² en Caraíva, Bahía, con 5 bungalows únicos, vistas al río Caraíva y acceso a la playa a solo 120 metros.",
+  "url": "https://www.quintadecaraiva.com.br/index-es.html",
+  "image": "https://www.quintadecaraiva.com.br/assets/institucional/01-caminho-luz.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Caraíva",
+    "addressRegion": "Bahia",
+    "addressCountry": "BR",
+    "streetAddress": "Rua do Rio, s/n, junto al Bar/Restaurante Comune"
+  },
+  "amenityFeature": [
     {
-      "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
-      "name": "Quinta de Caraíva",
-      "description": "Exclusivo santuario de 3.200m² en Caraíva, Bahía, con 5 bungalows únicos, vistas al río Caraíva y acceso a la playa a solo 120 metros.",
-      "url": "https://www.quintadecaraiva.com.br/index-es.html",
-      "image": "https://i.ibb.co/mrnk4Bqg/areaexterna3.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Caraíva",
-        "addressRegion": "Bahia",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -16.9756,
-        "longitude": -39.2244
-      },
-      "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Piscina orgánica", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Desayuno", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Vista al río", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Acceso a la playa", "value": true}
-      ],
-      "numberOfRooms": 5,
-      "starRating": {"@type": "Rating", "ratingValue": "5"}
+      "@type": "LocationFeatureSpecification",
+      "name": "Piscina orgánica",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Desayuno",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Vista al río",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Acceso a la playa",
+      "value": true
     }
-    </script>
+  ],
+  "numberOfRooms": 5
+}
+</script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -91,35 +82,9 @@
     </script>
 
     <!-- Tailwind CSS (CDN for Single File Solution) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        areia: '#F4EFE6',
-                        areiaclara: '#FAF7F2',
-                        terra: '#7C6248',
-                        terraescura: '#5A4535',
-                        verde: '#2A382B',
-                        verdemedio: '#3D5040',
-                        preto: '#1A1815',
-                        cinza: '#8A8278'
-                    },
-                    fontFamily: {
-                        serif: ['Cormorant Garamond', 'serif'],
-                        sans: ['Jost', 'sans-serif']
-                    },
-                    spacing: {
-                        '18': '4.5rem',
-                        '22': '5.5rem',
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/site.css">
 
-    <!-- Custom Quiet Luxury CSS -->
+    <!-- Custom alojamiento exclusivo CSS -->
     <style>
         /* Core Vitals & Smoothness */
         body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
@@ -151,7 +116,7 @@
             filter: blur(15px);
             transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: filter;
-            background: #f4efe6;
+            background: #EDE8DD;
         }
         .hero-img.loaded, .blur-load.loaded {
             filter: blur(0);
@@ -162,12 +127,12 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            color: #1A1815;
+            color: #292F25;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .cta-primary:hover {
-            background: #7C6248;
-            color: #FAF7F2;
+            background: #426E31;
+            color: #F6F3EB;
             transform: translateY(-4px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
@@ -190,39 +155,39 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #FAF7F2; }
-        ::-webkit-scrollbar-thumb { background: #d1c8b8; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #F6F3EB; }
+        ::-webkit-scrollbar-thumb { background: #D8C6AC; border-radius: 4px; }
         
         /* Transparent to Solid Header */
         header { transition: background-color 0.5s ease, padding 0.5s ease, border-bottom 0.5s ease; border-bottom: 1px solid transparent; }
         header.scrolled {
-            background-color: rgba(250, 247, 242, 0.95);
+            background-color: rgba(246,243,235, 0.95);
             backdrop-filter: blur(10px);
             padding-top: 1rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(124, 98, 72, 0.15);
+            border-bottom: 1px solid rgba(66,110,49, 0.15);
         }
-        header.scrolled .nav-logo { color: #1A1815 !important; }
-        header.scrolled .nav-link { color: #5A4535 !important; }
-        header.scrolled #menu-toggle { color: #5A4535 !important; }
+        header.scrolled .nav-logo { color: #292F25 !important; }
+        header.scrolled .nav-link { color: #1C4410 !important; }
+        header.scrolled #menu-toggle { color: #1C4410 !important; }
         header.scrolled .nav-cta {
-            border-color: #1A1815;
-            color: #FAF7F2;
-            background-color: #1A1815;
+            border-color: #292F25;
+            color: #F6F3EB;
+            background-color: #292F25;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         header.scrolled .nav-cta:hover { 
-            background-color: #7C6248; 
-            color: #FAF7F2; 
-            border-color: #7C6248; 
+            background-color: #426E31; 
+            color: #F6F3EB; 
+            border-color: #426E31; 
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(0,0,0,0.15);
         }
 
         /* Language Switcher Scrolled States */
-        header.scrolled .lang-link { color: rgba(90,69,53,0.5); }
-        header.scrolled .lang-link:hover { color: #5A4535; }
-        header.scrolled .lang-link.active { color: #5A4535; opacity: 0.9; }
+        header.scrolled .lang-link { color: rgba(28,68,16,0.5); }
+        header.scrolled .lang-link:hover { color: #1C4410; }
+        header.scrolled .lang-link.active { color: #1C4410; opacity: 0.9; }
 
         /* Global Button Hover Animation */
         .nav-cta, 
@@ -377,7 +342,7 @@
             opacity: 1;
         }
         .share-card {
-            background: #FAF7F2;
+            background: #F6F3EB;
             padding: 40px;
             border-radius: 2px;
             max-width: 400px;
@@ -390,23 +355,253 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            border: 1px solid rgba(124, 98, 72, 0.2);
+            border: 1px solid rgba(66,110,49, 0.2);
             margin-bottom: 12px;
             cursor: pointer;
             transition: all 0.3s;
         }
         .share-option:hover {
-            background: #7C6248;
+            background: #426E31;
             color: white;
-            border-color: #7C6248;
+            border-color: #426E31;
         }
     </style>
+<!-- QUINTA-VISUAL-V2 -->
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+<meta name="theme-color" content="#1C4410">
+<style>/* QUINTA-VISUAL-V2 | Orvalia Studio */
+:root{--quinta-forest:#1C4410;--quinta-linen:#F6F3EB;--quinta-green:#426E31;--quinta-ink:#292F25;--quinta-sand:#D8C6AC;--quinta-ui:'Lato',Arial,sans-serif}
+body{font-family:var(--quinta-ui);color:var(--quinta-ink);background:var(--quinta-linen)}
+#navbar{background:var(--quinta-linen);border-bottom:1px solid rgba(28,68,16,.12);padding-top:14px;padding-bottom:14px;gap:20px}
+#navbar.scrolled{background:rgba(246,243,235,.98);padding-top:10px;padding-bottom:10px}
+#navbar .nav-logo{display:flex;align-items:center;flex:0 0 auto;width:clamp(155px,19vw,255px);line-height:0}
+.quinta-brand-logo{display:block;width:100%;height:auto}
+#navbar .nav-link,#navbar .lang-link,#navbar #menu-toggle{color:var(--quinta-forest)!important}
+#navbar .lang-link:not(.active){opacity:.75}
+#navbar .lang-switcher span{color:var(--quinta-forest)}
+#navbar .nav-cta,#navbar.scrolled .nav-cta{background:var(--quinta-forest);border-color:var(--quinta-forest);color:white;white-space:nowrap;padding:12px 18px;letter-spacing:.12em}
+#navbar .nav-cta:hover,#navbar.scrolled .nav-cta:hover{background:var(--quinta-green);border-color:var(--quinta-green);transform:none;box-shadow:none}
+#navbar nav{gap:clamp(10px,1.6vw,26px)}
+#navbar .nav-link{white-space:nowrap;letter-spacing:.1em}
+#navbar .lang-switcher{margin-left:4px}
+#mobile-menu{background:var(--quinta-forest)}
+.cta-primary{background:var(--quinta-linen);color:var(--quinta-forest);backdrop-filter:none;border:1px solid var(--quinta-linen);letter-spacing:.15em}
+.cta-primary:hover{background:var(--quinta-forest);color:white;border-color:var(--quinta-forest);transform:none;box-shadow:none}
+.bungalow-reservation-btn{background:var(--quinta-forest);color:white;letter-spacing:.12em}
+.bungalow-reservation-btn:hover{background:var(--quinta-green);transform:none!important}
+#experiencia,#como-chegar,footer{background:var(--quinta-forest)!important;color:var(--quinta-linen)}
+#experiencia .text-terra,#como-chegar .text-terra,footer .text-terra{color:var(--quinta-sand)!important}
+footer .border-terra{border-color:var(--quinta-sand)!important}
+footer .quinta-footer-logo{display:block;width:min(100%,330px);height:auto;margin-bottom:18px}
+.quinta-footer-tag{font-family:'EB Garamond','EB Garamond 12',Georgia,serif;font-size:21px;letter-spacing:.05em;color:var(--quinta-linen);margin-bottom:18px}
+.quinta-hero-eyebrow{color:white;text-transform:uppercase;letter-spacing:.25em;font-size:11px;font-weight:500;margin-bottom:24px;text-shadow:0 2px 12px #000}
+.quinta-hero h1{font-size:clamp(48px,7.2vw,104px);line-height:1.03;letter-spacing:-.025em}
+.quinta-hero .hero-subtitle-shadow{font-family:var(--quinta-ui);font-style:normal;font-size:clamp(15px,1.6vw,20px);line-height:1.65}
+section[id]{scroll-margin-top:100px}
+:focus-visible{outline:3px solid #B39157!important;outline-offset:4px}
+@media(min-width:768px) and (max-width:1199px){#navbar nav{display:none!important}#menu-toggle{display:block!important}}
+@media(max-width:767px){#navbar{padding:12px 18px}#navbar .nav-logo{width:205px;max-width:70vw}#navbar.scrolled{padding:10px 18px}.quinta-hero{min-height:650px!important;height:94svh!important}.quinta-hero h1{font-size:clamp(44px,11vw,66px)}.quinta-hero-eyebrow{margin-bottom:18px}.quinta-hero .hero-subtitle-shadow{margin-bottom:28px}section[id]{scroll-margin-top:78px}}
+@media(prefers-reduced-motion:reduce){.reveal,.animate-fade-up{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}html{scroll-behavior:auto!important}}</style>
+
+<style id="quinta-v22-editorial">/* QUINTA V2.2 | revisão editorial */
+#navbar .nav-logo{width:clamp(180px,21vw,285px)}
+#navbar{gap:18px}
+#navbar nav{gap:clamp(10px,1.35vw,21px)}
+#navbar .nav-cta,#navbar.scrolled .nav-cta{padding:12px 15px}
+.quinta-hero .quinta-hero-shade{background:linear-gradient(180deg,rgba(20,29,20,.18) 0%,rgba(20,29,20,.38) 43%,rgba(20,29,20,.58) 100%)}
+.quinta-hero .vignette-overlay{background:radial-gradient(ellipse at 50% 51%,rgba(15,24,15,.32) 0%,rgba(15,24,15,.12) 43%,transparent 75%)}
+.quinta-hero .hero-text-shadow{text-shadow:0 2px 20px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.45)}
+.quinta-hero .hero-subtitle-shadow{text-shadow:0 2px 10px rgba(0,0,0,.75)}
+#bangalos .quinta-b05{display:grid;grid-template-columns:minmax(0,1fr);width:100%;background:var(--quinta-linen);border:1px solid rgba(28,68,16,.14);overflow:hidden}
+#bangalos .quinta-b05 .carousel-container{margin:0;aspect-ratio:4/3;border-radius:0;min-width:0}
+#bangalos .quinta-b05 .carousel-track img{object-position:center 55%}
+.quinta-b05-copy{padding:28px 24px 30px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.quinta-b05-kicker{color:var(--quinta-green);font-size:10px;letter-spacing:.20em;text-transform:uppercase;font-weight:500;margin:0 0 16px}
+.quinta-b05-copy h4{font-size:clamp(36px,4vw,60px);line-height:1.05;color:var(--quinta-forest)}
+.quinta-b05-copy header{margin-bottom:20px}
+.quinta-b05-copy header span{line-height:1.7;letter-spacing:.10em}
+.quinta-b05-copy>p:not(.quinta-b05-kicker){font-size:15px;line-height:1.8;color:var(--quinta-ink)}
+.quinta-b05-copy .bungalow-reservation-btn{padding:16px 20px}
+@media(min-width:900px){#bangalos .quinta-b05{grid-column:1/-1;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:stretch;justify-self:stretch}#bangalos .quinta-b05 .carousel-container{aspect-ratio:auto;min-height:480px}.quinta-b05-copy{padding:clamp(32px,4.5vw,70px)}}
+@media(min-width:768px) and (max-width:899px){#bangalos .quinta-b05{grid-column:1/-1;width:100%;max-width:620px;justify-self:center}}
+@media(min-width:1200px) and (max-width:1359px){#navbar nav{display:none!important}#menu-toggle{display:block!important}}
+@media(max-width:767px){#navbar .nav-logo{width:clamp(170px,61vw,232px);max-width:70vw}#navbar{padding:12px 18px}section[id]{scroll-margin-top:90px}.quinta-b05-copy{padding:26px 22px}}
+</style>
+<style id="quinta-v23-ux">/* QUINTA V2.3 — Editorial Experience */
+.quinta-skip{position:fixed;top:8px;left:8px;z-index:200;padding:12px 20px;background:#F6F3EB;color:#1C4410;transform:translateY(-150%)}.quinta-skip:focus{transform:none}
+#navbar .nav-logo{width:clamp(180px,21vw,285px)}
+#navbar .nav-link{font-size:11px;letter-spacing:.075em}
+#navbar .nav-link[aria-current="location"]{text-decoration:underline;text-underline-offset:7px}
+#navbar .lang-link{min-width:26px;min-height:32px;display:inline-flex;align-items:center;justify-content:center}
+#navbar #menu-toggle,#menu-close{min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center}
+@media(min-width:1360px){#navbar #menu-toggle{display:none!important}}
+#mobile-menu{overflow-y:auto;padding:84px 24px 28px;justify-content:safe center}
+#mobile-menu[aria-hidden="true"]{visibility:hidden}
+#mobile-menu .mobile-link{min-height:44px;display:flex;align-items:center;justify-content:center}
+#mobile-menu .mobile-link.mt-8{color:#F6F3EB;border-color:#D8C6AC;margin-top:8px}
+#mobile-menu .lang-link{min-width:44px;min-height:44px;display:grid;place-items:center}
+.quinta-facts{background:#F6F3EB;padding:32px 24px;border-bottom:1px solid #D8C6AC}
+.quinta-facts-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center}
+.quinta-fact{padding:12px 16px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.quinta-fact+.quinta-fact{border-left:1px solid #D8C6AC}
+.quinta-fact strong{font-family:'EB Garamond','EB Garamond 12',Georgia,serif;font-weight:500;font-size:clamp(31px,4.2vw,56px);line-height:1;color:#1C4410}
+.quinta-fact span{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#426E31}
+.quinta-section-rule{height:1px;width:52px;background:#426E31;margin:0 0 24px}
+#bangalos .quinta-section-rule{margin:0 auto 24px}
+#bangalos .quinta-intro{font-size:15px;line-height:1.7;color:#545C50;max-width:560px;margin:16px auto 0}
+#bangalos .bungalow-card{min-width:0}
+#bangalos .bungalow-card:not(.quinta-b05){display:flex;flex-direction:column}
+#bangalos .bungalow-card:not(.quinta-b05)>.carousel-container{margin-bottom:24px}
+#bangalos .bungalow-card h4{color:#1C4410}
+#bangalos .bungalow-card .share-btn{min-width:44px;min-height:44px}
+#bangalos .carousel-prev,#bangalos .carousel-next{min-width:44px;min-height:44px;background:rgba(20,30,20,.58)}
+#bangalos .gallery-trigger-btn{min-height:36px;background:rgba(20,30,20,.55)}
+#bangalos .carousel-dots{max-width:calc(100% - 105px);flex-wrap:wrap;justify-content:center}
+#bangalos .carousel-dots button{min-width:12px;min-height:12px}
+#bangalos .bungalow-reservation-btn{min-height:48px}
+#bangalos .quinta-b05 .carousel-container{min-width:0;max-width:100%}
+#experiencia .text-areia\/60,#como-chegar .text-areia\/60,footer .text-areia\/60{color:#E4E1D5!important}
+#faq .faq-item button{gap:16px;min-height:60px}
+#faq .faq-icon{flex-shrink:0}
+.quinta-mobile-book{display:none}
+@media(max-width:767px){
+.quinta-hero{height:auto!important;min-height:calc(100svh - 12px)!important;padding-top:112px;padding-bottom:88px}
+.quinta-hero h1{font-size:clamp(45px,11vw,65px);margin-bottom:20px}
+.quinta-hero .hero-subtitle-shadow{font-size:15px;line-height:1.65;margin-bottom:28px}
+.quinta-hero .cta-primary{padding:16px 24px;min-height:48px}
+.quinta-facts{padding:16px 8px}.quinta-fact{padding:10px 5px;gap:6px}.quinta-fact strong{font-size:30px}.quinta-fact span{font-size:9px;letter-spacing:.025em;line-height:1.5}
+main section[id]{padding-top:60px;padding-bottom:60px}
+main section[id] h3{line-height:1.12}
+#bangalos .bungalow-card p{font-size:15px;line-height:1.7}
+#bangalos .quinta-b05 .carousel-container{min-height:0}
+#bangalos .quinta-b05-copy{padding:26px 22px}
+.quinta-mobile-book{position:fixed;bottom:0;left:0;right:0;z-index:35;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:#F6F3EB;border-top:1px solid #D8C6AC;box-shadow:0 -4px 20px rgba(28,68,16,.07);transform:translateY(110%);visibility:hidden;transition:transform .2s,visibility .2s}
+.quinta-mobile-book.is-visible{transform:none;visibility:visible}
+.quinta-mobile-book a{display:flex;align-items:center;justify-content:center;min-height:44px;flex:1;font-size:12px;font-weight:500;color:#1C4410;text-decoration:none}
+.quinta-mobile-book .quinta-book-primary{background:#1C4410;color:white;padding:10px 14px}
+footer{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))!important}
+}
+@media(prefers-reduced-motion:reduce){.quinta-mobile-book{transition:none}}
+</style><style id="quinta-v24-booking">/* QUINTA V2.4 — Booking Signature */
+#bangalos .bungalow-reservation-btn,
+#bangalos .quinta-b05-copy .bungalow-reservation-btn{
+ display:flex;align-items:center;justify-content:flex-start;gap:14px;min-height:70px;
+ padding:14px 18px;background:#1C4410;color:#fff;border:1px solid #1C4410;
+ border-radius:3px;box-shadow:none;text-transform:none;letter-spacing:normal;
+ font-family:'Lato',Arial,sans-serif;text-align:left;font-weight:500;
+}
+#bangalos .bungalow-reservation-btn:hover{background:#305A23;border-color:#305A23;box-shadow:none!important;transform:none!important}
+.quinta-book-icon{width:22px;height:22px;flex:0 0 22px}
+.quinta-book-text{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.quinta-book-title{font-size:15px;line-height:1.3;font-weight:600;color:#fff}
+.quinta-book-provider{font-size:12px;line-height:1.3;font-weight:400;color:#E0E9DA}
+.quinta-book-external{width:18px;height:18px;flex:0 0 18px}
+#navbar .nav-cta,#navbar.scrolled .nav-cta{font-size:12px;letter-spacing:0;text-transform:none;min-height:44px;display:flex;align-items:center;justify-content:center;font-weight:600}
+.quinta-hero .cta-primary{font-size:14px;text-transform:none;letter-spacing:0;font-weight:600}
+.quinta-final-book{display:inline-flex;align-items:center;justify-content:center;background:#1C4410;color:#fff;padding:17px 30px;min-height:52px;font-weight:600;border-radius:3px;font-size:15px}
+.quinta-final-book:hover{background:#305A23}
+@media(max-width:767px){
+ #bangalos .bungalow-reservation-btn,#bangalos .quinta-b05-copy .bungalow-reservation-btn{padding:14px 15px;min-height:70px;gap:11px}
+ .quinta-book-title{font-size:14px}
+ .quinta-mobile-book{gap:10px}
+ .quinta-mobile-book>a:first-child{flex:0 1 32%;font-size:12px}
+ .quinta-mobile-book .quinta-book-primary{flex:1 1 68%;min-height:48px;font-weight:600;font-size:13px;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){#bangalos .bungalow-reservation-btn{transition:none!important}}
+</style><style id="quinta-v25-b01">
+#bangalos .quinta-b01 .carousel-track img{object-position:center 55%}
+@media(hover:none),(pointer:coarse){#bangalos .carousel-prev,#bangalos .carousel-next,#bangalos .gallery-trigger-btn{opacity:1}}
+#bangalos .carousel-container:focus-within .carousel-prev,#bangalos .carousel-container:focus-within .carousel-next,#bangalos .carousel-container:focus-within .gallery-trigger-btn{opacity:1}
+</style><style id="quinta-v25-all-galleries">#bangalos .quinta-b02 .carousel-track img,#bangalos .quinta-b03 .carousel-track img,#bangalos .quinta-b04 .carousel-track img{object-position:center 54%}</style><style id="quinta-v26-photographic">/* QUINTA V2.6 — Photographic Direction */
+.quinta-hero .hero-img{object-position:center 57%}
+.quinta-hero .quinta-hero-shade{background:linear-gradient(180deg,rgba(16,27,15,.18),rgba(16,27,15,.34) 40%,rgba(16,27,15,.66))}
+.quinta-hero .vignette-overlay{background:radial-gradient(ellipse at center,rgba(10,20,10,.30),transparent 78%)}
+@media(min-width:900px){
+ .quinta-hero{display:grid!important;grid-template-columns:47% 53%;height:auto!important;min-height:clamp(680px,82vh,900px)!important;padding:0!important;margin-top:76px;background:#F6F3EB;align-items:stretch;justify-content:stretch}
+ .quinta-hero>div:first-child{position:relative!important;inset:auto!important;grid-column:2;grid-row:1;min-height:680px}
+ .quinta-hero>div:first-child picture{display:block;position:absolute;inset:0}
+ .quinta-hero>div:nth-child(2){grid-column:1;grid-row:1;align-self:center;max-width:none;width:100%;padding:64px clamp(36px,5vw,100px);text-align:left;color:#1C4410;box-sizing:border-box}
+ .quinta-hero .hero-img{position:absolute;inset:0;object-position:center 55%}
+ .quinta-hero .quinta-hero-shade,.quinta-hero .vignette-overlay{display:none}
+ .quinta-hero .quinta-hero-eyebrow{color:#426E31;text-shadow:none}
+ .quinta-hero h1{font-size:clamp(56px,6vw,104px);color:#1C4410;text-shadow:none}
+ .quinta-hero .hero-subtitle-shadow{color:#424B3D;text-shadow:none;margin-left:0;margin-right:0}
+ .quinta-hero>div:nth-child(2)>div{align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:22px}
+ .quinta-hero .cta-primary{background:#1C4410;color:white;border-color:#1C4410;box-shadow:none;padding:17px 23px}
+ .quinta-hero a[href="#conceito"]{color:#426E31!important}
+}
+@media(max-width:899px){.quinta-hero>div:first-child picture{display:block;position:absolute;inset:0}.quinta-hero .hero-img{position:absolute;inset:0}}
+.quinta-details{max-width:1200px;margin:auto;padding:84px 24px}
+.quinta-details h2{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#426E31;margin:0 0 14px}
+.quinta-details h3{font-family:'EB Garamond','EB Garamond 12',Georgia,serif;font-size:clamp(34px,4vw,60px);color:#1C4410;line-height:1.1;margin:0 0 32px}
+.quinta-details-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px;align-items:start}
+.quinta-details-grid img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block}
+.quinta-details-grid figure:nth-child(2){margin-top:38px}
+.quinta-details-grid figure:nth-child(3){margin-top:76px}
+.quinta-details-grid figure{margin:0}
+@media(max-width:767px){.quinta-details{padding:56px 24px}.quinta-details-grid{grid-template-columns:1fr 1fr;gap:12px}.quinta-details-grid figure:first-child{grid-column:1/-1}.quinta-details-grid figure:first-child img{aspect-ratio:4/3;object-position:center 58%}.quinta-details-grid figure:nth-child(2),.quinta-details-grid figure:nth-child(3){margin-top:0}}
+</style><style id="quinta-v27-destination">/* QUINTA V2.7 — Destination photography */
+.quinta-destination-photo{margin:0}
+.quinta-destination-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 52%;display:block}
+.quinta-destination-photo figcaption,.quinta-destination-pair figcaption{font-size:12px;line-height:1.5;color:#426E31;margin-top:10px}
+.quinta-destination-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,3vw,40px);margin-top:clamp(26px,5vw,70px);align-items:start}
+.quinta-destination-pair figure{margin:0;min-width:0}
+.quinta-destination-pair img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 57%;display:block;border-radius:2px}
+.quinta-destination-pair figure:nth-child(2) img{object-position:center 59%}
+@media(max-width:767px){.quinta-destination-pair img{aspect-ratio:3/4}.quinta-destination-pair figcaption{font-size:11px}}
+</style><style id="quinta-v30-qa">/* V3.0 — release QA */
+:focus-visible{outline:3px solid #a97635!important;outline-offset:4px}
+#bangalos .carousel-prev,#bangalos .carousel-next{min-width:44px;min-height:44px;display:grid;place-items:center;background:#1c281c99}
+#bangalos .gallery-trigger-btn{min-height:44px;background:#1c281c99}
+#bangalos .carousel-dots button{position:relative}
+#bangalos .carousel-dots button::after{content:"";position:absolute;inset:-8px -4px}
+#bangalos .share-btn{min-width:44px;min-height:44px}
+#como-chegar .text-areia\/60,footer .text-areia\/60{color:#EDE8DD}
+#como-chegar svg.text-terra,footer h4.text-terra{color:#D8C6AC}
+#mapa .quinta-map-link{display:inline-flex;align-items:center;min-height:48px;padding:12px 18px;margin-top:16px;background:#1C4410;color:#fff;border-radius:3px;font-weight:600}
+#mapa .quinta-map-link:hover{background:#305A23}
+#lightbox-close,#share-close,#menu-close,#menu-toggle{min-width:44px;min-height:44px}
+#lightbox-counter{pointer-events:none}
+#mapa iframe{display:block}
+@media(max-width:767px){#mapa iframe{min-height:300px}#mapa .lg\\:col-span-8{height:340px}#back-to-top{bottom:90px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style><noscript><style>.reveal,.animate-fade-up{opacity:1!important;transform:none!important}.hero-img,.blur-load{filter:none!important}</style></noscript><style id="quinta-local-build">#bangalos .carousel-track img[data-src]{visibility:hidden}#lightbox-img:not([src]){visibility:hidden}#mobile-menu .mobile-link:focus-visible{outline-color:#D8C6AC!important}#bangalos .carousel-dots{gap:10px}#bangalos .carousel-dots button::after{inset:-5px -4px}#bangalos .carousel-dots button{cursor:pointer}#mapa .quinta-map-link{max-width:100%;white-space:normal}#mapa .lg\:col-span-8{min-width:0}.quinta-destination-photo img,.quinta-destination-pair img{height:auto}@media(max-width:767px){#mapa .lg\:col-span-8{height:340px}#back-to-top{bottom:90px}}@media(max-width:390px){#mobile-menu .mobile-link{font-size:21px}#mobile-menu>div{gap:14px}}</style><style id="quinta-final-polish">@media(min-width:900px){.quinta-hero .hero-text-shadow{text-shadow:none!important}.quinta-hero{margin-top:var(--quinta-header-height,104px)!important}}#bangalos .carousel-track img[data-src]{opacity:0}.quinta-destination-pair img{height:auto}</style>
+<style id="quinta-v31-immersive-override">/* V3.1 — Immersive Nature / production refinement */
+:root{--quinta-ui:'Lato',Arial,sans-serif;--quinta-serif:'EB Garamond','EB Garamond 12',Georgia,serif}
+body,.font-sans,input,button,textarea,select{font-family:var(--quinta-ui)!important}
+.font-serif,h1,h2,h3,h4,h5,h6,.quinta-fact strong,.quinta-footer-tag{font-family:var(--quinta-serif)!important}
+#navbar,#navbar.scrolled{background:#F6F3EB!important;border-bottom:1px solid rgba(28,68,16,.13);backdrop-filter:none}
+#navbar .nav-link{font-size:11px;letter-spacing:.065em;font-weight:400}
+#navbar .nav-cta,#navbar.scrolled .nav-cta{font-family:var(--quinta-ui);font-weight:400!important;letter-spacing:.025em!important;text-transform:none!important;box-shadow:none!important;border-radius:2px!important;background:#1C4410!important;color:white!important;padding:12px 18px!important}
+#navbar .nav-cta:hover{background:#426E31!important}
+.quinta-hero{display:flex!important;align-items:center!important;justify-content:flex-start!important;position:relative!important;width:100%;margin-top:var(--quinta-header-height,104px)!important;min-height:660px!important;height:calc(100svh - var(--quinta-header-height,104px))!important;padding:0!important;background:#182719!important}
+.quinta-hero>div:first-child{position:absolute!important;inset:0!important;min-height:0!important}
+.quinta-hero>div:first-child picture{display:block;position:absolute;inset:0}
+.quinta-hero .hero-img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 57%!important}
+.quinta-hero .quinta-hero-shade{display:block!important;background:linear-gradient(90deg,rgba(15,26,13,.83) 0%,rgba(15,26,13,.57) 30%,rgba(15,26,13,.13) 68%,transparent 100%)!important}
+.quinta-hero .vignette-overlay{display:none!important}
+.quinta-hero>div:nth-child(2){position:relative!important;max-width:650px!important;width:100%!important;padding:40px 0 40px clamp(36px,7vw,105px)!important;box-sizing:border-box;text-align:left!important;color:#F6F3EB!important;align-self:center!important}
+.quinta-hero .quinta-hero-eyebrow{color:#F6F3EB!important;font-weight:400!important;letter-spacing:.20em!important;text-shadow:none!important;margin-bottom:24px}
+.quinta-hero h1{font-family:var(--quinta-serif)!important;font-size:clamp(66px,7vw,106px)!important;font-weight:400!important;letter-spacing:-.035em!important;line-height:.99!important;margin-bottom:26px!important;color:#F6F3EB!important;text-shadow:none!important}
+.quinta-hero .hero-subtitle-shadow{font-family:var(--quinta-ui)!important;font-size:18px!important;font-style:normal!important;line-height:1.65!important;font-weight:400!important;letter-spacing:.005em!important;max-width:420px;color:#F6F3EB!important;margin:0 0 32px!important;text-shadow:0 1px 5px #172617}
+.quinta-hero>div:nth-child(2)>div{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:20px!important}
+.quinta-hero .cta-primary{display:inline-flex!important;align-items:center;justify-content:center;gap:20px;min-height:54px;padding:13px 21px!important;background:#1C4410!important;color:white!important;border:1px solid #e9e4d7!important;font-family:var(--quinta-ui)!important;font-size:14px!important;font-weight:400!important;letter-spacing:.015em!important;box-shadow:none!important;text-transform:none!important;border-radius:2px!important;max-width:100%;white-space:normal}
+.quinta-hero .cta-primary::after{content:'→';font-size:19px;line-height:1}
+.quinta-hero .cta-primary:hover{background:#426E31!important}
+.quinta-hero a[href="#conceito"]{color:#F6F3EB!important;letter-spacing:.12em!important;font-size:11px!important}
+.bungalow-reservation-btn,.quinta-final-book,.quinta-mobile-book .quinta-book-primary{font-family:var(--quinta-ui)!important;letter-spacing:.015em!important;font-weight:400!important;text-transform:none!important}
+.quinta-book-title{font-weight:400!important}.quinta-book-provider{letter-spacing:.025em!important}
+@media(max-width:899px){.quinta-hero{min-height:590px!important;height:calc(100svh - var(--quinta-header-height,76px))!important;justify-content:center!important;align-items:center!important}.quinta-hero>div:nth-child(2){padding:36px 24px!important;text-align:center!important;max-width:530px!important}.quinta-hero>div:nth-child(2)>div{align-items:center!important;gap:20px!important}.quinta-hero h1{font-size:clamp(47px,14.6vw,68px)!important}.quinta-hero .hero-subtitle-shadow{font-size:16px!important;max-width:300px;margin:0 auto 28px!important}.quinta-hero .quinta-hero-shade{background:linear-gradient(180deg,rgba(15,24,13,.1),rgba(15,24,13,.52) 50%,rgba(15,24,13,.56))!important}}
+@media(max-width:767px){#navbar .nav-logo{max-width:70vw}.quinta-hero .cta-primary{min-height:52px}.quinta-hero .quinta-hero-eyebrow{margin-bottom:18px}}
+</style>
+
 </head>
 <body class="bg-areiaclara text-preto font-sans selection:bg-terra selection:text-white relative">
+<a href="#quinta-main" class="quinta-skip">Saltar al contenido</a>
 
     <!-- Navigation -->
     <header class="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-6 flex justify-between items-center" id="navbar">
-        <a href="#" class="nav-logo font-serif text-2xl tracking-wide text-white transition-colors duration-300" aria-label="Página de inicio">Quinta de Caraíva</a>
+        <a href="#" class="nav-logo font-serif text-2xl tracking-wide text-white transition-colors duration-300" aria-label="Página de inicio"><img class="quinta-brand-logo" src="/assets/brand/quinta-verde.svg" alt="Quinta de Caraíva" width="1330" height="350"></a>
         
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-10">
@@ -415,9 +610,7 @@
             <a href="#bangalos" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Bangalôs">Bangalôs</a>
             <a href="#experiencia" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Experiência">Experiência</a>
             <a href="#como-chegar" class="nav-link text-xs uppercase tracking-[0.2em] text-white/90 hover:text-white transition-colors" aria-label="Como Chegar">Como Chegar</a>
-            <a href="#bangalos" class="nav-cta border border-white/40 text-white text-[10px] uppercase tracking-[0.3em] py-3 px-8 rounded-sm hover:bg-preto hover:border-preto transition-all duration-500 hover:-translate-y-0.5" aria-label="Reserve su Estancia">
-                Reserve su Estancia
-            </a>
+            <a href="#bangalos" class="nav-cta border border-white/40 text-white text-[10px] uppercase tracking-[0.3em] py-3 px-8 rounded-sm hover:bg-preto hover:border-preto transition-all duration-500 hover:-translate-y-0.5" aria-label="Reservar estancia">Reservar estancia</a>
 
             <!-- Language Switcher Desktop -->
             <div class="lang-switcher hidden md:flex items-center gap-2 ml-8">
@@ -425,18 +618,18 @@
                 <span class="text-white/20 text-[10px]">·</span>
                 <a href="/index-en.html" class="lang-link text-white/50 hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="EN">EN</a>
                 <span class="text-white/20 text-[10px]">·</span>
-                <a href="/index-es.html" class="lang-link active text-white/90 font-medium pointer-events-none hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="ES">ES</a>
+                <a href="/index-es.html" class="lang-link active text-white/90 font-medium pointer-events-none hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="ES" aria-current="page">ES</a>
             </div>
         </nav>
 
         <!-- Mobile Menu Toggle -->
-        <button class="md:hidden text-white transition-colors duration-300" id="menu-toggle" aria-label="Abrir menú">
+        <button class="md:hidden text-white transition-colors duration-300" id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div class="fixed inset-0 bg-preto/95 z-50 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500" id="mobile-menu">
+    <div class="fixed inset-0 bg-preto/95 z-50 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación" aria-hidden="true" inert>
         <button class="absolute top-8 right-6 text-white" id="menu-close" aria-label="Cerrar menú">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -454,35 +647,30 @@
                 <span class="text-white/20 text-[10px]">·</span>
                 <a href="/index-en.html" class="lang-link text-white/50 hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="EN">EN</a>
                 <span class="text-white/20 text-[10px]">·</span>
-                <a href="/index-es.html" class="lang-link active text-white/90 font-medium pointer-events-none hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="ES">ES</a>
+                <a href="/index-es.html" class="lang-link active text-white/90 font-medium pointer-events-none hover:text-white transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em]" aria-label="ES" aria-current="page">ES</a>
             </div>
         </div>
     </div>
 
+    <main id="quinta-main" tabindex="-1">
     <!-- Hero Section -->
-    <section class="relative h-[95vh] min-h-[750px] w-full flex items-center justify-center px-6 pt-28 md:pt-36 pb-12 overflow-hidden">
+    <section class="quinta-hero relative h-[95vh] min-h-[750px] w-full flex items-center justify-center px-6 pt-28 md:pt-36 pb-12 overflow-hidden">
         <!-- Background Image with Cinematic Overlay -->
         <div class="absolute inset-0 z-0">
-            <img id="hero-image" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded'); this.src='https://i.ibb.co/YBLsTYx8/piscina01.png'" src="https://i.ibb.co/mrnk4Bqg/areaexterna3.png" alt="Piscina y área exterior de la propiedad Quinta de Caraíva de noche" class="w-full h-full object-cover hero-img">
+            <picture><source media="(max-width: 767px)" srcset="/assets/institucional/01-caminho-luz-mobile.webp"><img id="hero-image" fetchpriority="high" decoding="async" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="/assets/institucional/01-caminho-luz.webp" alt="Sendero de madera entre los árboles de Quinta de Caraíva" width="1024" height="1536" class="w-full h-full object-cover hero-img"></picture>
             <!-- Intelligent Overlay: Darker at bottom for text, subtle at top -->
-            <div class="absolute inset-0 bg-gradient-to-b from-preto/75 via-preto/65 to-preto/95"></div>
+            <div class="absolute inset-0 quinta-hero-shade"></div>
             <!-- Radial Vignette Overlay -->
             <div class="absolute inset-0 vignette-overlay"></div>
         </div>
         
         <div class="relative z-10 text-center text-white max-w-4xl px-4 animate-fade-up">
-            <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-white/80 hero-subtitle-shadow">Santuario Privado • Caraíva, Bahía</p>
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[5.5rem] 2xl:text-[6.5rem] font-light leading-[1.15] mb-8 tracking-tight hero-text-shadow">
-                El Lujo de la<br><span class="italic">Exclusividad</span><br><span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] block mt-4 font-normal tracking-wide">en el Corazón de Caraíva</span>
-            </h1>
-            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto hero-subtitle-shadow">
-                Sienta la brisa, escuche el río y redescubra la esencia del tiempo en un santuario diseñado para su alma.
-            </p>
+            <p class="quinta-hero-eyebrow">Caraíva · Bahia · Brasil</p>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[5.5rem] 2xl:text-[6.5rem] font-light leading-[1.15] mb-8 tracking-tight hero-text-shadow">Entre el río<br><span class="italic">y el mar.</span></h1>
+            <p class="font-serif text-lg md:text-2xl italic font-light mb-12 text-white/90 tracking-wide max-w-2xl mx-auto hero-subtitle-shadow">Cinco bungalows en un jardín tropical. Una manera única de vivir Caraíva.</p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="#bangalos" class="cta-primary font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] py-5 px-12 rounded-sm shadow-xl" aria-label="Reserve su Estancia">
-                    Reserve su Estancia
-                </a>
+                <a href="#bangalos" class="cta-primary font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] py-5 px-12 rounded-sm shadow-xl" aria-label="Consultar disponibilidad">Consultar disponibilidad</a>
                 <a href="#conceito" class="text-white/70 hover:text-white font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] transition-colors flex items-center gap-3 group" aria-label="Descubra Quinta">
                     Descubra Quinta
                     <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
@@ -490,32 +678,11 @@
             </div>
         </div>
     </section>
+<div class="quinta-facts"><div class="quinta-facts-inner"><div class="quinta-fact"><strong>5</strong><span>Bungalows</span></div><div class="quinta-fact"><strong>3.200 m²</strong><span>Área de la propiedad</span></div><div class="quinta-fact"><strong>120 m</strong><span>De la playa</span></div></div></div>
+
 
     <!-- About Caraíva Section (SEO Rich) -->
-    <section id="caraiva" class="py-20 md:py-32 bg-areiaclara px-6 md:px-12 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-                <div class="order-2 lg:order-1 img-wrap reveal">
-                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/ymzYt35j/externa-are-comum-4.png" alt="Calle de arena y naturaleza en el encantador Pueblo de Caraíva, Bahía" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async">
-                </div>
-                <div class="order-1 lg:order-2 reveal reveal-delay-1">
-                    <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">El Destino</h2>
-                    <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-8 leading-tight">Caraíva: Donde el tiempo se detiene y el alma descansa.</h3>
-                    <div class="text-cinza space-y-6 font-light leading-relaxed text-base md:text-lg">
-                        <p>
-                            Ubicado en el sur de Bahía, el pueblo de Caraíva es uno de los destinos más preservados y auténticos de Brasil. Aquí, las calles son de arena, no hay alumbrado público (solo la luz de las estrellas) y el acceso es únicamente en canoa, cruzando el río que da nombre al pueblo.
-                        </p>
-                        <p>
-                            En Caraíva, el lujo vive en la calma y el caminar con los pies en la arena. Entre el río y el mar, el pueblo conserva su esencia rústica combinada con una gastronomía sofisticada y playas vírgenes. Es el destino ideal para quienes buscan una <strong>estancia en Caraíva</strong> auténtica, donde la sofisticación se revela en la sencillez.
-                        </p>
-                        <p>
-                            Ya sea para contemplar el atardecer junto al río o sumergirse en las cálidas aguas de Bahía, la Quinta de Caraíva ofrece la acogida necesaria para que redescubra su propio ritmo.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Concept Section -->
     <section id="conceito" class="py-20 md:py-40 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
@@ -524,24 +691,14 @@
                 <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">El Concepto</h2>
                 <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight mb-8">Un santuario de 3.200m² entre el río y el mar.</h3>
                 <p class="text-cinza text-base md:text-lg leading-relaxed font-light mb-10">
-                    Diseñado para quienes buscan un verdadero escape. Quinta de Caraíva ofrece bungalows arquitectónicos dispersos en un vasto jardín tropical. 
+                    Quinta de Caraíva reúne cinco bungalows en un vasto jardín tropical, entre el río y el mar. 
                     De un lado, la serenidad del río Caraíva; del otro, el océano a solo 120 metros. 
                     Aquí el tiempo pasa despacio.
                 </p>
-                <div class="flex items-center gap-10">
-                    <div class="text-center">
-                        <span class="block font-serif text-3xl md:text-4xl text-terra">4</span>
-                        <span class="text-[0.6rem] md:text-[0.65rem] uppercase tracking-widest text-cinza">Bungalows</span>
-                    </div>
-                    <div class="w-px h-10 bg-terra/20"></div>
-                    <div class="text-center">
-                        <span class="block font-serif text-3xl md:text-4xl text-terra">120m</span>
-                        <span class="text-[0.6rem] md:text-[0.65rem] uppercase tracking-widest text-cinza">De la Playa</span>
-                    </div>
-                </div>
+                <a class="inline-flex items-center gap-3 text-verde font-medium text-sm border-b border-verde pb-2" href="#bangalos">Conozca los bungalows <span aria-hidden="true">→</span></a>
             </div>
             <div class="md:col-span-6 md:col-start-7 img-wrap reveal reveal-delay-1">
-                <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/YBLsTYx8/piscina01.png" alt="Piscina con diseño integrado al vasto jardín tropical de Quinta de Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async">
+                <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="/assets/institucional/02-jardim-bangalos.webp" alt="Jardín tropical y bungalows de Quinta de Caraíva" class="w-full h-auto aspect-[4/5] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async" width="1024" height="1536">
             </div>
         </div>
     </section>
@@ -551,13 +708,13 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 reveal">
                 <h2 class="text-terra font-sans text-xs uppercase tracking-[0.25em] mb-4">Alojamiento</h2>
-                <h3 class="font-serif text-4xl md:text-5xl">Nuestros Bungalows</h3>
+                <div class="quinta-section-rule" aria-hidden="true"></div><h3 class="font-serif text-4xl md:text-5xl">Cinco maneras de vivir Quinta.</h3><p class="quinta-intro">Consulte disponibilidad y precios directamente en Airbnb.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
                 
                 <!-- Bungalow 1 -->
-                <article class="reveal bungalow-card" data-images="[&quot;https://i.ibb.co/zh5ggmWz/bangalo-01-04.jpg&quot;, &quot;https://i.ibb.co/yFhrBfTc/bangalo01-banheiro-01.avif&quot;, &quot;https://i.ibb.co/rRz5snFH/bangalo-01-banheiro-03.jpg&quot;, &quot;https://i.ibb.co/DgLjWqGX/bangalo-01-exterior-01.jpg&quot;, &quot;https://i.ibb.co/LdJBnJM7/bangalo-01-exterior-02.jpg&quot;, &quot;https://i.ibb.co/gZ0W95hv/bangalo-01-exterior-03.jpg&quot;, &quot;https://i.ibb.co/DHwkZp1q/bangalo-01-exterior-04.jpg&quot;, &quot;https://i.ibb.co/VYpvXdN8/bangalo01-exterior-06.avif&quot;, &quot;https://i.ibb.co/xtWpcMVv/bangalo01-exterior-07.avif&quot;, &quot;https://i.ibb.co/sd88dsXz/bangalo-01-exterior-08.jpg&quot;, &quot;https://i.ibb.co/TMd4QqXP/bangalo-01-exterior-09.jpg&quot;, &quot;https://i.ibb.co/wNZCRc3W/bangalo-01-exterior-10.jpg&quot;, &quot;https://i.ibb.co/MxKTvC15/bangalo-01-exterior-11.jpg&quot;, &quot;https://i.ibb.co/LDNbVkCK/bangalo-01-exterior-12.jpg&quot;, &quot;https://i.ibb.co/FqJNrW2b/bangalo01-foto-01.avif&quot;, &quot;https://i.ibb.co/wZrMtncP/bangalo01-foto-02.avif&quot;, &quot;https://i.ibb.co/PZhS7mpt/bangalo01-foto-03.avif&quot;, &quot;https://i.ibb.co/qYLDtKvt/bangalo01-foto-05.avif&quot;, &quot;https://i.ibb.co/LhH6f1s5/bangalo01-foto-06.avif&quot;]">
+                <article class="reveal bungalow-card quinta-b01" data-images="[&quot;/assets/bangalo-01/01-fachada-jardim.webp&quot;,&quot;/assets/bangalo-01/02-quarto-dossel.webp&quot;,&quot;/assets/bangalo-01/03-varanda.webp&quot;,&quot;/assets/bangalo-01/04-sala-estar.webp&quot;,&quot;/assets/bangalo-01/05-banheiro.webp&quot;,&quot;/assets/bangalo-01/06-rede-varanda.webp&quot;,&quot;/assets/bangalo-01/07-quarto-perspectiva.webp&quot;,&quot;/assets/bangalo-01/08-arquitetura-deck.webp&quot;]" data-image-alts="[&quot;Fachada del Bungalow I entre árboles y jardín&quot;,&quot;Dormitorio con cama con dosel y mosquitera&quot;,&quot;Terraza con sillas y hamaca&quot;,&quot;Sala con sofá y ventanas hacia el jardín&quot;,&quot;Baño con dos lavabos y mampara de vidrio&quot;,&quot;Hamaca en la terraza vista desde el interior&quot;,&quot;Dormitorio con dosel y sillón&quot;,&quot;Fachada con estructura de madera y terraza&quot;]">
                     <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
                         <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
                         </div>
@@ -588,15 +745,12 @@
                         Este encantador bungalow en Caraíva combina la comodidad y el encanto rústico típico bahiano en medio de la naturaleza. Con aire acondicionado, cuenta con una elegante cama con dosel rodeada de mosquitero, un amplio balcón privado con vistas al río Caraíva y un baño espacioso con ducha solar y lavabo doble.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver en Airbnb">
-                            <span>Ver en Airbnb</span>
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
+                        <a href="https://www.airbnb.com.br/rooms/1357428614552989180?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=40cc1874-ab28-4f8f-94fc-b6bac1e3f671" target="_blank" rel="nofollow noopener noreferrer" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Consultar disponibilidad — Reservas por Airbnb — Bungalow 1"><svg class="quinta-book-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 5 3 3 5-5"/></svg><span class="quinta-book-text"><span class="quinta-book-title">Consultar disponibilidad</span><span class="quinta-book-provider">Reservas por Airbnb</span></span><svg class="quinta-book-external" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
                     </div>
                 </article>
 
                 <!-- Bungalow 2 -->
-                <article class="reveal reveal-delay-1 bungalow-card" data-images="[&quot;https://i.ibb.co/WWnvvj7T/bangalo02-01.avif&quot;, &quot;https://i.ibb.co/kg5pcS44/bangalo02-02.avif&quot;, &quot;https://i.ibb.co/pr6T9rCS/bangalo02-03.avif&quot;, &quot;https://i.ibb.co/N2kgy81S/bangalo02-04.avif&quot;, &quot;https://i.ibb.co/Zzndnn9p/bangalo02-05.avif&quot;, &quot;https://i.ibb.co/vCfSBWq4/bangalo02-06.avif&quot;, &quot;https://i.ibb.co/BVmqdmQQ/bangalo02-07.avif&quot;, &quot;https://i.ibb.co/SYjdxXg/bangalo02-08.avif&quot;, &quot;https://i.ibb.co/5xs9HDTF/bangalo02-09.avif&quot;, &quot;https://i.ibb.co/svYRLXR4/bangalo0210.avif&quot;, &quot;https://i.ibb.co/pjW1cPYT/bangalo02111.avif&quot;, &quot;https://i.ibb.co/1YSx8L2p/bangalo02112.avif&quot;, &quot;https://i.ibb.co/gMs37cdN/bangalo02113.avif&quot;, &quot;https://i.ibb.co/whvT0KHZ/bangalo02114.avif&quot;, &quot;https://i.ibb.co/tT08xHfF/bangalo02115.avif&quot;, &quot;https://i.ibb.co/mFCt06vJ/bangalo02116.avif&quot;]">
+                <article class="reveal reveal-delay-1 bungalow-card quinta-b02" data-images="[&quot;/assets/bangalo-02/01-fachada-jardim.webp&quot;,&quot;/assets/bangalo-02/02-sala-mezanino.webp&quot;,&quot;/assets/bangalo-02/03-quarto-duas-camas.webp&quot;,&quot;/assets/bangalo-02/04-varanda.webp&quot;,&quot;/assets/bangalo-02/05-banheiro.webp&quot;,&quot;/assets/bangalo-02/06-vista-janela.webp&quot;,&quot;/assets/bangalo-02/07-detalhe-quarto.webp&quot;,&quot;/assets/bangalo-02/08-sala-perspectiva.webp&quot;]" data-image-alts="[&quot;Fachada y jardín del Bungalow II&quot;,&quot;Sala y entrepiso&quot;,&quot;Dormitorio con dos camas&quot;,&quot;Fachada y terraza&quot;,&quot;Baño con mampara de vidrio&quot;,&quot;Vista desde la ventana&quot;,&quot;Ventana entre las camas&quot;,&quot;Sala desde otro ángulo&quot;]">
                     <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
                         <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
                         </div>
@@ -624,18 +778,15 @@
                         </button>
                     </header>
                     <p class="text-cinza font-light mb-8 text-sm leading-relaxed">
-                        Este encantador bungalow en Caraíva combina la comodidad y el encanto rústico bahiano con una hermosa vista al río. Versátil, tiene capacidad para hasta cuatro personas y cuenta con baño en la planta superior con ducha solar y un amplio y acogedor balcón en la planta baja.
+                        Este encantador bungalow en Caraíva combina la comodidad y el encanto rústico bahiano con una hermosa vista al río. Versátil, cuenta con baño en la planta superior con ducha solar y un amplio y acogedor balcón en la planta baja.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver en Airbnb">
-                            <span>Ver en Airbnb</span>
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
+                        <a href="https://www.airbnb.com.br/rooms/1357441528256086507?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=71c86ef5-13f6-43d2-9f80-3f13bd2f8b68" target="_blank" rel="nofollow noopener noreferrer" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Consultar disponibilidad — Reservas por Airbnb — Bungalow 2"><svg class="quinta-book-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 5 3 3 5-5"/></svg><span class="quinta-book-text"><span class="quinta-book-title">Consultar disponibilidad</span><span class="quinta-book-provider">Reservas por Airbnb</span></span><svg class="quinta-book-external" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
                     </div>
                 </article>
 
                 <!-- Bungalow 3 -->
-                <article class="reveal bungalow-card" data-images="[&quot;https://i.ibb.co/CKG8bHYt/bangalo-03-01.avif&quot;, &quot;https://i.ibb.co/LDB9JfXX/bangalo-03-02.jpg&quot;, &quot;https://i.ibb.co/spZLDD3f/bangalo-03-03.jpg&quot;, &quot;https://i.ibb.co/MxYDHPpJ/bangalo-03-04.avif&quot;, &quot;https://i.ibb.co/DPcQNRYd/bangalo-03-05.avif&quot;, &quot;https://i.ibb.co/mCBkFpjD/bangalo-03-06.avif&quot;, &quot;https://i.ibb.co/Xk7r9YcD/bangalo-03-07.jpg&quot;, &quot;https://i.ibb.co/Z6Ns2Ldb/bangalo-03-08.avif&quot;, &quot;https://i.ibb.co/tMsFbcZZ/bangalo-03-09.avif&quot;, &quot;https://i.ibb.co/SwcWhBD6/bangalo-03-10.avif&quot;]">
+                <article class="reveal bungalow-card quinta-b03" data-images="[&quot;/assets/bangalo-03/01-fachada-jardim.webp&quot;,&quot;/assets/bangalo-03/02-quarto-rede.webp&quot;,&quot;/assets/bangalo-03/03-cama-dossel.webp&quot;,&quot;/assets/bangalo-03/04-lounge.webp&quot;,&quot;/assets/bangalo-03/05-ducha-jardim.webp&quot;,&quot;/assets/bangalo-03/06-banheiro.webp&quot;,&quot;/assets/bangalo-03/07-lavatorio.webp&quot;]" data-image-alts="[&quot;Fachada y jardín del Bungalow III&quot;,&quot;Interior con cama y hamaca&quot;,&quot;Cama con dosel&quot;,&quot;Sala con sillones&quot;,&quot;Ducha semiabierta con plantas&quot;,&quot;Baño y vegetación&quot;,&quot;Lavabo&quot;]">
                     <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
                         <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
                         </div>
@@ -666,15 +817,12 @@
                         Este encantador bungalow en Caraíva combina la comodidad y el encanto rústico típico bahiano en medio de la naturaleza. Cuenta con una elegante cama con dosel rodeada de mosquitero, cómodos sillones, hamaca y amplios ventanales. Lo más destacado es el espacioso baño integrado al jardín con ducha solar.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver en Airbnb">
-                            <span>Ver en Airbnb</span>
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
+                        <a href="https://www.airbnb.com.br/rooms/1357448439624029935?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=6814ddad-c38f-4c17-b55b-7bc652df426a" target="_blank" rel="nofollow noopener noreferrer" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Consultar disponibilidad — Reservas por Airbnb — Bungalow 3"><svg class="quinta-book-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 5 3 3 5-5"/></svg><span class="quinta-book-text"><span class="quinta-book-title">Consultar disponibilidad</span><span class="quinta-book-provider">Reservas por Airbnb</span></span><svg class="quinta-book-external" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
                     </div>
                 </article>
 
                 <!-- Bungalow 4 -->
-                <article class="reveal reveal-delay-1 bungalow-card" data-images="[&quot;https://i.ibb.co/DPSzkLdZ/bangalo-04-01.jpg&quot;, &quot;https://i.ibb.co/7xY65728/bangalo-04-02.avif&quot;, &quot;https://i.ibb.co/5gYxQv3C/bangalo-04-03.avif&quot;, &quot;https://i.ibb.co/wh0btvxh/bangalo-04-04.avif&quot;, &quot;https://i.ibb.co/WvVd9VM2/bangalo-04-05.avif&quot;, &quot;https://i.ibb.co/NgTP1DGX/bangalo-04-06.avif&quot;, &quot;https://i.ibb.co/C32JTv7b/bangalo-04-07.jpg&quot;, &quot;https://i.ibb.co/YTdtVhQ1/bangalo-04-08.avif&quot;, &quot;https://i.ibb.co/4g0bzmZv/bangalo-04-09.avif&quot;]">
+                <article class="reveal reveal-delay-1 bungalow-card quinta-b04" data-images="[&quot;/assets/bangalo-04/01-fachada-varanda.webp&quot;,&quot;/assets/bangalo-04/02-quarto-dossel.webp&quot;,&quot;/assets/bangalo-04/03-varanda-estar.webp&quot;,&quot;/assets/bangalo-04/04-ducha-aberta.webp&quot;,&quot;/assets/bangalo-04/05-jardim-varanda.webp&quot;,&quot;/assets/bangalo-04/06-lavatorio.webp&quot;,&quot;/assets/bangalo-04/07-banheiro.webp&quot;]" data-image-alts="[&quot;Fachada y terraza del Bungalow IV&quot;,&quot;Dormitorio con dosel&quot;,&quot;Sofá en la terraza&quot;,&quot;Ducha al aire libre rodeada de plantas&quot;,&quot;Vegetación junto a la terraza&quot;,&quot;Lavabo&quot;,&quot;Baño&quot;]">
                     <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
                         <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
                         </div>
@@ -705,11 +853,46 @@
                         Bungalow integrado al jardín y frente a la piscina. Cuenta con una elegante cama con dosel con mosquitero y un entrepiso para una tercera persona. Lo más destacado es el encantador baño al aire libre, para un baño inolvidable bajo las estrellas.
                     </p>
                     <div class="mt-auto">
-                        <a href="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" target="_blank" rel="nofollow" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Ver en Airbnb">
-                            <span>Ver en Airbnb</span>
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
+                        <a href="https://www.airbnb.com.br/rooms/1357455516862881103?guests=1&amp;adults=1&amp;s=67&amp;unique_share_id=8cf85d05-45ee-40c8-bbff-b4215afd6208" target="_blank" rel="nofollow noopener noreferrer" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Consultar disponibilidad — Reservas por Airbnb — Bungalow 4"><svg class="quinta-book-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 5 3 3 5-5"/></svg><span class="quinta-book-text"><span class="quinta-book-title">Consultar disponibilidad</span><span class="quinta-book-provider">Reservas por Airbnb</span></span><svg class="quinta-book-external" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
                     </div>
+                </article>
+
+                <!-- Bungalow 5 -->
+                <article class="reveal bungalow-card quinta-b05" data-images="[&quot;/assets/bangalo-05/01-deck-jardim.webp&quot;,&quot;/assets/bangalo-05/02-varanda.webp&quot;,&quot;/assets/bangalo-05/03-quarto-casal.webp&quot;,&quot;/assets/bangalo-05/04-quarto-solteiro.webp&quot;,&quot;/assets/bangalo-05/05-banheiro.webp&quot;,&quot;/assets/bangalo-05/06-teto-vidro.webp&quot;]" data-image-alts="[&quot;Terraza de madera junto al jardín&quot;,&quot;Porche bajo los árboles&quot;,&quot;Dormitorio con cama doble&quot;,&quot;Dormitorio con dos camas individuales&quot;,&quot;Baño privado&quot;,&quot;Techo de vidrio del baño&quot;]">
+                    <div class="carousel-container mb-8 aspect-[4/3] relative group overflow-hidden rounded-sm">
+                        <div class="carousel-track flex h-full transition-transform duration-500 ease-out">
+                        </div>
+                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Imagen anterior">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10" aria-label="Siguiente imagen">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                        <div class="absolute bottom-4 right-4 z-10">
+                            <button class="gallery-trigger-btn text-white text-[10px] uppercase tracking-widest border border-white/40 py-1 px-3 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Expandir galería">
+                                Expandir
+                            </button>
+                        </div>
+                        <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        </div>
+                    </div>
+                    <div class="quinta-b05-copy"><p class="quinta-b05-kicker">Arquitectura integrada en la naturaleza</p>
+                    <header class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-cinza text-[0.65rem] uppercase tracking-widest mb-2 block">Hasta 4 huéspedes • 2 dormitorios • Aire acondicionado • Baño privado</span>
+                            <h4 class="font-serif text-3xl text-preto">Bungalow V</h4>
+                        </div>
+                        <button class="share-btn p-2 text-terra hover:text-preto transition-colors" data-title="Bungalow V - Quinta de Caraíva" data-url="https://www.airbnb.com.br/rooms/1357463064651746687" aria-label="Compartir">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        </button>
+                    </header>
+                    <p class="text-cinza font-light mb-8 text-sm leading-relaxed">
+                        Dos dormitorios, con una cama doble y dos individuales, alojan hasta cuatro huéspedes. Un baño con techo de vidrio conecta el interior con las copas de los árboles. Una terraza de madera rodeada de vegetación y una pequeña cocina de apoyo completan la experiencia.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://www.airbnb.com.br/rooms/1357463064651746687" target="_blank" rel="nofollow noopener noreferrer" class="bungalow-reservation-btn flex justify-between items-center w-full bg-verde text-areiaclara text-[10px] uppercase tracking-[0.25em] py-3 px-6 rounded-sm shadow-sm transition-all duration-400" aria-label="Consultar disponibilidad — Reservas por Airbnb — Bungalow 5"><svg class="quinta-book-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 5 3 3 5-5"/></svg><span class="quinta-book-text"><span class="quinta-book-title">Consultar disponibilidad</span><span class="quinta-book-provider">Reservas por Airbnb</span></span><svg class="quinta-book-external" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
                 </article>
 
             </div>
@@ -724,12 +907,37 @@
     </section>
 
     <!-- Amenities / Experience -->
+    <section id="caraiva" class="py-20 md:py-32 bg-areiaclara px-6 md:px-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="order-2 lg:order-1 img-wrap reveal">
+                    <figure class="quinta-destination-photo"><img src="/assets/destino/01-vila-colorida.webp" alt="Fachadas de colores del pueblo junto al río" width="900" height="1600" loading="lazy" decoding="async"><figcaption>El pueblo, sus colores y ritmos</figcaption></figure>
+                </div>
+                <div class="order-1 lg:order-2 reveal reveal-delay-1">
+                    <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-6">El Destino</h2>
+                    <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-8 leading-tight">Caraíva, a su ritmo.</h3>
+                    <div class="text-cinza space-y-6 font-light leading-relaxed text-base md:text-lg">
+                        <p>
+                            Ubicado en el sur de Bahía, el pueblo de Caraíva es uno de los destinos más preservados y auténticos de Brasil. Aquí, las calles son de arena, no hay alumbrado público (solo la luz de las estrellas) y el acceso es únicamente en canoa, cruzando el río que da nombre al pueblo.
+                        </p>
+                        <p>
+                            En Caraíva, el lujo vive en la calma y el caminar con los pies en la arena. Entre el río y el mar, el pueblo conserva su esencia rústica combinada con una gastronomía sofisticada y playas vírgenes. Es el destino ideal para quienes buscan una <strong>estancia en Caraíva</strong> auténtica, donde la sofisticación se revela en la sencillez.
+                        </p>
+                        <p>
+                            Ya sea para contemplar el atardecer junto al río o sumergirse en las cálidas aguas de Bahía, la Quinta de Caraíva ofrece la acogida necesaria para que redescubra su propio ritmo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <div class="quinta-destination-pair"><figure><img src="/assets/destino/02-rio-por-do-sol.webp" alt="Atardecer a orillas del río" width="900" height="1600" loading="lazy" decoding="async"><figcaption>El río al atardecer</figcaption></figure><figure><img src="/assets/destino/03-igreja-noite.webp" alt="Iglesia iluminada por la noche" width="900" height="1600" loading="lazy" decoding="async"><figcaption>El pueblo de noche</figcaption></figure></div>
+</div>
+    </section>
     <section id="experiencia" class="py-24 md:py-40 px-6 md:px-12 bg-verde text-areiaclara">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal">
                     <h2 class="text-areia font-sans text-xs uppercase tracking-[0.25em] mb-6">La Experiencia</h2>
-                    <h3 class="font-serif text-4xl md:text-5xl mb-8 leading-tight">Simplicidad Elevada.</h3>
+                    <h3 class="font-serif text-4xl md:text-5xl mb-8 leading-tight">Naturaleza que acoge.</h3>
                     <p class="text-areia/80 font-light text-lg mb-12">
                         En Caraíva no hay coches, el suelo es de arena y el tiempo dicta sus propias reglas. Nuestra infraestructura fue diseñada para abrazar esta esencia sin renunciar a las comodidades esenciales.
                     </p>
@@ -752,7 +960,7 @@
                         <li class="flex items-start gap-4">
                             <svg class="w-6 h-6 text-terra mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
                             <div>
-                                <h5 class="font-serif text-xl mb-1">Wi-Fi (Conexión Consciente)</h5>
+                                <h5 class="font-serif text-xl mb-1">Wi-Fi</h5>
                                 <p class="text-areia/60 font-light text-sm">Disponible en la propiedad para lo necesario, aunque la invitación es a desconectarse.</p>
                             </div>
                         </li>
@@ -760,12 +968,14 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal reveal-delay-1 mt-12 lg:mt-0">
-                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/5g8ydXWM/deco4-02.png" alt="Detalle de la decoración rústica chic de los bungalows en Quinta de Caraíva" class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm blur-load" loading="lazy" decoding="async">
-                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://i.ibb.co/rG2t561c/deco4-04.png" alt="Baño amplio con acabados refinados y rústicos en un bungalow de Quinta de Caraíva" class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async">
+                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="/assets/institucional/03-piscina-organica.webp" alt="Piscina orgánica rodeada de vegetación" class="w-full aspect-[3/4] object-cover rounded-sm sm:mt-8 shadow-sm blur-load" loading="lazy" decoding="async" width="1024" height="1536">
+                    <img onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="/assets/institucional/04-deck-jardim.webp" alt="Terraza de madera con mesa y sillas entre plantas" class="w-full aspect-[3/4] object-cover rounded-sm shadow-sm blur-load" loading="lazy" decoding="async" width="1024" height="1536">
                 </div>
             </div>
         </div>
     </section>
+<section class="quinta-details" aria-label="Detalles de Quinta"><h2>Detalles de Quinta</h2><h3>Un lugar hecho de pequeños detalles.</h3><div class="quinta-details-grid"><figure><img src="/assets/institucional/05-sala-estar.webp" alt="Sala de estar con estructura de madera" width="1024" height="1536" loading="lazy" decoding="async"></figure><figure><img src="/assets/institucional/06-flores.webp" alt="Arreglo de flores tropicales" width="1024" height="1536" loading="lazy" decoding="async"></figure><figure><img src="/assets/institucional/07-luminaria.webp" alt="Lámpara artesanal" width="1024" height="1536" loading="lazy" decoding="async"></figure></div></section>
+
 
     <!-- FAQ Section -->
     <section id="faq" class="py-24 md:py-32 px-6 md:px-12 bg-areiaclara">
@@ -794,7 +1004,7 @@
                         <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
                     </button>
                     <div class="faq-answer text-cinza font-light leading-relaxed">
-                        Caraíva es mágica todo el año. La temporada alta (Año Nuevo, Carnaval y julio) es vibrante. Para un verdadero "lujo tranquilo" y silencio absoluto, recomendamos de marzo a junio, o de agosto a noviembre.
+                        Caraíva tiene diferentes ritmos durante el año. Año Nuevo, Carnaval y julio suelen ser más animados; de marzo a junio y de agosto a noviembre el pueblo suele estar más tranquilo.
                     </div>
                 </div>
 
@@ -816,7 +1026,7 @@
                         <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
                     </button>
                     <div class="faq-answer text-cinza font-light leading-relaxed">
-                        Priorizamos una atmósfera de silencio y descanso. Por favor, consulte las reglas específicas en la página de Airbnb de cada bungalow antes de reservar.
+                        Quinta de Caraíva no admite niños ni mascotas. Consulte las condiciones de reserva en Airbnb.
                     </div>
                 </div>
 
@@ -838,8 +1048,7 @@
                         <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
                     </button>
                     <div class="faq-answer text-cinza font-light leading-relaxed">
-                        Nuestro desayuno está incluido en la tarifa diaria y se sirve todos los días en nuestro espacio gourmet. Valoramos los productos locales, las frutas de estación, los panes artesanales y las tapiocas hechas al momento.
-                    </div>
+                        Nuestro desayuno está incluido en la tarifa diaria y se sirve todos los días en nuestro espacio gourmet. Valoramos los productos locales, las frutas de estación, los panes artesanales y las tapiocas hechas al momento. El almuerzo y la cena están disponibles con reserva previa.</div>
                 </div>
 
                 <!-- FAQ Item 7 -->
@@ -849,7 +1058,7 @@
                         <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
                     </button>
                     <div class="faq-answer text-cinza font-light leading-relaxed">
-                        Sí, ofrecemos Wi-Fi de alta velocidad en toda la propiedad. Sin embargo, animamos a nuestros huéspedes a aprovechar la oportunidad para desconectarse y experimentar la naturaleza circundante.
+                        Sí. El Wi-Fi está disponible e incluido en la estancia.
                     </div>
                 </div>
 
@@ -860,7 +1069,7 @@
                         <svg class="faq-icon w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
                     </button>
                     <div class="faq-answer text-cinza font-light leading-relaxed">
-                        La consulta de disponibilidad y la reserva se realizan de forma individual para cada bungalow. Simplemente elija su favorito en la sección "Nuestros Bungalows" y haga clic en el enlace "Ver en Airbnb". Allí tendrá acceso al calendario actualizado y a las tarifas de cada unidad.
+                        La consulta de disponibilidad y la reserva se realizan de forma individual para cada bungalow. Simplemente elija su favorito en la sección de alojamientos y haga clic en "Consultar disponibilidad". Allí tendrá acceso al calendario actualizado y a las tarifas de cada unidad.
                     </div>
                 </div>
 
@@ -931,21 +1140,21 @@
                         Estamos ubicados en una zona privilegiada de 3.200m², con vistas al río Caraíva y a solo 120 metros de la playa. El equilibrio perfecto entre la comodidad del pueblo y la paz de la naturaleza.
                     </p>
                     <div class="mb-10 rounded-sm overflow-hidden shadow-sm group">
-                        <img src="https://i.ibb.co/bgwgxR9f/Quinta-de-Cara-va.webp" alt="Vista aérea del encuentro del río con el mar en la península de Caraíva" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-700" id="location-image">
+                        <img src="/assets/destino/04-caminho-rio.webp" alt="Entorno del río Caraíva" width="900" height="1600" loading="lazy" decoding="async" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-700" id="location-image">
                     </div>
                     <div class="space-y-4">
                         <div class="flex items-center gap-3 text-sm text-cinza">
                             <svg class="w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span>Calle Siete de Septiembre, Caraíva, Porto Seguro - BA</span>
-                        </div>
+                            <span>Rua do Rio, s/n, junto al Bar/Restaurante Comune, Caraíva, Porto Seguro - BA</span>
+                        </div><a class="quinta-map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurante%20Comune%2C%20Cara%C3%ADva%2C%20Porto%20Seguro%2C%20Bahia%2C%20Brasil">Abrir referencia en Google Maps</a>
                         <div class="flex items-center gap-3 text-sm text-cinza">
                             <svg class="w-5 h-5 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span>Check-in: 14:00 | Check-out: 11:00</span>
+                            <span>Confirme los horarios de llegada y salida en el anuncio.</span>
                         </div>
                     </div>
                 </div>
                 <div class="lg:col-span-8 h-[450px] rounded-sm overflow-hidden reveal reveal-delay-1 shadow-sm">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.352467436066!2d-39.1481546!3d-16.8044444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x735c39999999999%3A0x999999999999999!2sRua%20Sete%20de%20Setembro%2C%20Cara%C3%ADva%2C%20Porto%20Seguro%20-%20BA%2C%2045810-000!5e0!3m2!1ses!2sbr!4v1710000000000!5m2!1ses!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    <iframe title="Mapa de referencia: Restaurante Comune, Caraíva" src="https://maps.google.com/maps?q=Restaurante%20Comune%2C%20Cara%C3%ADva%2C%20Porto%20Seguro%2C%20Bahia%2C%20Brasil&amp;z=16&amp;output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
@@ -958,19 +1167,18 @@
             <h2 class="text-terra font-sans text-[10px] md:text-xs uppercase tracking-[0.4em] mb-8">Su Viaje Comienza Aquí</h2>
             <h3 class="font-serif text-4xl sm:text-5xl md:text-7xl mb-12 leading-tight">¿Listo para una experiencia<br><span class="italic">Quinta de Caraíva?</span></h3>
             <p class="text-cinza font-light text-base md:text-lg mb-16 max-w-xl mx-auto">
-                Reserve ahora y asegure su experiencia exclusiva en Quinta de Caraíva. Pocas fechas disponibles para la temporada.
+                Elija su bungalow y consulte fechas y precios directamente en Airbnb.
             </p>
-            <a href="#bangalos" class="inline-block bg-preto text-white font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] py-5 px-10 md:px-12 hover:bg-terra transition-all duration-500 rounded-sm shadow-2xl hover:-translate-y-1" aria-label="Reserve su Estancia">
-                Reserve su Estancia
-            </a>
+            <a href="#bangalos" class="quinta-final-book">Consultar disponibilidad</a>
         </div>
     </section>
 
     <!-- Footer -->
+    </main>
     <footer class="bg-preto text-areiaclara pt-20 pb-10 px-6 md:px-12 border-t border-areia/10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div class="md:col-span-2">
-                <a href="#" class="font-serif text-3xl tracking-wide text-white mb-6 block" aria-label="Quinta de Caraíva">Quinta de Caraíva</a>
+                <a href="#" class="font-serif text-3xl tracking-wide text-white mb-6 block" aria-label="Quinta de Caraíva"><img class="quinta-footer-logo" src="/assets/brand/quinta-marfim.svg" alt="Quinta de Caraíva" width="1330" height="350" loading="lazy"></a><p class="quinta-footer-tag">Reservado por naturaleza.</p>
                 <p class="text-areia/60 font-light max-w-sm">
                     Su refugio privado en el extremo sur de Bahía. Donde el río se encuentra con el mar y el tiempo se ralentiza.
                 </p>
@@ -989,7 +1197,7 @@
             <div>
                 <h4 class="font-sans text-xs uppercase tracking-widest text-terra mb-6">Contacto &amp; Reservas</h4>
                 <ul class="space-y-4 font-light text-sm text-areia/80">
-                    <li>Calle Siete de Septiembre, Caraíva, Porto Seguro - BA</li>
+                    <li>Rua do Rio, s/n, junto al Bar/Restaurante Comune, Caraíva, Porto Seguro - BA</li>
                     <li>Brasil</li>
                     <li class="pt-4">
                         <a href="#bangalos" class="inline-block border-b border-terra text-terra hover:text-white hover:border-white transition-colors pb-1" aria-label="Reserve su Estancia">
@@ -1007,7 +1215,7 @@
     </footer>
 
     <!-- Share Modal -->
-    <div id="share-modal">
+    <div id="share-modal" role="dialog" aria-modal="true" aria-label="Compartir" aria-hidden="true" inert>
         <div class="share-card">
             <h4 class="font-serif text-2xl mb-6 text-preto">Compartir Estancia</h4>
             <div class="share-option" id="share-whatsapp">
@@ -1030,7 +1238,7 @@
     </button>
 
     <!-- Lightbox Gallery -->
-    <div id="lightbox">
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de fotos" aria-hidden="true" inert>
         <button class="absolute top-8 right-8 text-white hover:text-terra transition-colors" id="lightbox-close" aria-label="Cerrar galería">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -1040,7 +1248,7 @@
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
             </button>
             
-            <img src="" alt="Imagen ampliada de la galería de Quinta de Caraíva" class="lightbox-img" id="lightbox-img">
+            <img alt="Imagen ampliada de la galería de Quinta de Caraíva" class="lightbox-img" id="lightbox-img">
             
             <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente imagen">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
@@ -1143,23 +1351,38 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        function toggleMenu() {
-            const isOpen = mobileMenu.classList.contains('opacity-0');
-            if (isOpen) {
-                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+        function toggleMenu(force) {
+            const open = typeof force === 'boolean' ? force : mobileMenu.classList.contains('opacity-0');
+            if (open) {
+                mobileMenu.classList.remove('opacity-0','pointer-events-none');
+                mobileMenu.removeAttribute('inert');
+                mobileMenu.setAttribute('aria-hidden','false');
+                menuToggle.setAttribute('aria-expanded','true');
+                document.body.style.overflow='hidden';
+                menuClose.focus();
             } else {
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-                document.body.style.overflow = '';
+                mobileMenu.classList.add('opacity-0','pointer-events-none');
+                mobileMenu.setAttribute('inert','');
+                mobileMenu.setAttribute('aria-hidden','true');
+                menuToggle.setAttribute('aria-expanded','false');
+                document.body.style.overflow='';
+                if(menuToggle.getClientRects().length) menuToggle.focus();
             }
         }
-
-        menuToggle.addEventListener('click', toggleMenu);
-        menuClose.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('click',()=>toggleMenu());
+        menuClose.addEventListener('click',()=>toggleMenu(false));
+        mobileLinks.forEach(link=>link.addEventListener('click',()=>toggleMenu(false)));
+        mobileMenu.addEventListener('keydown', e=>{
+            if(e.key==='Escape'){e.preventDefault();toggleMenu(false)}
+            if(e.key==='Tab'){
+                const els=[...mobileMenu.querySelectorAll('a[href],button')].filter(x=>!x.classList.contains('pointer-events-none'));
+                const first=els[0],last=els[els.length-1];
+                if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+                else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+            }
         });
-
+        window.matchMedia('(min-width:1360px)').addEventListener('change',e=>{if(e.matches&&!mobileMenu.hasAttribute('inert'))toggleMenu(false)});
+        
         // 5. Lightbox Gallery Logic
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -1171,16 +1394,18 @@
         let currentGallery = [];
         let currentIndex = 0;
 
-        function openLightbox(images, index = 0) {
+        let previousLightboxFocus;
+function openLightbox(images, index = 0) {
+            previousLightboxFocus=document.activeElement;
             currentGallery = images;
             currentIndex = index;
             updateLightbox();
-            lightbox.classList.add('active');
+            lightbox.classList.add('active'); lightbox.removeAttribute('inert'); lightbox.setAttribute('aria-hidden','false'); lightboxClose.focus();
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
-            lightbox.classList.remove('active');
+            lightbox.classList.remove('active'); lightbox.setAttribute('inert',''); lightbox.setAttribute('aria-hidden','true'); previousLightboxFocus?.focus();
             document.body.style.overflow = '';
         }
 
@@ -1243,12 +1468,15 @@
                 img.className = 'w-full h-full object-cover flex-shrink-0 select-none pointer-events-none blur-load';
                 img.onload = () => img.classList.add('loaded');
                 img.onerror = () => img.classList.add('loaded');
-                img.src = src;
-                track.appendChild(img);
+                if (card.dataset.imageAlts) img.alt = JSON.parse(card.dataset.imageAlts)[i] || '';
+                if (!img.alt) img.alt = (card.querySelector('h4')?.textContent || 'Bungalows') + ' — Foto ' + (i+1);
+                if(i===0){img.src=src;}else{img.dataset.src=src;img.alt=img.alt||'';} track.appendChild(img);
 
                 // Create dots
                 const dot = document.createElement('button');
                 dot.className = `w-2 h-2 rounded-full transition-all ${i === 0 ? 'bg-white w-5' : 'bg-white/40'}`;
+                dot.setAttribute('aria-label',"Foto "+(i+1));
+                dot.setAttribute('aria-pressed',String(i===0));
                 dot.addEventListener('click', (e) => {
                     e.stopPropagation();
                     cardIndex = i;
@@ -1258,10 +1486,12 @@
             });
 
             function updateCardCarousel() {
+                const slides=track.querySelectorAll('img'); const visible=slides[cardIndex]; if(visible?.dataset.src){visible.src=visible.dataset.src;delete visible.dataset.src;}
                 track.style.transform = `translateX(-${cardIndex * 100}%)`;
                 // Update dots
                 const dots = dotsContainer.querySelectorAll('button');
                 dots.forEach((dot, i) => {
+                    dot.setAttribute('aria-pressed',String(i===cardIndex));
                     if (i === cardIndex) {
                         dot.classList.add('bg-white', 'w-5');
                         dot.classList.remove('bg-white/40');
@@ -1334,16 +1564,18 @@
         
         let currentShareData = { title: '', url: '' };
 
-        function openShareModal(title, url) {
+        let previousShareFocus;
+function openShareModal(title, url) {
+            previousShareFocus=document.activeElement;
             currentShareData = { title, url };
-            shareModal.style.display = 'flex';
+            shareModal.style.display = 'flex'; shareModal.removeAttribute('inert'); shareModal.setAttribute('aria-hidden','false'); shareClose.focus();
             setTimeout(() => shareModal.classList.add('active'), 10);
             document.body.style.overflow = 'hidden';
             copyText.textContent = 'Copiar Enlace';
         }
 
         function closeShareModal() {
-            shareModal.classList.remove('active');
+            shareModal.classList.remove('active'); shareModal.setAttribute('inert',''); shareModal.setAttribute('aria-hidden','true'); previousShareFocus?.focus();
             setTimeout(() => shareModal.style.display = 'none', 400);
             document.body.style.overflow = '';
         }
@@ -1355,7 +1587,7 @@
                 const url = btn.dataset.url;
                 
                 if (navigator.share) {
-                    navigator.share({ title, url }).catch(() => openShareModal(title, url));
+                    navigator.share({ title, url }).catch(err => { if(err.name!=='AbortError')openShareModal(title,url); });
                 } else {
                     openShareModal(title, url);
                 }
@@ -1368,10 +1600,7 @@
         });
 
         shareCopy.addEventListener('click', () => {
-            navigator.clipboard.writeText(currentShareData.url).then(() => {
-                copyText.textContent = '¡Enlace Copiado!';
-                setTimeout(() => copyText.textContent = 'Copiar Enlace', 2000);
-            });
+            if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(currentShareData.url).then(()=>{copyText.textContent="¡Enlace copiado!";setTimeout(()=>copyText.textContent="Copiar enlace",2000)}).catch(()=>window.prompt("Copie este enlace:",currentShareData.url));}else{window.prompt("Copie este enlace:",currentShareData.url);}
         });
 
         shareClose.addEventListener('click', closeShareModal);
@@ -1389,13 +1618,13 @@
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
-                    const headerOffset = 100; // Offset for fixed header
+                    const headerOffset = document.getElementById('navbar').getBoundingClientRect().height + 12;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
                     window.scrollTo({
                         top: offsetPosition,
-                        behavior: "smooth"
+                        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
                     });
                 }
             });
@@ -1406,4 +1635,17 @@
     </script>
 
 
-</body></html>
+<div class="quinta-mobile-book" id="quinta-mobile-book" inert><a href="#como-chegar">Cómo llegar</a><a class="quinta-book-primary" href="#bangalos">Reservar estancia</a></div>
+<script>
+(function(){
+ const bar=document.getElementById('quinta-mobile-book'),hero=document.querySelector('.quinta-hero'),menu=document.getElementById('mobile-menu');
+ function update(){
+ const visible=window.innerWidth<=767 && hero.getBoundingClientRect().bottom<0 && menu.getAttribute('aria-hidden')==='true' && !document.querySelector('#lightbox.active,#share-modal.active');
+ bar.classList.toggle('is-visible',visible);bar.toggleAttribute('inert',!visible);
+ }
+ window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);
+ const observer=new MutationObserver(update);[menu,document.getElementById('lightbox'),document.getElementById('share-modal')].filter(Boolean).forEach(e=>observer.observe(e,{attributes:true,attributeFilter:['class','aria-hidden']}));
+ update();
+ bar.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{const dest=document.querySelector(a.hash);if(!dest)return;e.preventDefault();dest.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}));
+})();
+</script><script>(function(){for(const [id,close] of [['lightbox','lightbox-close'],['share-modal','share-close']]){const dialog=document.getElementById(id);dialog.addEventListener('keydown',e=>{if(e.key==='Escape'&&id==='share-modal'){e.preventDefault();document.getElementById(close).click()}if(e.key==='Tab'){const els=[...dialog.querySelectorAll('button,a[href]')].filter(x=>x.getClientRects().length&&!x.disabled);if(!els.length)return;const first=els[0],last=els[els.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});}})();</script><script>(()=>{const n=document.getElementById("navbar");const set=()=>{if(!n.classList.contains("scrolled"))document.documentElement.style.setProperty("--quinta-header-height",n.offsetHeight+"px")};set();window.addEventListener("resize",set);if("ResizeObserver" in window)new ResizeObserver(set).observe(n)})();</script></body></html>
